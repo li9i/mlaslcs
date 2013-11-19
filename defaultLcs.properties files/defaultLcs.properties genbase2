@@ -1,0 +1,131 @@
+# Input filename sidairfoil.johngalt
+filename = /home/li9i/Dropbox/thesis/auth/java_workspace/lcss/datasets/genbase2.arff
+
+
+# Input testFile
+#testFile = /home/li9i/Dropbox/thesis/auth/java_workspace/lcss/datasets/genbase2.arff
+
+
+
+numberOfLabels = 27
+
+#saveRulesFile = rulesOut
+#loadRulesFile = rulesOut
+#testClassificationFile = outputClassification
+
+
+#lcsType = gr.auth.ee.lcs.implementations.GMlASLCS3
+lcsType = gr.auth.ee.lcs.implementations.GMlASLCS3
+
+# When using threaded parallel LCSs
+#lcsNodeType = gr.auth.ee.lcs.implementations.GMlASLCS2
+#parallelNodes = 10
+
+
+SSLCS_REWARD = 1
+SSLCSPenaltyPercent = 2
+
+
+#foldsToRun = 2
+#metricOptimizationIndex = 0
+#numOfFoldRepetitions = 4
+# To run folds in parallel
+#numOfThreads = 1
+
+#Iteration information
+trainIterations = 500
+callbackRate = 100
+UpdateOnlyPercentage = .1
+
+#Population size (micro)
+populationSize = 12000
+
+#Exploration options
+gaSelection = 1
+crossoverOperator = 1
+crossoverRate = .8
+mutationRate = .04
+thetaGA = 2000
+updateAlgorithmVersion = 4
+gaPerLabel = false
+
+
+AttributeGeneralizationRate = 0.4
+LabelGeneralizationRate = 0.1
+ClusteringAttributeGeneralizationRate = 0
+ClusteringLabelGeneralizationRate = 0
+
+precisionBits = 5
+LearningRate = 0.2
+
+# UCS specific update options
+UCS_Alpha = .1
+UCS_N = 10
+UCS_Acc0 = .99
+UCS_beta = .2
+UCS_Experience_Theshold = 10
+
+# ASLCS update options
+ASLCS_Acc0 = 0.99
+ASLCS_Alpha = 0.1
+ASLCS_N = 10
+ASLCS_ExperienceTheshold = 10
+ASLCS_THETA_DEL = 20
+ASLCS_DELTA = 0.1
+ASLCS_OMEGA = 0.9
+ASLCS_PHI = 1
+CLUSTER_GAMMA = 0.2
+
+
+## initialize the rule population by clustering ##
+
+initializePopulation = false
+
+
+## fitness mode ##
+# 0 for num * (acc)^n
+# 1 for F + ÃŽÂ²(num * (acc)^n - F)
+# 2 for fitness sharing 
+
+FITNESS_MODE = 0
+
+
+## deletion mode ##
+# 0 for (cl.myClassifier.experience > THETA_DEL) && (data.fitness < DELTA * meanPopulationFitness)
+# 1 for (cl.myClassifier.experience > THETA_DEL) && (Math.pow(data.fitness,n) < DELTA * meanPopulationFitness)
+
+DELETION_MODE = 2
+
+
+## update mode ##
+# 0 for adding offsprings and controlling immediately
+# 1 for adding all offsprings to the population and controlling once at the end of the evolution
+
+UPDATE_MODE = 1
+
+
+## check for subsumption against the population ##
+
+thoroughlyCheckWIthPopulation = true
+
+
+## do we allow don't cares to be a part in [C]s ? ##
+
+wildCardsParticipateInCorrectSets = false
+
+
+## if wildCardsParticipateInCorrectSets is true, control the population of the correct sets 
+## by examining the numerosity of a correct set comprising only with wildcards against that of a correct set without them 
+## if [C#only] <= wildCardParticipationRatio * [C!#], the correct set consists of wildcards AND non-wildcard rules ##
+
+balanceCorrectSets = false
+
+wildCardParticipationRatio = 1
+
+
+SMP_run = false
+
+
+PostProcess_Experience_Theshold = 10
+PostProcess_Coverage_Theshold = 0.01
+PostProcess_Fitness_Theshold = 0.01

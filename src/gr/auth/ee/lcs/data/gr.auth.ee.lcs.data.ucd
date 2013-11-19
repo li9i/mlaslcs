@@ -1,0 +1,984 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" size="4379,4563" id="gr.auth.ee.lcs.data" metadata="uml2-1.0" initialized="true" scrolledX="2323" scrolledY="3813" tag="10" key="32303037303533312D3130206C63736573">
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.3/@sourceConnections.1 //@children.5/@children.2/@children.1/@sourceConnections.0 //@children.7/@children.2/@children.0/@sourceConnections.0 //@children.7/@children.2/@children.2/@sourceConnections.0 //@children.4/@children.2/@children.0/@sourceConnections.0 //@children.4/@children.2/@children.2/@sourceConnections.0 //@children.4/@children.2/@children.3/@sourceConnections.0 //@children.2/@children.2/@children.0/@sourceConnections.0 //@children.2/@children.2/@children.2/@sourceConnections.0" name="IClassificationStrategy" location="2153,3687" size="183,99" id="gr.auth.ee.lcs.data/IClassificationStrategy" runTimeClassModel="setThreshold(D),classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="93,36">
+      <children xsi:type="editmodel:MethodEditModel" name="classify" id="gr.auth.ee.lcs.data/IClassificationStrategy#classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setThreshold" id="gr.auth.ee.lcs.data/IClassificationStrategy#setThreshold(D)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.13/@sourceConnections.0 //@children.15/@sourceConnections.0 //@children.19/@sourceConnections.0 //@children.10/@sourceConnections.0 //@children.9/@sourceConnections.0 //@children.16/@sourceConnections.0 //@children.18/@sourceConnections.0 //@children.12/@sourceConnections.0 //@children.17/@sourceConnections.0 //@children.3/@sourceConnections.0 //@children.14/@sourceConnections.0" name="AbstractLearningClassifierSystem" location="1189,1048" size="254,387" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem" runTimeClassModel="updatePopulation(ILgr.auth.ee.lcs.classifiers.ClassifierSet;),hookCallbackRate,getEvaluations(Lweka.core.Instances;),saveRules(Ljava.lang.String;),unregisterEvaluator(Lgr.auth.ee.lcs.data.ILCSMetric;),instances,getNewClassifier(),trainWithInstance(Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ),registerHook(Lgr.auth.ee.lcs.data.ILCSMetric;),setElements(Lgr.auth.ee.lcs.data.ClassifierTransformBridge;Lgr.auth.ee.lcs.data.AbstractUpdateStrategy;),getClassifierTransformBridge(),getNewClassifier(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),getEvaluationNames(),printSet(),classifyInstance([D),train(),trainSet(ILgr.auth.ee.lcs.classifiers.ClassifierSet;Z),createNew()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="141,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="hookCallbackRate" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem#hookCallbackRate"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="instances" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem#instances"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="171,288">
+      <children xsi:type="editmodel:MethodEditModel" name="classifyInstance" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem#classifyInstance([D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createNew" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem#createNew()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getClassifierTransformBridge" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem#getClassifierTransformBridge()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getEvaluationNames" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem#getEvaluationNames()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getEvaluations" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem#getEvaluations(Lweka.core.Instances;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getNewClassifier" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem#getNewClassifier(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getNewClassifier" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem#getNewClassifier()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="printSet" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem#printSet()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="registerHook" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem#registerHook(Lgr.auth.ee.lcs.data.ILCSMetric;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="saveRules" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem#saveRules(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setElements" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem#setElements(Lgr.auth.ee.lcs.data.ClassifierTransformBridge;Lgr.auth.ee.lcs.data.AbstractUpdateStrategy;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="train" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem#train()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="trainSet" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem#trainSet(ILgr.auth.ee.lcs.classifiers.ClassifierSet;Z)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="trainWithInstance" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem#trainWithInstance(Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="unregisterEvaluator" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem#unregisterEvaluator(Lgr.auth.ee.lcs.data.ILCSMetric;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updatePopulation" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem#updatePopulation(ILgr.auth.ee.lcs.classifiers.ClassifierSet;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data/ClassifierTransformBridge@transformBridge+gr.auth.ee.lcs/AbstractLearningClassifierSystem@" source="//@children.1" target="//@children.8" targetEnd="//@children.1/@sourceConnections.0/@children.2" label="//@children.1/@sourceConnections.0/@children.0" sourceEnd="//@children.1/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="254,377" id="gr.auth.ee.lcs.data/ClassifierTransformBridge@transformBridge+gr.auth.ee.lcs/AbstractLearningClassifierSystem@|gr.auth.ee.lcs/AbstractLearningClassifierSystem#" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="transformBridge" location="10,0" id="gr.auth.ee.lcs.data/ClassifierTransformBridge@transformBridge+gr.auth.ee.lcs/AbstractLearningClassifierSystem@|gr.auth.ee.lcs.data/ClassifierTransformBridge#transformBridge" multiplicityLabel="//@children.1/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.1/@sourceConnections.0/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - transformBridge" location="2723,2073" size="88,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="2691,2073" size="18,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation@" source="//@children.1" target="//@children.6" targetEnd="//@children.1/@sourceConnections.1/@children.2" label="//@children.1/@sourceConnections.1/@children.0" sourceEnd="//@children.1/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="myLcs" location="254,377" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation@|gr.auth.ee.lcs/AbstractLearningClassifierSystem#myLcs" attachSource="true" multiplicityLabel="//@children.1/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.1/@sourceConnections.1/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" ~ myLcs" location="1450,1404" size="44,14" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1450,1432" size="6,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="10,0" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation@|gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation#" roleLabel="//@children.1/@sourceConnections.1/@children.2/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" location="2571,2514" size="0,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="GenericMultiLabelRepresentation" location="3288,3690" size="273,820" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation" runTimeClassModel="hAMMING_LOSS,aCCURACY_DONT_CARE_VALUE,classifyAbilityLabel(Lgr.auth.ee.lcs.classifiers.Classifier;II),GenericMultiLabelRepresentation([Lgr.auth.ee.lcs.data.representations.complex.ComplexRepresentation.AbstractAttribute;[Ljava.lang.String;IIDDLgr.auth.ee.lcs.AbstractLearningClassifierSystem;),hAMMING_DONT_CARE_VALUE,classifyAccuracy(Lgr.auth.ee.lcs.classifiers.Classifier;I),reinforceDeactivatedLabels(Lgr.auth.ee.lcs.classifiers.ClassifierSet;),setClassification(Lgr.auth.ee.lcs.classifiers.Classifier;I),getClassification(Lgr.auth.ee.lcs.classifiers.Classifier;),getDataInstanceLabels([D),activateAllLabels(),rELATIVE_ACCURACY,gr.auth.ee.lcs.data.representations.complex.GenericMultiLabelRepresentation.BestFitnessClassificationStrategy,classifyAbsolute(Lgr.auth.ee.lcs.classifiers.Classifier;I),gr.auth.ee.lcs.data.representations.complex.GenericMultiLabelRepresentation.GenericLabel,gr.auth.ee.lcs.data.representations.complex.GenericMultiLabelRepresentation.VotingClassificationStrategy,classifyHamming(Lgr.auth.ee.lcs.classifiers.Classifier;I),GenericMultiLabelRepresentation(Ljava.lang.String;IIIDDLgr.auth.ee.lcs.AbstractLearningClassifierSystem;),activateLabel(Lgr.auth.ee.lcs.utilities.ILabelSelector;),eXACT_MATCH,classifyAbilityAll(Lgr.auth.ee.lcs.classifiers.Classifier;I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="224,90">
+      <children xsi:type="editmodel:AttributeEditModel" name="aCCURACY_DONT_CARE_VALUE" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation#aCCURACY_DONT_CARE_VALUE"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="eXACT_MATCH" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation#eXACT_MATCH"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="hAMMING_DONT_CARE_VALUE" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation#hAMMING_DONT_CARE_VALUE"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="hAMMING_LOSS" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation#hAMMING_LOSS"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="rELATIVE_ACCURACY" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation#rELATIVE_ACCURACY"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="188,234">
+      <children xsi:type="editmodel:MethodEditModel" name="GenericMultiLabelRepresentation" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation#GenericMultiLabelRepresentation([Lgr.auth.ee.lcs.data.representations.complex.ComplexRepresentation.AbstractAttribute;[Ljava.lang.String;IIDDLgr.auth.ee.lcs.AbstractLearningClassifierSystem;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="GenericMultiLabelRepresentation" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation#GenericMultiLabelRepresentation(Ljava.lang.String;IIIDDLgr.auth.ee.lcs.AbstractLearningClassifierSystem;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="activateAllLabels" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation#activateAllLabels()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="activateLabel" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation#activateLabel(Lgr.auth.ee.lcs.utilities.ILabelSelector;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="classifyAbilityAll" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation#classifyAbilityAll(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="classifyAbilityLabel" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation#classifyAbilityLabel(Lgr.auth.ee.lcs.classifiers.Classifier;II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="classifyAbsolute" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation#classifyAbsolute(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="classifyAccuracy" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation#classifyAccuracy(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="classifyHamming" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation#classifyHamming(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getClassification" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation#getClassification(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDataInstanceLabels" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation#getDataInstanceLabels([D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="reinforceDeactivatedLabels" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation#reinforceDeactivatedLabels(Lgr.auth.ee.lcs.classifiers.ClassifierSet;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setClassification" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation#setClassification(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="250,423">
+      <children xsi:type="editmodel:ClassEditModel" name="BestFitnessClassificationStrategy" size="250,85" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation$BestFitnessClassificationStrategy" runTimeClassModel="setThreshold(D),classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D)">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="93,36">
+          <children xsi:type="editmodel:MethodEditModel" name="classify" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation$BestFitnessClassificationStrategy#classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="setThreshold" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation$BestFitnessClassificationStrategy#setThreshold(D)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data/IClassificationStrategy&lt;-gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation$BestFitnessClassificationStrategy" source="//@children.2/@children.2/@children.0" target="//@children.0" targetEnd="//@children.2/@children.2/@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.2/@children.2/@children.0/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:AssociationEndEditModel" location="0,42" attachSource="true"/>
+          <children xsi:type="editmodel:AssociationEndEditModel" location="183,45"/>
+        </sourceConnections>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" name="GenericLabel" size="179,211" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation$GenericLabel" runTimeClassModel="enforceDeactivation(Lgr.auth.ee.lcs.classifiers.Classifier;),toString(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isMatch(FLgr.auth.ee.lcs.utilities.ExtendedBitSet;),randomCoveringValue(FLgr.auth.ee.lcs.classifiers.Classifier;),fixAttributeRepresentation(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isSpecific(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isMoreGeneral(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isEqual(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),GenericLabel(ILjava.lang.String;D)">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="156,162">
+          <children xsi:type="editmodel:MethodEditModel" name="GenericLabel" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation$GenericLabel#GenericLabel(ILjava.lang.String;D)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="enforceDeactivation" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation$GenericLabel#enforceDeactivation(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="fixAttributeRepresentation" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation$GenericLabel#fixAttributeRepresentation(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isEqual" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation$GenericLabel#isEqual(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isMatch" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation$GenericLabel#isMatch(FLgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isMoreGeneral" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation$GenericLabel#isMoreGeneral(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isSpecific" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation$GenericLabel#isSpecific(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="randomCoveringValue" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation$GenericLabel#randomCoveringValue(FLgr.auth.ee.lcs.classifiers.Classifier;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="toString" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation$GenericLabel#toString(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$AbstractAttribute&lt;-gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation$GenericLabel" source="//@children.2/@children.2/@children.1" target="//@children.3/@children.2/@children.0" targetEnd="//@children.2/@children.2/@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.2/@children.2/@children.1/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:AssociationEndEditModel" location="179,165" attachSource="true"/>
+          <children xsi:type="editmodel:AssociationEndEditModel" location="0,28"/>
+        </sourceConnections>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" name="VotingClassificationStrategy" size="219,121" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation$VotingClassificationStrategy" runTimeClassModel="VotingClassificationStrategy(F),proportionalCutCalibration([[DLgr.auth.ee.lcs.classifiers.ClassifierSet;),setThreshold(D),classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D)">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="165,72">
+          <children xsi:type="editmodel:MethodEditModel" name="VotingClassificationStrategy" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation$VotingClassificationStrategy#VotingClassificationStrategy(F)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="classify" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation$VotingClassificationStrategy#classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="proportionalCutCalibration" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation$VotingClassificationStrategy#proportionalCutCalibration([[DLgr.auth.ee.lcs.classifiers.ClassifierSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="setThreshold" id="gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation$VotingClassificationStrategy#setThreshold(D)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data/IClassificationStrategy&lt;-gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation$VotingClassificationStrategy" source="//@children.2/@children.2/@children.2" target="//@children.0" targetEnd="//@children.2/@children.2/@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.2/@children.2/@children.2/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:AssociationEndEditModel" location="0,47" attachSource="true"/>
+          <children xsi:type="editmodel:AssociationEndEditModel" location="183,50"/>
+        </sourceConnections>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+    </children>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation&lt;-gr.auth.ee.lcs.data.representations.complex/GenericMultiLabelRepresentation" source="//@children.2" target="//@children.5/@sourceConnections.0" targetEnd="//@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.2/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="136,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.3/@children.2/@children.0/@sourceConnections.0 //@children.5/@sourceConnections.0" name="ComplexRepresentation" location="2845,2535" size="247,1105" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation" runTimeClassModel="areEqual(Lgr.auth.ee.lcs.classifiers.Classifier;Lgr.auth.ee.lcs.classifiers.Classifier;),buildRepresentationModel(),gr.auth.ee.lcs.data.representations.complex.ComplexRepresentation.NominalAttribute,createRandomCoveringClassifier([D),fixChromosome(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D),gr.auth.ee.lcs.data.representations.complex.ComplexRepresentation.IntervalAttribute,getNumberOfAttributes(),getLabelNames(),setClassificationStrategy(Lgr.auth.ee.lcs.data.IClassificationStrategy;),isMoreGeneral(Lgr.auth.ee.lcs.classifiers.Classifier;Lgr.auth.ee.lcs.classifiers.Classifier;),gr.auth.ee.lcs.data.representations.complex.ComplexRepresentation.AbstractAttribute,gr.auth.ee.lcs.data.representations.complex.ComplexRepresentation.BooleanAttribute,classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[DLgr.auth.ee.lcs.data.IClassificationStrategy;),toNaturalLanguageString(Lgr.auth.ee.lcs.classifiers.Classifier;),isMatch([DLgr.auth.ee.lcs.utilities.ExtendedBitSet;),isAttributeSpecific(Lgr.auth.ee.lcs.classifiers.Classifier;I),toBitSetString(Lgr.auth.ee.lcs.classifiers.Classifier;),setRepresentationSpecificClassifierData(Lgr.auth.ee.lcs.classifiers.Classifier;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="224,270">
+      <children xsi:type="editmodel:MethodEditModel" name="areEqual" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation#areEqual(Lgr.auth.ee.lcs.classifiers.Classifier;Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="buildRepresentationModel" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation#buildRepresentationModel()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="classify" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation#classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="classify" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation#classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[DLgr.auth.ee.lcs.data.IClassificationStrategy;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createRandomCoveringClassifier" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation#createRandomCoveringClassifier([D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="fixChromosome" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation#fixChromosome(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getLabelNames" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation#getLabelNames()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getNumberOfAttributes" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation#getNumberOfAttributes()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isAttributeSpecific" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation#isAttributeSpecific(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isMatch" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation#isMatch([DLgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isMoreGeneral" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation#isMoreGeneral(Lgr.auth.ee.lcs.classifiers.Classifier;Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setClassificationStrategy" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation#setClassificationStrategy(Lgr.auth.ee.lcs.data.IClassificationStrategy;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setRepresentationSpecificClassifierData" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation#setRepresentationSpecificClassifierData(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toBitSetString" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation#toBitSetString(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toNaturalLanguageString" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation#toNaturalLanguageString(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="179,762">
+      <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.3/@children.2/@children.1/@sourceConnections.0 //@children.3/@children.2/@children.2/@sourceConnections.0 //@children.3/@children.2/@children.3/@sourceConnections.0 //@children.5/@children.2/@children.0/@sourceConnections.0 //@children.5/@children.2/@children.2/@sourceConnections.0 //@children.7/@children.2/@children.1/@sourceConnections.0 //@children.4/@children.2/@children.1/@sourceConnections.0 //@children.2/@children.2/@children.1/@sourceConnections.0" name="AbstractAttribute" location="26147,18302" size="179,175" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$AbstractAttribute" runTimeClassModel="toString(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),randomCoveringValue(FLgr.auth.ee.lcs.classifiers.Classifier;),fixAttributeRepresentation(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isMatch(FLgr.auth.ee.lcs.utilities.ExtendedBitSet;),isSpecific(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isMoreGeneral(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isEqual(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="156,126">
+          <children xsi:type="editmodel:MethodEditModel" name="fixAttributeRepresentation" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$AbstractAttribute#fixAttributeRepresentation(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isEqual" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$AbstractAttribute#isEqual(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isMatch" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$AbstractAttribute#isMatch(FLgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isMoreGeneral" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$AbstractAttribute#isMoreGeneral(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isSpecific" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$AbstractAttribute#isSpecific(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="randomCoveringValue" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$AbstractAttribute#randomCoveringValue(FLgr.auth.ee.lcs.classifiers.Classifier;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="toString" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$AbstractAttribute#toString(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$AbstractAttribute@attributeList+gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation@" source="//@children.3/@children.2/@children.0" target="//@children.3" targetEnd="//@children.3/@children.2/@children.0/@sourceConnections.0/@children.2" label="//@children.3/@children.2/@children.0/@sourceConnections.0/@children.0" sourceEnd="//@children.3/@children.2/@children.0/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+          <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+          <children xsi:type="editmodel:AssociationEndEditModel" name="attributeList" location="10,0" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$AbstractAttribute@attributeList+gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation@|gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$AbstractAttribute#attributeList" attachSource="true" multiplicityLabel="//@children.3/@children.2/@children.0/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.3/@children.2/@children.0/@sourceConnections.0/@children.1/@children.0" navigable="true">
+            <children xsi:type="editmodel:LabelEditModel" name=" # attributeList" location="2790,2849" size="68,14" anchorKind="FirstPart"/>
+            <children xsi:type="editmodel:LabelEditModel" name="*" location="2872,2849" size="4,14" anchorKind="FirstPart"/>
+          </children>
+          <children xsi:type="editmodel:AssociationEndEditModel" location="247,1095" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$AbstractAttribute@attributeList+gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation@|gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation#"/>
+        </sourceConnections>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" name="BooleanAttribute" size="179,193" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$BooleanAttribute" runTimeClassModel="toString(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isMatch(FLgr.auth.ee.lcs.utilities.ExtendedBitSet;),randomCoveringValue(FLgr.auth.ee.lcs.classifiers.Classifier;),fixAttributeRepresentation(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),BooleanAttribute(ILjava.lang.String;D),isSpecific(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isMoreGeneral(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isEqual(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="156,144">
+          <children xsi:type="editmodel:MethodEditModel" name="BooleanAttribute" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$BooleanAttribute#BooleanAttribute(ILjava.lang.String;D)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="fixAttributeRepresentation" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$BooleanAttribute#fixAttributeRepresentation(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isEqual" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$BooleanAttribute#isEqual(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isMatch" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$BooleanAttribute#isMatch(FLgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isMoreGeneral" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$BooleanAttribute#isMoreGeneral(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isSpecific" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$BooleanAttribute#isSpecific(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="randomCoveringValue" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$BooleanAttribute#randomCoveringValue(FLgr.auth.ee.lcs.classifiers.Classifier;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="toString" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$BooleanAttribute#toString(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$AbstractAttribute&lt;-gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$BooleanAttribute" source="//@children.3/@children.2/@children.1" target="//@children.3/@children.2/@children.0" targetEnd="//@children.3/@children.2/@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.3/@children.2/@children.1/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:AssociationEndEditModel" location="179,159" attachSource="true"/>
+          <children xsi:type="editmodel:AssociationEndEditModel" location="0,25"/>
+        </sourceConnections>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" name="IntervalAttribute" size="179,193" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$IntervalAttribute" runTimeClassModel="toString(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),IntervalAttribute(ILjava.lang.String;FFID),fixAttributeRepresentation(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isMatch(FLgr.auth.ee.lcs.utilities.ExtendedBitSet;),randomCoveringValue(FLgr.auth.ee.lcs.classifiers.Classifier;),isSpecific(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isMoreGeneral(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isEqual(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="156,144">
+          <children xsi:type="editmodel:MethodEditModel" name="IntervalAttribute" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$IntervalAttribute#IntervalAttribute(ILjava.lang.String;FFID)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="fixAttributeRepresentation" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$IntervalAttribute#fixAttributeRepresentation(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isEqual" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$IntervalAttribute#isEqual(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isMatch" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$IntervalAttribute#isMatch(FLgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isMoreGeneral" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$IntervalAttribute#isMoreGeneral(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isSpecific" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$IntervalAttribute#isSpecific(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="randomCoveringValue" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$IntervalAttribute#randomCoveringValue(FLgr.auth.ee.lcs.classifiers.Classifier;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="toString" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$IntervalAttribute#toString(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$AbstractAttribute&lt;-gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$IntervalAttribute" source="//@children.3/@children.2/@children.2" target="//@children.3/@children.2/@children.0" targetEnd="//@children.3/@children.2/@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.3/@children.2/@children.2/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:AssociationEndEditModel" location="179,159" attachSource="true"/>
+          <children xsi:type="editmodel:AssociationEndEditModel" location="0,25"/>
+        </sourceConnections>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" name="NominalAttribute" size="179,193" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$NominalAttribute" runTimeClassModel="toString(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),fixAttributeRepresentation(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isMatch(FLgr.auth.ee.lcs.utilities.ExtendedBitSet;),randomCoveringValue(FLgr.auth.ee.lcs.classifiers.Classifier;),isSpecific(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isMoreGeneral(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isEqual(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),NominalAttribute(ILjava.lang.String;[Ljava.lang.String;D)">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="156,144">
+          <children xsi:type="editmodel:MethodEditModel" name="NominalAttribute" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$NominalAttribute#NominalAttribute(ILjava.lang.String;[Ljava.lang.String;D)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="fixAttributeRepresentation" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$NominalAttribute#fixAttributeRepresentation(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isEqual" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$NominalAttribute#isEqual(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isMatch" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$NominalAttribute#isMatch(FLgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isMoreGeneral" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$NominalAttribute#isMoreGeneral(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isSpecific" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$NominalAttribute#isSpecific(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="randomCoveringValue" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$NominalAttribute#randomCoveringValue(FLgr.auth.ee.lcs.classifiers.Classifier;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="toString" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$NominalAttribute#toString(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$AbstractAttribute&lt;-gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$NominalAttribute" source="//@children.3/@children.2/@children.3" target="//@children.3/@children.2/@children.0" targetEnd="//@children.3/@children.2/@children.3/@sourceConnections.0/@children.1" sourceEnd="//@children.3/@children.2/@children.3/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:AssociationEndEditModel" location="179,159" attachSource="true"/>
+          <children xsi:type="editmodel:AssociationEndEditModel" location="0,25"/>
+        </sourceConnections>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+    </children>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation@" source="//@children.3" target="//@children.1" targetEnd="//@children.3/@sourceConnections.0/@children.2" label="//@children.3/@sourceConnections.0/@children.0" sourceEnd="//@children.3/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="10,0" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation@|gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation#" attachSource="true" roleLabel="//@children.3/@sourceConnections.0/@children.1/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" location="2848,2514" size="0,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="myLcs" location="254,377" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation@|gr.auth.ee.lcs/AbstractLearningClassifierSystem#myLcs" multiplicityLabel="//@children.3/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.3/@sourceConnections.0/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" # myLcs" location="1450,1404" size="44,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1450,1432" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data/IClassificationStrategy@defaultClassificationStrategy+gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation@" source="//@children.3" target="//@children.0" targetEnd="//@children.3/@sourceConnections.1/@children.2" label="//@children.3/@sourceConnections.1/@children.0" sourceEnd="//@children.3/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,1095" id="gr.auth.ee.lcs.data/IClassificationStrategy@defaultClassificationStrategy+gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation@|gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation#" attachSource="true" roleLabel="//@children.3/@sourceConnections.1/@children.1/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" location="2838,3609" size="0,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="defaultClassificationStrategy" location="173,0" id="gr.auth.ee.lcs.data/IClassificationStrategy@defaultClassificationStrategy+gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation@|gr.auth.ee.lcs.data/IClassificationStrategy#defaultClassificationStrategy" multiplicityLabel="//@children.3/@sourceConnections.1/@children.2/@children.1" roleLabel="//@children.3/@sourceConnections.1/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - defaultClassificationStrategy" location="2171,3666" size="148,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="2333,3666" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.6/@sourceConnections.0" autoLocated="true" id="gr.auth.ee.lcs.data/ClassifierTransformBridge&lt;-gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation" source="//@children.3" target="//@children.8" targetEnd="//@children.3/@sourceConnections.2/@children.1" sourceEnd="//@children.3/@sourceConnections.2/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="123,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="123,391" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="StrictMultiLabelRepresentation" location="2981,3690" size="277,853" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation" runTimeClassModel="hAMMING_LOSS,f_MEASURE,classifyAbilityLabel(Lgr.auth.ee.lcs.classifiers.Classifier;II),gr.auth.ee.lcs.data.representations.complex.StrictMultiLabelRepresentation.Label,gr.auth.ee.lcs.data.representations.complex.StrictMultiLabelRepresentation.BestFitnessClassificationStrategy,classifyAccuracy(Lgr.auth.ee.lcs.classifiers.Classifier;I),gr.auth.ee.lcs.data.representations.complex.StrictMultiLabelRepresentation.MeanVotingClassificationStrategy,setClassification(Lgr.auth.ee.lcs.classifiers.Classifier;I),getClassification(Lgr.auth.ee.lcs.classifiers.Classifier;),getDataInstanceLabels([D),StrictMultiLabelRepresentation([Lgr.auth.ee.lcs.data.representations.complex.ComplexRepresentation.AbstractAttribute;[Ljava.lang.String;IIDLgr.auth.ee.lcs.AbstractLearningClassifierSystem;),StrictMultiLabelRepresentation(Ljava.lang.String;IIIDLgr.auth.ee.lcs.AbstractLearningClassifierSystem;),aCCURACY,classifyHamming(Lgr.auth.ee.lcs.classifiers.Classifier;I),eXACT_MATCH,classifyExact(Lgr.auth.ee.lcs.classifiers.Classifier;I),gr.auth.ee.lcs.data.representations.complex.StrictMultiLabelRepresentation.VotingClassificationStrategy,classifyAbilityAll(Lgr.auth.ee.lcs.classifiers.Classifier;I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="118,72">
+      <children xsi:type="editmodel:AttributeEditModel" name="aCCURACY" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation#aCCURACY"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="eXACT_MATCH" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation#eXACT_MATCH"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="f_MEASURE" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation#f_MEASURE"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="hAMMING_LOSS" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation#hAMMING_LOSS"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="175,180">
+      <children xsi:type="editmodel:MethodEditModel" name="StrictMultiLabelRepresentation" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation#StrictMultiLabelRepresentation(Ljava.lang.String;IIIDLgr.auth.ee.lcs.AbstractLearningClassifierSystem;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="StrictMultiLabelRepresentation" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation#StrictMultiLabelRepresentation([Lgr.auth.ee.lcs.data.representations.complex.ComplexRepresentation.AbstractAttribute;[Ljava.lang.String;IIDLgr.auth.ee.lcs.AbstractLearningClassifierSystem;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="classifyAbilityAll" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation#classifyAbilityAll(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="classifyAbilityLabel" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation#classifyAbilityLabel(Lgr.auth.ee.lcs.classifiers.Classifier;II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="classifyAccuracy" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation#classifyAccuracy(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="classifyExact" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation#classifyExact(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="classifyHamming" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation#classifyHamming(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getClassification" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation#getClassification(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDataInstanceLabels" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation#getDataInstanceLabels([D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setClassification" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation#setClassification(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="254,528">
+      <children xsi:type="editmodel:ClassEditModel" name="BestFitnessClassificationStrategy" size="250,103" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$BestFitnessClassificationStrategy" runTimeClassModel="nO_LABELS,setThreshold(D),classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D)">
+        <children xsi:type="editmodel:CompartmentEditModel" size="128,18">
+          <children xsi:type="editmodel:AttributeEditModel" name="nO_LABELS" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$BestFitnessClassificationStrategy#nO_LABELS"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="93,36">
+          <children xsi:type="editmodel:MethodEditModel" name="classify" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$BestFitnessClassificationStrategy#classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="setThreshold" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$BestFitnessClassificationStrategy#setThreshold(D)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data/IClassificationStrategy&lt;-gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$BestFitnessClassificationStrategy" source="//@children.4/@children.2/@children.0" target="//@children.0" targetEnd="//@children.4/@children.2/@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.4/@children.2/@children.0/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:AssociationEndEditModel" location="0,47" attachSource="true"/>
+          <children xsi:type="editmodel:AssociationEndEditModel" location="183,50"/>
+        </sourceConnections>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" name="Label" size="179,211" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$Label" runTimeClassModel="toString(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),randomCoveringValue(FLgr.auth.ee.lcs.classifiers.Classifier;),isMatch(FLgr.auth.ee.lcs.utilities.ExtendedBitSet;),fixAttributeRepresentation(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isSpecific(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isMoreGeneral(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),getValue(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isEqual(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),Label(ILjava.lang.String;)">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="156,162">
+          <children xsi:type="editmodel:MethodEditModel" name="Label" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$Label#Label(ILjava.lang.String;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="fixAttributeRepresentation" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$Label#fixAttributeRepresentation(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="getValue" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$Label#getValue(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isEqual" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$Label#isEqual(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isMatch" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$Label#isMatch(FLgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isMoreGeneral" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$Label#isMoreGeneral(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isSpecific" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$Label#isSpecific(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="randomCoveringValue" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$Label#randomCoveringValue(FLgr.auth.ee.lcs.classifiers.Classifier;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="toString" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$Label#toString(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$AbstractAttribute&lt;-gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$Label" source="//@children.4/@children.2/@children.1" target="//@children.3/@children.2/@children.0" targetEnd="//@children.4/@children.2/@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.4/@children.2/@children.1/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:AssociationEndEditModel" location="179,164" attachSource="true"/>
+          <children xsi:type="editmodel:AssociationEndEditModel" location="0,28"/>
+        </sourceConnections>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" name="MeanVotingClassificationStrategy" size="254,85" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$MeanVotingClassificationStrategy" runTimeClassModel="classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D),threshold">
+        <children xsi:type="editmodel:CompartmentEditModel" size="102,18">
+          <children xsi:type="editmodel:AttributeEditModel" name="threshold" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$MeanVotingClassificationStrategy#threshold"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="68,18">
+          <children xsi:type="editmodel:MethodEditModel" name="classify" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$MeanVotingClassificationStrategy#classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data/IClassificationStrategy&lt;-gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$MeanVotingClassificationStrategy" source="//@children.4/@children.2/@children.2" target="//@children.0" targetEnd="//@children.4/@children.2/@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.4/@children.2/@children.2/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:AssociationEndEditModel" location="0,42" attachSource="true"/>
+          <children xsi:type="editmodel:AssociationEndEditModel" location="183,45"/>
+        </sourceConnections>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" name="VotingClassificationStrategy" size="219,121" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$VotingClassificationStrategy" runTimeClassModel="VotingClassificationStrategy(F),proportionalCutCalibration([[DLgr.auth.ee.lcs.classifiers.ClassifierSet;),classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D),threshold">
+        <children xsi:type="editmodel:CompartmentEditModel" size="102,18">
+          <children xsi:type="editmodel:AttributeEditModel" name="threshold" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$VotingClassificationStrategy#threshold"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="165,54">
+          <children xsi:type="editmodel:MethodEditModel" name="VotingClassificationStrategy" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$VotingClassificationStrategy#VotingClassificationStrategy(F)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="classify" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$VotingClassificationStrategy#classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="proportionalCutCalibration" id="gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$VotingClassificationStrategy#proportionalCutCalibration([[DLgr.auth.ee.lcs.classifiers.ClassifierSet;)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data/IClassificationStrategy&lt;-gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation$VotingClassificationStrategy" source="//@children.4/@children.2/@children.3" target="//@children.0" targetEnd="//@children.4/@children.2/@children.3/@sourceConnections.0/@children.1" sourceEnd="//@children.4/@children.2/@children.3/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:AssociationEndEditModel" location="0,47" attachSource="true"/>
+          <children xsi:type="editmodel:AssociationEndEditModel" location="183,50"/>
+        </sourceConnections>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+    </children>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation&lt;-gr.auth.ee.lcs.data.representations.complex/StrictMultiLabelRepresentation" source="//@children.4" target="//@children.5/@sourceConnections.0" targetEnd="//@children.4/@sourceConnections.0/@children.1" sourceEnd="//@children.4/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="138,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="UniLabelRepresentation" location="2383,3690" size="265,730" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation" runTimeClassModel="classifyAbilityLabel(Lgr.auth.ee.lcs.classifiers.Classifier;II),gr.auth.ee.lcs.data.representations.complex.UniLabelRepresentation.UniLabel,gr.auth.ee.lcs.data.representations.complex.UniLabelRepresentation.ThresholdClassificationStrategy,UniLabelRepresentation(Ljava.lang.String;IIDLgr.auth.ee.lcs.AbstractLearningClassifierSystem;),setClassification(Lgr.auth.ee.lcs.classifiers.Classifier;I),getClassification(Lgr.auth.ee.lcs.classifiers.Classifier;),gr.auth.ee.lcs.data.representations.complex.UniLabelRepresentation.DummyLabel,getDataInstanceLabels([D),classifyAbilityAll(Lgr.auth.ee.lcs.classifiers.Classifier;I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="144,108">
+      <children xsi:type="editmodel:MethodEditModel" name="UniLabelRepresentation" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation#UniLabelRepresentation(Ljava.lang.String;IIDLgr.auth.ee.lcs.AbstractLearningClassifierSystem;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="classifyAbilityAll" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation#classifyAbilityAll(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="classifyAbilityLabel" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation#classifyAbilityLabel(Lgr.auth.ee.lcs.classifiers.Classifier;II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getClassification" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation#getClassification(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDataInstanceLabels" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation#getDataInstanceLabels([D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setClassification" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation#setClassification(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="242,549">
+      <children xsi:type="editmodel:ClassEditModel" name="DummyLabel" size="179,193" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$DummyLabel" runTimeClassModel="toString(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),fixAttributeRepresentation(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isMatch(FLgr.auth.ee.lcs.utilities.ExtendedBitSet;),randomCoveringValue(FLgr.auth.ee.lcs.classifiers.Classifier;),DummyLabel(ILjava.lang.String;D),isSpecific(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isMoreGeneral(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isEqual(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="156,144">
+          <children xsi:type="editmodel:MethodEditModel" name="DummyLabel" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$DummyLabel#DummyLabel(ILjava.lang.String;D)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="fixAttributeRepresentation" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$DummyLabel#fixAttributeRepresentation(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isEqual" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$DummyLabel#isEqual(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isMatch" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$DummyLabel#isMatch(FLgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isMoreGeneral" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$DummyLabel#isMoreGeneral(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isSpecific" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$DummyLabel#isSpecific(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="randomCoveringValue" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$DummyLabel#randomCoveringValue(FLgr.auth.ee.lcs.classifiers.Classifier;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="toString" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$DummyLabel#toString(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$AbstractAttribute&lt;-gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$DummyLabel" source="//@children.5/@children.2/@children.0" target="//@children.3/@children.2/@children.0" targetEnd="//@children.5/@children.2/@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.5/@children.2/@children.0/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:AssociationEndEditModel" location="179,154" attachSource="true"/>
+          <children xsi:type="editmodel:AssociationEndEditModel" location="0,30"/>
+        </sourceConnections>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" name="ThresholdClassificationStrategy" size="242,121" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$ThresholdClassificationStrategy" runTimeClassModel="ThresholdClassificationStrategy(),proportionalCutCalibration([[DLgr.auth.ee.lcs.classifiers.ClassifierSet;F),classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D),threshold">
+        <children xsi:type="editmodel:CompartmentEditModel" size="102,18">
+          <children xsi:type="editmodel:AttributeEditModel" name="threshold" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$ThresholdClassificationStrategy#threshold"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="183,54">
+          <children xsi:type="editmodel:MethodEditModel" name="ThresholdClassificationStrategy" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$ThresholdClassificationStrategy#ThresholdClassificationStrategy()"/>
+          <children xsi:type="editmodel:MethodEditModel" name="classify" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$ThresholdClassificationStrategy#classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="proportionalCutCalibration" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$ThresholdClassificationStrategy#proportionalCutCalibration([[DLgr.auth.ee.lcs.classifiers.ClassifierSet;F)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data/IClassificationStrategy&lt;-gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$ThresholdClassificationStrategy" source="//@children.5/@children.2/@children.1" target="//@children.0" targetEnd="//@children.5/@children.2/@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.5/@children.2/@children.1/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:AssociationEndEditModel" location="0,47" attachSource="true"/>
+          <children xsi:type="editmodel:AssociationEndEditModel" location="183,50"/>
+        </sourceConnections>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" name="UniLabel" size="179,229" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$UniLabel" runTimeClassModel="toString(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),setValue(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;I),UniLabel(ILjava.lang.String;[Ljava.lang.String;),isMatch(FLgr.auth.ee.lcs.utilities.ExtendedBitSet;),fixAttributeRepresentation(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),randomCoveringValue(FLgr.auth.ee.lcs.classifiers.Classifier;),isSpecific(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isMoreGeneral(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),getValue(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isEqual(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="156,180">
+          <children xsi:type="editmodel:MethodEditModel" name="UniLabel" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$UniLabel#UniLabel(ILjava.lang.String;[Ljava.lang.String;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="fixAttributeRepresentation" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$UniLabel#fixAttributeRepresentation(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="getValue" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$UniLabel#getValue(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isEqual" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$UniLabel#isEqual(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isMatch" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$UniLabel#isMatch(FLgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isMoreGeneral" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$UniLabel#isMoreGeneral(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isSpecific" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$UniLabel#isSpecific(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="randomCoveringValue" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$UniLabel#randomCoveringValue(FLgr.auth.ee.lcs.classifiers.Classifier;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="setValue" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$UniLabel#setValue(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;I)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="toString" id="gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$UniLabel#toString(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$AbstractAttribute&lt;-gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation$UniLabel" source="//@children.5/@children.2/@children.2" target="//@children.3/@children.2/@children.0" targetEnd="//@children.5/@children.2/@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.5/@children.2/@children.2/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:AssociationEndEditModel" location="179,172" attachSource="true"/>
+          <children xsi:type="editmodel:AssociationEndEditModel" location="0,30"/>
+        </sourceConnections>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+    </children>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.7/@sourceConnections.0 //@children.4/@sourceConnections.0 //@children.2/@sourceConnections.0" autoLocated="true" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation&lt;-gr.auth.ee.lcs.data.representations.complex/UniLabelRepresentation" source="//@children.5" target="//@children.3" targetEnd="//@children.5/@sourceConnections.0/@children.1" sourceEnd="//@children.5/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="132,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="123,1105" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.1" name="SimpleBooleanRepresentation" location="2568,2535" size="247,441" id="gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation" runTimeClassModel="classifyAbilityLabel(Lgr.auth.ee.lcs.classifiers.Classifier;II),buildRepresentationModel(),areEqual(Lgr.auth.ee.lcs.classifiers.Classifier;Lgr.auth.ee.lcs.classifiers.Classifier;),setClassification(Lgr.auth.ee.lcs.classifiers.Classifier;I),chromosomeSize,setVisionSize(I),getClassification(Lgr.auth.ee.lcs.classifiers.Classifier;),createRandomCoveringClassifier([D),getDataInstanceLabels([D),fixChromosome(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D),SimpleBooleanRepresentation(DILgr.auth.ee.lcs.AbstractLearningClassifierSystem;),getNumberOfAttributes(),getLabelNames(),isMoreGeneral(Lgr.auth.ee.lcs.classifiers.Classifier;Lgr.auth.ee.lcs.classifiers.Classifier;),toNaturalLanguageString(Lgr.auth.ee.lcs.classifiers.Classifier;),classifyAbilityAll(Lgr.auth.ee.lcs.classifiers.Classifier;I),toBitSetString(Lgr.auth.ee.lcs.classifiers.Classifier;),isMatch([DLgr.auth.ee.lcs.utilities.ExtendedBitSet;),isAttributeSpecific(Lgr.auth.ee.lcs.classifiers.Classifier;I),setRepresentationSpecificClassifierData(Lgr.auth.ee.lcs.classifiers.Classifier;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="119,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="chromosomeSize" id="gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation#chromosomeSize"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="224,360">
+      <children xsi:type="editmodel:MethodEditModel" name="SimpleBooleanRepresentation" id="gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation#SimpleBooleanRepresentation(DILgr.auth.ee.lcs.AbstractLearningClassifierSystem;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="areEqual" id="gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation#areEqual(Lgr.auth.ee.lcs.classifiers.Classifier;Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="buildRepresentationModel" id="gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation#buildRepresentationModel()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="classify" id="gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation#classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="classifyAbilityAll" id="gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation#classifyAbilityAll(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="classifyAbilityLabel" id="gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation#classifyAbilityLabel(Lgr.auth.ee.lcs.classifiers.Classifier;II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createRandomCoveringClassifier" id="gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation#createRandomCoveringClassifier([D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="fixChromosome" id="gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation#fixChromosome(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getClassification" id="gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation#getClassification(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDataInstanceLabels" id="gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation#getDataInstanceLabels([D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getLabelNames" id="gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation#getLabelNames()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getNumberOfAttributes" id="gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation#getNumberOfAttributes()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isAttributeSpecific" id="gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation#isAttributeSpecific(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isMatch" id="gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation#isMatch([DLgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isMoreGeneral" id="gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation#isMoreGeneral(Lgr.auth.ee.lcs.classifiers.Classifier;Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setClassification" id="gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation#setClassification(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setRepresentationSpecificClassifierData" id="gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation#setRepresentationSpecificClassifierData(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setVisionSize" id="gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation#setVisionSize(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toBitSetString" id="gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation#toBitSetString(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toNaturalLanguageString" id="gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation#toNaturalLanguageString(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data/ClassifierTransformBridge&lt;-gr.auth.ee.lcs.data.representations/SimpleBooleanRepresentation" source="//@children.6" target="//@children.3/@sourceConnections.2" targetEnd="//@children.6/@sourceConnections.0/@children.1" sourceEnd="//@children.6/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="123,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="SingleClassRepresentation" location="2678,3690" size="273,622" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation" runTimeClassModel="SingleClassRepresentation(Ljava.lang.String;IIDLgr.auth.ee.lcs.AbstractLearningClassifierSystem;),classifyAbilityLabel(Lgr.auth.ee.lcs.classifiers.Classifier;II),SingleClassRepresentation([Lgr.auth.ee.lcs.data.representations.complex.ComplexRepresentation.AbstractAttribute;[Ljava.lang.String;DLgr.auth.ee.lcs.AbstractLearningClassifierSystem;),gr.auth.ee.lcs.data.representations.complex.SingleClassRepresentation.UniLabel,gr.auth.ee.lcs.data.representations.complex.SingleClassRepresentation.VotingClassificationStrategy,setClassification(Lgr.auth.ee.lcs.classifiers.Classifier;I),getClassification(Lgr.auth.ee.lcs.classifiers.Classifier;),getDataInstanceLabels([D),gr.auth.ee.lcs.data.representations.complex.SingleClassRepresentation.BestFitnessClassificationStrategy,classifyAbilityAll(Lgr.auth.ee.lcs.classifiers.Classifier;I),SingleClassRepresentation(Ljava.lang.String;IDLgr.auth.ee.lcs.AbstractLearningClassifierSystem;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="159,144">
+      <children xsi:type="editmodel:MethodEditModel" name="SingleClassRepresentation" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation#SingleClassRepresentation(Ljava.lang.String;IIDLgr.auth.ee.lcs.AbstractLearningClassifierSystem;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="SingleClassRepresentation" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation#SingleClassRepresentation([Lgr.auth.ee.lcs.data.representations.complex.ComplexRepresentation.AbstractAttribute;[Ljava.lang.String;DLgr.auth.ee.lcs.AbstractLearningClassifierSystem;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="SingleClassRepresentation" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation#SingleClassRepresentation(Ljava.lang.String;IDLgr.auth.ee.lcs.AbstractLearningClassifierSystem;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="classifyAbilityAll" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation#classifyAbilityAll(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="classifyAbilityLabel" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation#classifyAbilityLabel(Lgr.auth.ee.lcs.classifiers.Classifier;II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getClassification" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation#getClassification(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDataInstanceLabels" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation#getDataInstanceLabels([D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setClassification" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation#setClassification(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="250,405">
+      <children xsi:type="editmodel:ClassEditModel" name="BestFitnessClassificationStrategy" size="250,85" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation$BestFitnessClassificationStrategy" runTimeClassModel="setThreshold(D),classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D)">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="93,36">
+          <children xsi:type="editmodel:MethodEditModel" name="classify" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation$BestFitnessClassificationStrategy#classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="setThreshold" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation$BestFitnessClassificationStrategy#setThreshold(D)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data/IClassificationStrategy&lt;-gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation$BestFitnessClassificationStrategy" source="//@children.7/@children.2/@children.0" target="//@children.0" targetEnd="//@children.7/@children.2/@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.7/@children.2/@children.0/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:AssociationEndEditModel" location="0,42" attachSource="true"/>
+          <children xsi:type="editmodel:AssociationEndEditModel" location="183,45"/>
+        </sourceConnections>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" name="UniLabel" size="179,229" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation$UniLabel" runTimeClassModel="toString(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),setValue(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;I),UniLabel(ILjava.lang.String;[Ljava.lang.String;),isMatch(FLgr.auth.ee.lcs.utilities.ExtendedBitSet;),randomCoveringValue(FLgr.auth.ee.lcs.classifiers.Classifier;),fixAttributeRepresentation(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isSpecific(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),getValue(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isMoreGeneral(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),isEqual(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="156,180">
+          <children xsi:type="editmodel:MethodEditModel" name="UniLabel" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation$UniLabel#UniLabel(ILjava.lang.String;[Ljava.lang.String;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="fixAttributeRepresentation" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation$UniLabel#fixAttributeRepresentation(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="getValue" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation$UniLabel#getValue(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isEqual" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation$UniLabel#isEqual(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isMatch" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation$UniLabel#isMatch(FLgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isMoreGeneral" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation$UniLabel#isMoreGeneral(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="isSpecific" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation$UniLabel#isSpecific(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="randomCoveringValue" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation$UniLabel#randomCoveringValue(FLgr.auth.ee.lcs.classifiers.Classifier;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="setValue" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation$UniLabel#setValue(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;I)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="toString" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation$UniLabel#toString(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation$AbstractAttribute&lt;-gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation$UniLabel" source="//@children.7/@children.2/@children.1" target="//@children.3/@children.2/@children.0" targetEnd="//@children.7/@children.2/@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.7/@children.2/@children.1/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:AssociationEndEditModel" location="179,173" attachSource="true"/>
+          <children xsi:type="editmodel:AssociationEndEditModel" location="0,29"/>
+        </sourceConnections>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" name="VotingClassificationStrategy" size="219,85" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation$VotingClassificationStrategy" runTimeClassModel="setThreshold(D),classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D)">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="93,36">
+          <children xsi:type="editmodel:MethodEditModel" name="classify" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation$VotingClassificationStrategy#classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="setThreshold" id="gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation$VotingClassificationStrategy#setThreshold(D)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data/IClassificationStrategy&lt;-gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation$VotingClassificationStrategy" source="//@children.7/@children.2/@children.2" target="//@children.0" targetEnd="//@children.7/@children.2/@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.7/@children.2/@children.2/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:AssociationEndEditModel" location="0,42" attachSource="true"/>
+          <children xsi:type="editmodel:AssociationEndEditModel" location="183,45"/>
+        </sourceConnections>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+    </children>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data.representations.complex/ComplexRepresentation&lt;-gr.auth.ee.lcs.data.representations.complex/SingleClassRepresentation" source="//@children.7" target="//@children.5/@sourceConnections.0" targetEnd="//@children.7/@sourceConnections.0/@children.1" sourceEnd="//@children.7/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="136,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.3/@sourceConnections.2 //@children.1/@sourceConnections.0" name="ClassifierTransformBridge" location="2706,2094" size="247,391" id="gr.auth.ee.lcs.data/ClassifierTransformBridge" runTimeClassModel="classifyAbilityLabel(Lgr.auth.ee.lcs.classifiers.Classifier;II),getChromosomeSize(),areEqual(Lgr.auth.ee.lcs.classifiers.Classifier;Lgr.auth.ee.lcs.classifiers.Classifier;),buildRepresentationModel(),setClassification(Lgr.auth.ee.lcs.classifiers.Classifier;I),getClassification(Lgr.auth.ee.lcs.classifiers.Classifier;),createRandomCoveringClassifier([D),getDataInstanceLabels([D),fixChromosome(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;),classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D),getNumberOfAttributes(),getLabelNames(),isMoreGeneral(Lgr.auth.ee.lcs.classifiers.Classifier;Lgr.auth.ee.lcs.classifiers.Classifier;),toNaturalLanguageString(Lgr.auth.ee.lcs.classifiers.Classifier;),classifyAbilityAll(Lgr.auth.ee.lcs.classifiers.Classifier;I),setRepresentationSpecificClassifierData(Lgr.auth.ee.lcs.classifiers.Classifier;),toBitSetString(Lgr.auth.ee.lcs.classifiers.Classifier;),isMatch([DLgr.auth.ee.lcs.utilities.ExtendedBitSet;),isAttributeSpecific(Lgr.auth.ee.lcs.classifiers.Classifier;I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="224,342">
+      <children xsi:type="editmodel:MethodEditModel" name="areEqual" id="gr.auth.ee.lcs.data/ClassifierTransformBridge#areEqual(Lgr.auth.ee.lcs.classifiers.Classifier;Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="buildRepresentationModel" id="gr.auth.ee.lcs.data/ClassifierTransformBridge#buildRepresentationModel()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="classify" id="gr.auth.ee.lcs.data/ClassifierTransformBridge#classify(Lgr.auth.ee.lcs.classifiers.ClassifierSet;[D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="classifyAbilityAll" id="gr.auth.ee.lcs.data/ClassifierTransformBridge#classifyAbilityAll(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="classifyAbilityLabel" id="gr.auth.ee.lcs.data/ClassifierTransformBridge#classifyAbilityLabel(Lgr.auth.ee.lcs.classifiers.Classifier;II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createRandomCoveringClassifier" id="gr.auth.ee.lcs.data/ClassifierTransformBridge#createRandomCoveringClassifier([D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="fixChromosome" id="gr.auth.ee.lcs.data/ClassifierTransformBridge#fixChromosome(Lgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getChromosomeSize" id="gr.auth.ee.lcs.data/ClassifierTransformBridge#getChromosomeSize()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getClassification" id="gr.auth.ee.lcs.data/ClassifierTransformBridge#getClassification(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDataInstanceLabels" id="gr.auth.ee.lcs.data/ClassifierTransformBridge#getDataInstanceLabels([D)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getLabelNames" id="gr.auth.ee.lcs.data/ClassifierTransformBridge#getLabelNames()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getNumberOfAttributes" id="gr.auth.ee.lcs.data/ClassifierTransformBridge#getNumberOfAttributes()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isAttributeSpecific" id="gr.auth.ee.lcs.data/ClassifierTransformBridge#isAttributeSpecific(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isMatch" id="gr.auth.ee.lcs.data/ClassifierTransformBridge#isMatch([DLgr.auth.ee.lcs.utilities.ExtendedBitSet;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isMoreGeneral" id="gr.auth.ee.lcs.data/ClassifierTransformBridge#isMoreGeneral(Lgr.auth.ee.lcs.classifiers.Classifier;Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setClassification" id="gr.auth.ee.lcs.data/ClassifierTransformBridge#setClassification(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setRepresentationSpecificClassifierData" id="gr.auth.ee.lcs.data/ClassifierTransformBridge#setRepresentationSpecificClassifierData(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toBitSetString" id="gr.auth.ee.lcs.data/ClassifierTransformBridge#toBitSetString(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toNaturalLanguageString" id="gr.auth.ee.lcs.data/ClassifierTransformBridge#toNaturalLanguageString(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="MlUCSUpdateAlgorithm" location="948,329" size="194,286" id="gr.auth.ee.lcs.data.updateAlgorithms/MlUCSUpdateAlgorithm" runTimeClassModel="getData(Lgr.auth.ee.lcs.classifiers.Classifier;),getComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;I),createStateClassifierObject(),cover(Lgr.auth.ee.lcs.classifiers.ClassifierSet;I),updateSet(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ),MlUCSUpdateAlgorithm(Lgr.auth.ee.lcs.geneticalgorithm.IGeneticAlgorithmStrategy;DDIIILgr.auth.ee.lcs.AbstractLearningClassifierSystem;),setComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;ID),performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;),gr.auth.ee.lcs.data.updateAlgorithms.MlUCSUpdateAlgorithm.MlUCSClassifierData">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="162,144">
+      <children xsi:type="editmodel:MethodEditModel" name="MlUCSUpdateAlgorithm" id="gr.auth.ee.lcs.data.updateAlgorithms/MlUCSUpdateAlgorithm#MlUCSUpdateAlgorithm(Lgr.auth.ee.lcs.geneticalgorithm.IGeneticAlgorithmStrategy;DDIIILgr.auth.ee.lcs.AbstractLearningClassifierSystem;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cover" id="gr.auth.ee.lcs.data.updateAlgorithms/MlUCSUpdateAlgorithm#cover(Lgr.auth.ee.lcs.classifiers.ClassifierSet;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createStateClassifierObject" id="gr.auth.ee.lcs.data.updateAlgorithms/MlUCSUpdateAlgorithm#createStateClassifierObject()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getComparisonValue" id="gr.auth.ee.lcs.data.updateAlgorithms/MlUCSUpdateAlgorithm#getComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getData" id="gr.auth.ee.lcs.data.updateAlgorithms/MlUCSUpdateAlgorithm#getData(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="performUpdate" id="gr.auth.ee.lcs.data.updateAlgorithms/MlUCSUpdateAlgorithm#performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setComparisonValue" id="gr.auth.ee.lcs.data.updateAlgorithms/MlUCSUpdateAlgorithm#setComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;ID)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateSet" id="gr.auth.ee.lcs.data.updateAlgorithms/MlUCSUpdateAlgorithm#updateSet(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="171,69">
+      <children xsi:type="editmodel:ClassEditModel" name="MlUCSClassifierData" size="171,67" id="gr.auth.ee.lcs.data.updateAlgorithms/MlUCSUpdateAlgorithm$MlUCSClassifierData" runTimeClassModel="MlUCSClassifierData(I)">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="128,18">
+          <children xsi:type="editmodel:MethodEditModel" name="MlUCSClassifierData" id="gr.auth.ee.lcs.data.updateAlgorithms/MlUCSUpdateAlgorithm$MlUCSClassifierData#MlUCSClassifierData(I)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+    </children>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/MlUCSUpdateAlgorithm@" source="//@children.9" target="//@children.1" targetEnd="//@children.9/@sourceConnections.0/@children.2" label="//@children.9/@sourceConnections.0/@children.0" sourceEnd="//@children.9/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="194,276" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/MlUCSUpdateAlgorithm@|gr.auth.ee.lcs.data.updateAlgorithms/MlUCSUpdateAlgorithm#" attachSource="true" roleLabel="//@children.9/@sourceConnections.0/@children.1/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" location="1149,584" size="0,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="myLcs" location="10,0" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/MlUCSUpdateAlgorithm@|gr.auth.ee.lcs/AbstractLearningClassifierSystem#myLcs" multiplicityLabel="//@children.9/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.9/@sourceConnections.0/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - myLcs" location="1206,1027" size="42,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1186,1027" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy&lt;-gr.auth.ee.lcs.data.updateAlgorithms/MlUCSUpdateAlgorithm" source="//@children.9" target="//@children.13/@sourceConnections.1" targetEnd="//@children.9/@sourceConnections.1/@children.1" sourceEnd="//@children.9/@sourceConnections.1/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="97,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="RTUCSUpdateAlgorithm" location="725,329" size="193,248" id="gr.auth.ee.lcs.data.updateAlgorithms/RTUCSUpdateAlgorithm" runTimeClassModel="RTUCSUpdateAlgorithm(DDDDIDLgr.auth.ee.lcs.geneticalgorithm.IGeneticAlgorithmStrategy;IDILgr.auth.ee.lcs.AbstractLearningClassifierSystem;),getData(Lgr.auth.ee.lcs.classifiers.Classifier;),createStateClassifierObject(),getComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;I),cover(Lgr.auth.ee.lcs.classifiers.ClassifierSet;I),gr.auth.ee.lcs.data.updateAlgorithms.RTUCSUpdateAlgorithm.UCSClassifierData,updateSet(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ),setComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;ID),performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="162,144">
+      <children xsi:type="editmodel:MethodEditModel" name="RTUCSUpdateAlgorithm" id="gr.auth.ee.lcs.data.updateAlgorithms/RTUCSUpdateAlgorithm#RTUCSUpdateAlgorithm(DDDDIDLgr.auth.ee.lcs.geneticalgorithm.IGeneticAlgorithmStrategy;IDILgr.auth.ee.lcs.AbstractLearningClassifierSystem;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cover" id="gr.auth.ee.lcs.data.updateAlgorithms/RTUCSUpdateAlgorithm#cover(Lgr.auth.ee.lcs.classifiers.ClassifierSet;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createStateClassifierObject" id="gr.auth.ee.lcs.data.updateAlgorithms/RTUCSUpdateAlgorithm#createStateClassifierObject()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getComparisonValue" id="gr.auth.ee.lcs.data.updateAlgorithms/RTUCSUpdateAlgorithm#getComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getData" id="gr.auth.ee.lcs.data.updateAlgorithms/RTUCSUpdateAlgorithm#getData(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="performUpdate" id="gr.auth.ee.lcs.data.updateAlgorithms/RTUCSUpdateAlgorithm#performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setComparisonValue" id="gr.auth.ee.lcs.data.updateAlgorithms/RTUCSUpdateAlgorithm#setComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;ID)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateSet" id="gr.auth.ee.lcs.data.updateAlgorithms/RTUCSUpdateAlgorithm#updateSet(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="156,31">
+      <children xsi:type="editmodel:ClassEditModel" name="UCSClassifierData" size="156,29" id="gr.auth.ee.lcs.data.updateAlgorithms/RTUCSUpdateAlgorithm$UCSClassifierData" runTimeClassModel="">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+    </children>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/RTUCSUpdateAlgorithm@" source="//@children.10" target="//@children.1" targetEnd="//@children.10/@sourceConnections.0/@children.2" label="//@children.10/@sourceConnections.0/@children.0" sourceEnd="//@children.10/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="193,238" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/RTUCSUpdateAlgorithm@|gr.auth.ee.lcs.data.updateAlgorithms/RTUCSUpdateAlgorithm#" attachSource="true" roleLabel="//@children.10/@sourceConnections.0/@children.1/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" location="925,546" size="0,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="myLcs" location="10,0" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/RTUCSUpdateAlgorithm@|gr.auth.ee.lcs/AbstractLearningClassifierSystem#myLcs" multiplicityLabel="//@children.10/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.10/@sourceConnections.0/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - myLcs" location="1206,1027" size="42,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1186,1027" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy&lt;-gr.auth.ee.lcs.data.updateAlgorithms/RTUCSUpdateAlgorithm" source="//@children.10" target="//@children.13/@sourceConnections.1" targetEnd="//@children.10/@sourceConnections.1/@children.1" sourceEnd="//@children.10/@sourceConnections.1/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="96,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="SequentialMlUpdateAlgorithm" location="1920,329" size="233,207" id="gr.auth.ee.lcs.data.updateAlgorithms/SequentialMlUpdateAlgorithm" runTimeClassModel="getData(Lgr.auth.ee.lcs.classifiers.Classifier;),createStateClassifierObject(),getComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;I),cover(Lgr.auth.ee.lcs.classifiers.ClassifierSet;I),updateSet(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ),SequentialMlUpdateAlgorithm(Lgr.auth.ee.lcs.data.AbstractUpdateStrategy;Lgr.auth.ee.lcs.geneticalgorithm.IGeneticAlgorithmStrategy;I),setComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;ID),performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="169,144">
+      <children xsi:type="editmodel:MethodEditModel" name="SequentialMlUpdateAlgorithm" id="gr.auth.ee.lcs.data.updateAlgorithms/SequentialMlUpdateAlgorithm#SequentialMlUpdateAlgorithm(Lgr.auth.ee.lcs.data.AbstractUpdateStrategy;Lgr.auth.ee.lcs.geneticalgorithm.IGeneticAlgorithmStrategy;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cover" id="gr.auth.ee.lcs.data.updateAlgorithms/SequentialMlUpdateAlgorithm#cover(Lgr.auth.ee.lcs.classifiers.ClassifierSet;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createStateClassifierObject" id="gr.auth.ee.lcs.data.updateAlgorithms/SequentialMlUpdateAlgorithm#createStateClassifierObject()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getComparisonValue" id="gr.auth.ee.lcs.data.updateAlgorithms/SequentialMlUpdateAlgorithm#getComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getData" id="gr.auth.ee.lcs.data.updateAlgorithms/SequentialMlUpdateAlgorithm#getData(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="performUpdate" id="gr.auth.ee.lcs.data.updateAlgorithms/SequentialMlUpdateAlgorithm#performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setComparisonValue" id="gr.auth.ee.lcs.data.updateAlgorithms/SequentialMlUpdateAlgorithm#setComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;ID)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateSet" id="gr.auth.ee.lcs.data.updateAlgorithms/SequentialMlUpdateAlgorithm#updateSet(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy@strategy+gr.auth.ee.lcs.data.updateAlgorithms/SequentialMlUpdateAlgorithm@" source="//@children.11" target="//@children.14" targetEnd="//@children.11/@sourceConnections.0/@children.2" label="//@children.11/@sourceConnections.0/@children.0" sourceEnd="//@children.11/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="10,0" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy@strategy+gr.auth.ee.lcs.data.updateAlgorithms/SequentialMlUpdateAlgorithm@|gr.auth.ee.lcs.data.updateAlgorithms/SequentialMlUpdateAlgorithm#" attachSource="true" roleLabel="//@children.11/@sourceConnections.0/@children.1/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" location="1923,308" size="0,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="strategy" location="237,219" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy@strategy+gr.auth.ee.lcs.data.updateAlgorithms/SequentialMlUpdateAlgorithm@|gr.auth.ee.lcs.data/AbstractUpdateStrategy#strategy" multiplicityLabel="//@children.11/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.11/@sourceConnections.0/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - strategy" location="1318,248" size="50,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1318,276" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy&lt;-gr.auth.ee.lcs.data.updateAlgorithms/SequentialMlUpdateAlgorithm" source="//@children.11" target="//@children.13/@sourceConnections.1" targetEnd="//@children.11/@sourceConnections.1/@children.1" sourceEnd="//@children.11/@sourceConnections.1/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="116,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="MlASLCSUpdateAlgorithm" location="1682,329" size="208,384" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCSUpdateAlgorithm" runTimeClassModel="getData(Lgr.auth.ee.lcs.classifiers.Classifier;),createStateClassifierObject(),getComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;I),cover(Lgr.auth.ee.lcs.classifiers.ClassifierSet;I),gr.auth.ee.lcs.data.updateAlgorithms.MlASLCSUpdateAlgorithm.SLCSClassifierData,updateSet(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ),performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;I),setComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;ID),performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;),MlASLCSUpdateAlgorithm(DDIDLgr.auth.ee.lcs.geneticalgorithm.IGeneticAlgorithmStrategy;ILgr.auth.ee.lcs.AbstractLearningClassifierSystem;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="162,162">
+      <children xsi:type="editmodel:MethodEditModel" name="MlASLCSUpdateAlgorithm" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCSUpdateAlgorithm#MlASLCSUpdateAlgorithm(DDIDLgr.auth.ee.lcs.geneticalgorithm.IGeneticAlgorithmStrategy;ILgr.auth.ee.lcs.AbstractLearningClassifierSystem;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cover" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCSUpdateAlgorithm#cover(Lgr.auth.ee.lcs.classifiers.ClassifierSet;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createStateClassifierObject" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCSUpdateAlgorithm#createStateClassifierObject()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getComparisonValue" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCSUpdateAlgorithm#getComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getData" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCSUpdateAlgorithm#getData(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="performUpdate" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCSUpdateAlgorithm#performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="performUpdate" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCSUpdateAlgorithm#performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setComparisonValue" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCSUpdateAlgorithm#setComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;ID)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateSet" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCSUpdateAlgorithm#updateSet(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="164,149">
+      <children xsi:type="editmodel:ClassEditModel" name="SLCSClassifierData" size="164,147" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCSUpdateAlgorithm$SLCSClassifierData" runTimeClassModel="ns,str,fitness,tp,msa,fp">
+        <children xsi:type="editmodel:CompartmentEditModel" size="90,108">
+          <children xsi:type="editmodel:AttributeEditModel" name="fitness" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCSUpdateAlgorithm$SLCSClassifierData#fitness"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="fp" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCSUpdateAlgorithm$SLCSClassifierData#fp"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="msa" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCSUpdateAlgorithm$SLCSClassifierData#msa"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="ns" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCSUpdateAlgorithm$SLCSClassifierData#ns"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="str" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCSUpdateAlgorithm$SLCSClassifierData#str"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="tp" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCSUpdateAlgorithm$SLCSClassifierData#tp"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+    </children>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/MlASLCSUpdateAlgorithm@" source="//@children.12" target="//@children.1" targetEnd="//@children.12/@sourceConnections.0/@children.2" label="//@children.12/@sourceConnections.0/@children.0" sourceEnd="//@children.12/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,374" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/MlASLCSUpdateAlgorithm@|gr.auth.ee.lcs.data.updateAlgorithms/MlASLCSUpdateAlgorithm#" attachSource="true" roleLabel="//@children.12/@sourceConnections.0/@children.1/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" location="1675,682" size="0,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="myLcs" location="244,0" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/MlASLCSUpdateAlgorithm@|gr.auth.ee.lcs/AbstractLearningClassifierSystem#myLcs" multiplicityLabel="//@children.12/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.12/@sourceConnections.0/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - myLcs" location="1384,1027" size="42,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1440,1027" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy&lt;-gr.auth.ee.lcs.data.updateAlgorithms/MlASLCSUpdateAlgorithm" source="//@children.12" target="//@children.13/@sourceConnections.1" targetEnd="//@children.12/@sourceConnections.1/@children.1" sourceEnd="//@children.12/@sourceConnections.1/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="104,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="XCSUpdateAlgorithm" location="50,329" size="185,348" id="gr.auth.ee.lcs.data.updateAlgorithms/XCSUpdateAlgorithm" runTimeClassModel="getData(Lgr.auth.ee.lcs.classifiers.Classifier;),XCSUpdateAlgorithm(DDDDDDIDLgr.auth.ee.lcs.geneticalgorithm.IGeneticAlgorithmStrategy;Lgr.auth.ee.lcs.AbstractLearningClassifierSystem;),getComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;I),createStateClassifierObject(),cover(Lgr.auth.ee.lcs.classifiers.ClassifierSet;I),updateSet(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ),gr.auth.ee.lcs.data.updateAlgorithms.XCSUpdateAlgorithm.XCSClassifierData,setComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;ID),performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="162,144">
+      <children xsi:type="editmodel:MethodEditModel" name="XCSUpdateAlgorithm" id="gr.auth.ee.lcs.data.updateAlgorithms/XCSUpdateAlgorithm#XCSUpdateAlgorithm(DDDDDDIDLgr.auth.ee.lcs.geneticalgorithm.IGeneticAlgorithmStrategy;Lgr.auth.ee.lcs.AbstractLearningClassifierSystem;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cover" id="gr.auth.ee.lcs.data.updateAlgorithms/XCSUpdateAlgorithm#cover(Lgr.auth.ee.lcs.classifiers.ClassifierSet;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createStateClassifierObject" id="gr.auth.ee.lcs.data.updateAlgorithms/XCSUpdateAlgorithm#createStateClassifierObject()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getComparisonValue" id="gr.auth.ee.lcs.data.updateAlgorithms/XCSUpdateAlgorithm#getComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getData" id="gr.auth.ee.lcs.data.updateAlgorithms/XCSUpdateAlgorithm#getData(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="performUpdate" id="gr.auth.ee.lcs.data.updateAlgorithms/XCSUpdateAlgorithm#performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setComparisonValue" id="gr.auth.ee.lcs.data.updateAlgorithms/XCSUpdateAlgorithm#setComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;ID)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateSet" id="gr.auth.ee.lcs.data.updateAlgorithms/XCSUpdateAlgorithm#updateSet(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="159,131">
+      <children xsi:type="editmodel:ClassEditModel" name="XCSClassifierData" size="159,129" id="gr.auth.ee.lcs.data.updateAlgorithms/XCSUpdateAlgorithm$XCSClassifierData" runTimeClassModel="fitness,actionSet,predictedPayOff,predictionError,k">
+        <children xsi:type="editmodel:CompartmentEditModel" size="136,90">
+          <children xsi:type="editmodel:AttributeEditModel" name="actionSet" id="gr.auth.ee.lcs.data.updateAlgorithms/XCSUpdateAlgorithm$XCSClassifierData#actionSet"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="fitness" id="gr.auth.ee.lcs.data.updateAlgorithms/XCSUpdateAlgorithm$XCSClassifierData#fitness"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="k" id="gr.auth.ee.lcs.data.updateAlgorithms/XCSUpdateAlgorithm$XCSClassifierData#k"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="predictedPayOff" id="gr.auth.ee.lcs.data.updateAlgorithms/XCSUpdateAlgorithm$XCSClassifierData#predictedPayOff"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="predictionError" id="gr.auth.ee.lcs.data.updateAlgorithms/XCSUpdateAlgorithm$XCSClassifierData#predictionError"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+    </children>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/XCSUpdateAlgorithm@" source="//@children.13" target="//@children.1" targetEnd="//@children.13/@sourceConnections.0/@children.2" label="//@children.13/@sourceConnections.0/@children.0" sourceEnd="//@children.13/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="185,338" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/XCSUpdateAlgorithm@|gr.auth.ee.lcs.data.updateAlgorithms/XCSUpdateAlgorithm#" attachSource="true" roleLabel="//@children.13/@sourceConnections.0/@children.1/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" location="242,646" size="0,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="myLcs" location="10,0" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/XCSUpdateAlgorithm@|gr.auth.ee.lcs/AbstractLearningClassifierSystem#myLcs" multiplicityLabel="//@children.13/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.13/@sourceConnections.0/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - myLcs" location="1206,1027" size="42,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1186,1027" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.15/@sourceConnections.1 //@children.19/@sourceConnections.1 //@children.10/@sourceConnections.1 //@children.9/@sourceConnections.1 //@children.16/@sourceConnections.1 //@children.18/@sourceConnections.1 //@children.12/@sourceConnections.1 //@children.11/@sourceConnections.1 //@children.17/@sourceConnections.1" autoLocated="true" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy&lt;-gr.auth.ee.lcs.data.updateAlgorithms/XCSUpdateAlgorithm" source="//@children.13" target="//@children.14" targetEnd="//@children.13/@sourceConnections.1/@children.1" sourceEnd="//@children.13/@sourceConnections.1/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="92,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="118,229" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.13/@sourceConnections.1 //@children.11/@sourceConnections.0" name="AbstractUpdateStrategy" location="1074,50" size="237,229" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy" runTimeClassModel="cOMPARISON_MODE_DELETION,getData(Lgr.auth.ee.lcs.classifiers.Classifier;),getComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;I),createStateClassifierObject(),cover(Lgr.auth.ee.lcs.classifiers.ClassifierSet;I),updateSet(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ),setComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;ID),cOMPARISON_MODE_EXPLORATION,performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;),cOMPARISON_MODE_EXPLOITATION">
+    <children xsi:type="editmodel:CompartmentEditModel" size="214,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="cOMPARISON_MODE_DELETION" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy#cOMPARISON_MODE_DELETION"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="cOMPARISON_MODE_EXPLOITATION" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy#cOMPARISON_MODE_EXPLOITATION"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="cOMPARISON_MODE_EXPLORATION" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy#cOMPARISON_MODE_EXPLORATION"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="162,126">
+      <children xsi:type="editmodel:MethodEditModel" name="cover" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy#cover(Lgr.auth.ee.lcs.classifiers.ClassifierSet;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createStateClassifierObject" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy#createStateClassifierObject()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getComparisonValue" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy#getComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getData" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy#getData(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="performUpdate" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy#performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setComparisonValue" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy#setComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;ID)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateSet" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy#updateSet(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy@updateStrategy+gr.auth.ee.lcs/AbstractLearningClassifierSystem@" source="//@children.14" target="//@children.1" targetEnd="//@children.14/@sourceConnections.0/@children.2" label="//@children.14/@sourceConnections.0/@children.0" sourceEnd="//@children.14/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="updateStrategy" location="175,229" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy@updateStrategy+gr.auth.ee.lcs/AbstractLearningClassifierSystem@|gr.auth.ee.lcs.data/AbstractUpdateStrategy#updateStrategy" attachSource="true" multiplicityLabel="//@children.14/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.14/@sourceConnections.0/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - updateStrategy" location="1256,286" size="84,14" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="1224,286" size="18,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="60,0" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy@updateStrategy+gr.auth.ee.lcs/AbstractLearningClassifierSystem@|gr.auth.ee.lcs/AbstractLearningClassifierSystem#"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="MlASLCS3UpdateAlgorithm" location="265,329" size="215,348" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS3UpdateAlgorithm" runTimeClassModel="tHETA_DEL,getData(Lgr.auth.ee.lcs.classifiers.Classifier;),createStateClassifierObject(),getComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;I),cover(Lgr.auth.ee.lcs.classifiers.ClassifierSet;I),MlASLCS3UpdateAlgorithm(DDILgr.auth.ee.lcs.geneticalgorithm.IGeneticAlgorithmStrategy;ILgr.auth.ee.lcs.AbstractLearningClassifierSystem;),updateSet(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ),setComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;ID),gr.auth.ee.lcs.data.updateAlgorithms.MlASLCS3UpdateAlgorithm.MlASLCSClassifierData,performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="93,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="tHETA_DEL" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS3UpdateAlgorithm#tHETA_DEL"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="162,144">
+      <children xsi:type="editmodel:MethodEditModel" name="MlASLCS3UpdateAlgorithm" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS3UpdateAlgorithm#MlASLCS3UpdateAlgorithm(DDILgr.auth.ee.lcs.geneticalgorithm.IGeneticAlgorithmStrategy;ILgr.auth.ee.lcs.AbstractLearningClassifierSystem;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cover" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS3UpdateAlgorithm#cover(Lgr.auth.ee.lcs.classifiers.ClassifierSet;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createStateClassifierObject" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS3UpdateAlgorithm#createStateClassifierObject()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getComparisonValue" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS3UpdateAlgorithm#getComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getData" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS3UpdateAlgorithm#getData(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="performUpdate" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS3UpdateAlgorithm#performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setComparisonValue" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS3UpdateAlgorithm#setComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;ID)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateSet" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS3UpdateAlgorithm#updateSet(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="188,113">
+      <children xsi:type="editmodel:ClassEditModel" name="MlASLCSClassifierData" size="188,111" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS3UpdateAlgorithm$MlASLCSClassifierData" runTimeClassModel="ns,fitness,tp,msa">
+        <children xsi:type="editmodel:CompartmentEditModel" size="90,72">
+          <children xsi:type="editmodel:AttributeEditModel" name="fitness" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS3UpdateAlgorithm$MlASLCSClassifierData#fitness"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="msa" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS3UpdateAlgorithm$MlASLCSClassifierData#msa"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="ns" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS3UpdateAlgorithm$MlASLCSClassifierData#ns"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="tp" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS3UpdateAlgorithm$MlASLCSClassifierData#tp"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+    </children>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS3UpdateAlgorithm@" source="//@children.15" target="//@children.1" targetEnd="//@children.15/@sourceConnections.0/@children.2" label="//@children.15/@sourceConnections.0/@children.0" sourceEnd="//@children.15/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="205,348" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS3UpdateAlgorithm@|gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS3UpdateAlgorithm#" attachSource="true" roleLabel="//@children.15/@sourceConnections.0/@children.1/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" location="463,684" size="0,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="myLcs" location="0,10" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS3UpdateAlgorithm@|gr.auth.ee.lcs/AbstractLearningClassifierSystem#myLcs" multiplicityLabel="//@children.15/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.15/@sourceConnections.0/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - myLcs" location="1140,1065" size="42,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1176,1037" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy&lt;-gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS3UpdateAlgorithm" source="//@children.15" target="//@children.13/@sourceConnections.1" targetEnd="//@children.15/@sourceConnections.1/@children.1" sourceEnd="//@children.15/@sourceConnections.1/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="107,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="AbstractSLCSUpdateAlgorithm" location="1172,329" size="235,348" id="gr.auth.ee.lcs.data.updateAlgorithms/AbstractSLCSUpdateAlgorithm" runTimeClassModel="getData(Lgr.auth.ee.lcs.classifiers.Classifier;),updateFitness(Lgr.auth.ee.lcs.classifiers.Classifier;ILgr.auth.ee.lcs.classifiers.ClassifierSet;),gr.auth.ee.lcs.data.updateAlgorithms.AbstractSLCSUpdateAlgorithm.SLCSClassifierData,createStateClassifierObject(),cover(Lgr.auth.ee.lcs.classifiers.ClassifierSet;I),updateSet(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ),setComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;ID),performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="162,126">
+      <children xsi:type="editmodel:MethodEditModel" name="cover" id="gr.auth.ee.lcs.data.updateAlgorithms/AbstractSLCSUpdateAlgorithm#cover(Lgr.auth.ee.lcs.classifiers.ClassifierSet;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createStateClassifierObject" id="gr.auth.ee.lcs.data.updateAlgorithms/AbstractSLCSUpdateAlgorithm#createStateClassifierObject()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getData" id="gr.auth.ee.lcs.data.updateAlgorithms/AbstractSLCSUpdateAlgorithm#getData(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="performUpdate" id="gr.auth.ee.lcs.data.updateAlgorithms/AbstractSLCSUpdateAlgorithm#performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setComparisonValue" id="gr.auth.ee.lcs.data.updateAlgorithms/AbstractSLCSUpdateAlgorithm#setComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;ID)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateFitness" id="gr.auth.ee.lcs.data.updateAlgorithms/AbstractSLCSUpdateAlgorithm#updateFitness(Lgr.auth.ee.lcs.classifiers.Classifier;ILgr.auth.ee.lcs.classifiers.ClassifierSet;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateSet" id="gr.auth.ee.lcs.data.updateAlgorithms/AbstractSLCSUpdateAlgorithm#updateSet(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="164,149">
+      <children xsi:type="editmodel:ClassEditModel" name="SLCSClassifierData" size="164,147" id="gr.auth.ee.lcs.data.updateAlgorithms/AbstractSLCSUpdateAlgorithm$SLCSClassifierData" runTimeClassModel="ns,str,fitness,tp,msa,fp">
+        <children xsi:type="editmodel:CompartmentEditModel" size="90,108">
+          <children xsi:type="editmodel:AttributeEditModel" name="fitness" id="gr.auth.ee.lcs.data.updateAlgorithms/AbstractSLCSUpdateAlgorithm$SLCSClassifierData#fitness"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="fp" id="gr.auth.ee.lcs.data.updateAlgorithms/AbstractSLCSUpdateAlgorithm$SLCSClassifierData#fp"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="msa" id="gr.auth.ee.lcs.data.updateAlgorithms/AbstractSLCSUpdateAlgorithm$SLCSClassifierData#msa"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="ns" id="gr.auth.ee.lcs.data.updateAlgorithms/AbstractSLCSUpdateAlgorithm$SLCSClassifierData#ns"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="str" id="gr.auth.ee.lcs.data.updateAlgorithms/AbstractSLCSUpdateAlgorithm$SLCSClassifierData#str"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="tp" id="gr.auth.ee.lcs.data.updateAlgorithms/AbstractSLCSUpdateAlgorithm$SLCSClassifierData#tp"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+    </children>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLCS+gr.auth.ee.lcs.data.updateAlgorithms/AbstractSLCSUpdateAlgorithm@" source="//@children.16" target="//@children.1" targetEnd="//@children.16/@sourceConnections.0/@children.2" label="//@children.16/@sourceConnections.0/@children.0" sourceEnd="//@children.16/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="125,348" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLCS+gr.auth.ee.lcs.data.updateAlgorithms/AbstractSLCSUpdateAlgorithm@|gr.auth.ee.lcs.data.updateAlgorithms/AbstractSLCSUpdateAlgorithm#" attachSource="true" roleLabel="//@children.16/@sourceConnections.0/@children.1/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" location="1290,684" size="0,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="myLCS" location="108,0" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLCS+gr.auth.ee.lcs.data.updateAlgorithms/AbstractSLCSUpdateAlgorithm@|gr.auth.ee.lcs/AbstractLearningClassifierSystem#myLCS" multiplicityLabel="//@children.16/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.16/@sourceConnections.0/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - myLCS" location="1304,1027" size="44,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1284,1027" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy&lt;-gr.auth.ee.lcs.data.updateAlgorithms/AbstractSLCSUpdateAlgorithm" source="//@children.16" target="//@children.13/@sourceConnections.1" targetEnd="//@children.16/@sourceConnections.1/@children.1" sourceEnd="//@children.16/@sourceConnections.1/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="117,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="MlSSLCSUpdateAlgorithm" location="2183,329" size="211,412" id="gr.auth.ee.lcs.data.updateAlgorithms/MlSSLCSUpdateAlgorithm" runTimeClassModel="MlSSLCSUpdateAlgorithm(DDILgr.auth.ee.lcs.geneticalgorithm.IGeneticAlgorithmStrategy;IDLgr.auth.ee.lcs.AbstractLearningClassifierSystem;),getData(Lgr.auth.ee.lcs.classifiers.Classifier;),getComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;I),createStateClassifierObject(),cover(Lgr.auth.ee.lcs.classifiers.ClassifierSet;I),updateSet(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ),setComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;ID),performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;),gr.auth.ee.lcs.data.updateAlgorithms.MlSSLCSUpdateAlgorithm.MlSSLCSClassifierData">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="162,144">
+      <children xsi:type="editmodel:MethodEditModel" name="MlSSLCSUpdateAlgorithm" id="gr.auth.ee.lcs.data.updateAlgorithms/MlSSLCSUpdateAlgorithm#MlSSLCSUpdateAlgorithm(DDILgr.auth.ee.lcs.geneticalgorithm.IGeneticAlgorithmStrategy;IDLgr.auth.ee.lcs.AbstractLearningClassifierSystem;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cover" id="gr.auth.ee.lcs.data.updateAlgorithms/MlSSLCSUpdateAlgorithm#cover(Lgr.auth.ee.lcs.classifiers.ClassifierSet;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createStateClassifierObject" id="gr.auth.ee.lcs.data.updateAlgorithms/MlSSLCSUpdateAlgorithm#createStateClassifierObject()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getComparisonValue" id="gr.auth.ee.lcs.data.updateAlgorithms/MlSSLCSUpdateAlgorithm#getComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getData" id="gr.auth.ee.lcs.data.updateAlgorithms/MlSSLCSUpdateAlgorithm#getData(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="performUpdate" id="gr.auth.ee.lcs.data.updateAlgorithms/MlSSLCSUpdateAlgorithm#performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setComparisonValue" id="gr.auth.ee.lcs.data.updateAlgorithms/MlSSLCSUpdateAlgorithm#setComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;ID)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateSet" id="gr.auth.ee.lcs.data.updateAlgorithms/MlSSLCSUpdateAlgorithm#updateSet(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="188,195">
+      <children xsi:type="editmodel:ClassEditModel" name="MlSSLCSClassifierData" size="188,193" id="gr.auth.ee.lcs.data.updateAlgorithms/MlSSLCSUpdateAlgorithm$MlSSLCSClassifierData" runTimeClassModel="ns,str,fitness,tp,msa,activeLabels,MlSSLCSClassifierData(I),fp">
+        <children xsi:type="editmodel:CompartmentEditModel" size="100,126">
+          <children xsi:type="editmodel:AttributeEditModel" name="activeLabels" id="gr.auth.ee.lcs.data.updateAlgorithms/MlSSLCSUpdateAlgorithm$MlSSLCSClassifierData#activeLabels"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="fitness" id="gr.auth.ee.lcs.data.updateAlgorithms/MlSSLCSUpdateAlgorithm$MlSSLCSClassifierData#fitness"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="fp" id="gr.auth.ee.lcs.data.updateAlgorithms/MlSSLCSUpdateAlgorithm$MlSSLCSClassifierData#fp"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="msa" id="gr.auth.ee.lcs.data.updateAlgorithms/MlSSLCSUpdateAlgorithm$MlSSLCSClassifierData#msa"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="ns" id="gr.auth.ee.lcs.data.updateAlgorithms/MlSSLCSUpdateAlgorithm$MlSSLCSClassifierData#ns"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="str" id="gr.auth.ee.lcs.data.updateAlgorithms/MlSSLCSUpdateAlgorithm$MlSSLCSClassifierData#str"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="tp" id="gr.auth.ee.lcs.data.updateAlgorithms/MlSSLCSUpdateAlgorithm$MlSSLCSClassifierData#tp"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="141,18">
+          <children xsi:type="editmodel:MethodEditModel" name="MlSSLCSClassifierData" id="gr.auth.ee.lcs.data.updateAlgorithms/MlSSLCSUpdateAlgorithm$MlSSLCSClassifierData#MlSSLCSClassifierData(I)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+    </children>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/MlSSLCSUpdateAlgorithm@" source="//@children.17" target="//@children.1" targetEnd="//@children.17/@sourceConnections.0/@children.2" label="//@children.17/@sourceConnections.0/@children.0" sourceEnd="//@children.17/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="10,412" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/MlSSLCSUpdateAlgorithm@|gr.auth.ee.lcs.data.updateAlgorithms/MlSSLCSUpdateAlgorithm#" attachSource="true" roleLabel="//@children.17/@sourceConnections.0/@children.1/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" location="2186,748" size="0,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="myLcs" location="254,10" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/MlSSLCSUpdateAlgorithm@|gr.auth.ee.lcs/AbstractLearningClassifierSystem#myLcs" multiplicityLabel="//@children.17/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.17/@sourceConnections.0/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - myLcs" location="1450,1065" size="42,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1450,1037" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy&lt;-gr.auth.ee.lcs.data.updateAlgorithms/MlSSLCSUpdateAlgorithm" source="//@children.17" target="//@children.13/@sourceConnections.1" targetEnd="//@children.17/@sourceConnections.1/@children.1" sourceEnd="//@children.17/@sourceConnections.1/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="105,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="MlASLCS2UpdateAlgorithm" location="1437,329" size="215,348" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS2UpdateAlgorithm" runTimeClassModel="tHETA_DEL,gr.auth.ee.lcs.data.updateAlgorithms.MlASLCS2UpdateAlgorithm.MlASLCSClassifierData,getData(Lgr.auth.ee.lcs.classifiers.Classifier;),createStateClassifierObject(),MlASLCS2UpdateAlgorithm(DDILgr.auth.ee.lcs.geneticalgorithm.IGeneticAlgorithmStrategy;ILgr.auth.ee.lcs.AbstractLearningClassifierSystem;),getComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;I),cover(Lgr.auth.ee.lcs.classifiers.ClassifierSet;I),updateSet(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ),setComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;ID),performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="93,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="tHETA_DEL" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS2UpdateAlgorithm#tHETA_DEL"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="162,144">
+      <children xsi:type="editmodel:MethodEditModel" name="MlASLCS2UpdateAlgorithm" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS2UpdateAlgorithm#MlASLCS2UpdateAlgorithm(DDILgr.auth.ee.lcs.geneticalgorithm.IGeneticAlgorithmStrategy;ILgr.auth.ee.lcs.AbstractLearningClassifierSystem;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cover" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS2UpdateAlgorithm#cover(Lgr.auth.ee.lcs.classifiers.ClassifierSet;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createStateClassifierObject" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS2UpdateAlgorithm#createStateClassifierObject()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getComparisonValue" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS2UpdateAlgorithm#getComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getData" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS2UpdateAlgorithm#getData(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="performUpdate" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS2UpdateAlgorithm#performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setComparisonValue" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS2UpdateAlgorithm#setComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;ID)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateSet" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS2UpdateAlgorithm#updateSet(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="188,113">
+      <children xsi:type="editmodel:ClassEditModel" name="MlASLCSClassifierData" size="188,111" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS2UpdateAlgorithm$MlASLCSClassifierData" runTimeClassModel="ns,fitness,tp,msa">
+        <children xsi:type="editmodel:CompartmentEditModel" size="90,72">
+          <children xsi:type="editmodel:AttributeEditModel" name="fitness" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS2UpdateAlgorithm$MlASLCSClassifierData#fitness"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="msa" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS2UpdateAlgorithm$MlASLCSClassifierData#msa"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="ns" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS2UpdateAlgorithm$MlASLCSClassifierData#ns"/>
+          <children xsi:type="editmodel:AttributeEditModel" name="tp" id="gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS2UpdateAlgorithm$MlASLCSClassifierData#tp"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+    </children>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS2UpdateAlgorithm@" source="//@children.18" target="//@children.1" targetEnd="//@children.18/@sourceConnections.0/@children.2" label="//@children.18/@sourceConnections.0/@children.0" sourceEnd="//@children.18/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="2,348" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS2UpdateAlgorithm@|gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS2UpdateAlgorithm#" attachSource="true" roleLabel="//@children.18/@sourceConnections.0/@children.1/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" location="1432,684" size="0,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="myLcs" location="250,0" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS2UpdateAlgorithm@|gr.auth.ee.lcs/AbstractLearningClassifierSystem#myLcs" multiplicityLabel="//@children.18/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.18/@sourceConnections.0/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - myLcs" location="1446,1027" size="42,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1426,1027" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy&lt;-gr.auth.ee.lcs.data.updateAlgorithms/MlASLCS2UpdateAlgorithm" source="//@children.18" target="//@children.13/@sourceConnections.1" targetEnd="//@children.18/@sourceConnections.1/@children.1" sourceEnd="//@children.18/@sourceConnections.1/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="107,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="UCSUpdateAlgorithm" location="510,329" size="185,248" id="gr.auth.ee.lcs.data.updateAlgorithms/UCSUpdateAlgorithm" runTimeClassModel="UCSUpdateAlgorithm(DDDDIDLgr.auth.ee.lcs.geneticalgorithm.IGeneticAlgorithmStrategy;IDLgr.auth.ee.lcs.AbstractLearningClassifierSystem;),getData(Lgr.auth.ee.lcs.classifiers.Classifier;),createStateClassifierObject(),getComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;I),gr.auth.ee.lcs.data.updateAlgorithms.UCSUpdateAlgorithm.UCSClassifierData,cover(Lgr.auth.ee.lcs.classifiers.ClassifierSet;I),updateSet(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ),setComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;ID),performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="162,144">
+      <children xsi:type="editmodel:MethodEditModel" name="UCSUpdateAlgorithm" id="gr.auth.ee.lcs.data.updateAlgorithms/UCSUpdateAlgorithm#UCSUpdateAlgorithm(DDDDIDLgr.auth.ee.lcs.geneticalgorithm.IGeneticAlgorithmStrategy;IDLgr.auth.ee.lcs.AbstractLearningClassifierSystem;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cover" id="gr.auth.ee.lcs.data.updateAlgorithms/UCSUpdateAlgorithm#cover(Lgr.auth.ee.lcs.classifiers.ClassifierSet;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createStateClassifierObject" id="gr.auth.ee.lcs.data.updateAlgorithms/UCSUpdateAlgorithm#createStateClassifierObject()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getComparisonValue" id="gr.auth.ee.lcs.data.updateAlgorithms/UCSUpdateAlgorithm#getComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getData" id="gr.auth.ee.lcs.data.updateAlgorithms/UCSUpdateAlgorithm#getData(Lgr.auth.ee.lcs.classifiers.Classifier;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="performUpdate" id="gr.auth.ee.lcs.data.updateAlgorithms/UCSUpdateAlgorithm#performUpdate(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setComparisonValue" id="gr.auth.ee.lcs.data.updateAlgorithms/UCSUpdateAlgorithm#setComparisonValue(Lgr.auth.ee.lcs.classifiers.Classifier;ID)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateSet" id="gr.auth.ee.lcs.data.updateAlgorithms/UCSUpdateAlgorithm#updateSet(Lgr.auth.ee.lcs.classifiers.ClassifierSet;Lgr.auth.ee.lcs.classifiers.ClassifierSet;IZ)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="156,31">
+      <children xsi:type="editmodel:ClassEditModel" name="UCSClassifierData" size="156,29" id="gr.auth.ee.lcs.data.updateAlgorithms/UCSUpdateAlgorithm$UCSClassifierData" runTimeClassModel="">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+    </children>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/UCSUpdateAlgorithm@" source="//@children.19" target="//@children.1" targetEnd="//@children.19/@sourceConnections.0/@children.2" label="//@children.19/@sourceConnections.0/@children.0" sourceEnd="//@children.19/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="185,238" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/UCSUpdateAlgorithm@|gr.auth.ee.lcs.data.updateAlgorithms/UCSUpdateAlgorithm#" attachSource="true" roleLabel="//@children.19/@sourceConnections.0/@children.1/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" location="702,546" size="0,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="myLcs" location="10,0" id="gr.auth.ee.lcs/AbstractLearningClassifierSystem@myLcs+gr.auth.ee.lcs.data.updateAlgorithms/UCSUpdateAlgorithm@|gr.auth.ee.lcs/AbstractLearningClassifierSystem#myLcs" multiplicityLabel="//@children.19/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.19/@sourceConnections.0/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - myLcs" location="1206,1027" size="42,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1186,1027" size="6,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="gr.auth.ee.lcs.data/AbstractUpdateStrategy&lt;-gr.auth.ee.lcs.data.updateAlgorithms/UCSUpdateAlgorithm" source="//@children.19" target="//@children.13/@sourceConnections.1" targetEnd="//@children.19/@sourceConnections.1/@children.1" sourceEnd="//@children.19/@sourceConnections.1/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="92,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=3;Product=eUML2" autoName="false"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>
