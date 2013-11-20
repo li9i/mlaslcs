@@ -62,22 +62,16 @@ public class ArffTrainTestLoader {
 
 	/**
 	 * A test set.
-	 * @uml.property  name="testSet"
-	 * @uml.associationEnd  
 	 */
 	public Instances testSet;
 
 	/**
 	 * The current trainSet.
-	 * @uml.property  name="trainSet"
-	 * @uml.associationEnd  
 	 */
 	public Instances trainSet;
 
 	/**
 	 * The LCS instance.
-	 * @uml.property  name="myLcs"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	private final AbstractLearningClassifierSystem myLcs;
 
@@ -113,22 +107,14 @@ public class ArffTrainTestLoader {
 
 		myLcs.train();
 		
-		
 		/*
-		 * oi duo parakato pinakes exoun ton idio ari9mo 9eseon (12). ka9e evaluation name(names[i]) antistoixei, me seira, se ena evaluation, evals[i]
+		 * The following two arrays have the same number of positions (12).
+		 * Each evaluation name (names[i]) corresponds, in sequence, to an evaluation, evals[i] 
 		 * */
 		final double[] evals = myLcs.getEvaluations(testSet);
 		final String[] names = myLcs.getEvaluationNames();
 		
 		System.out.println(myLcs.rulePopulation);
-
-		// added the following 3 lines instead of the above statement
-		// before the population is printed in the console, it is sorted by (total) fitness
-/*		final SortPopulationControl srt = new SortPopulationControl(AbstractUpdateStrategy.COMPARISON_MODE_EXPLOITATION);
-		srt.controlPopulation(myLcs.rulePopulation);*/
-		
-		
-		//myLcs.rulePopulation.print();
 
 
 		final String classificationFile = SettingsLoader.getStringSetting("testClassificationFile", "");
@@ -203,7 +189,6 @@ public class ArffTrainTestLoader {
 			set.setClassIndex(set.numAttributes() - 1);
 		}
 		set.randomize(new Random());
-		// set.stratify(10);
 
 		if (generateTestSet) {
 			final int numOfFolds = (int) SettingsLoader.getNumericSetting("NumberOfFolds", 10);
@@ -238,10 +223,9 @@ public class ArffTrainTestLoader {
 		if (set.classIndex() < 0)
 			set.setClassIndex(set.numAttributes() - 1);
 		set.randomize(new Random());
-		// set.stratify(10);
 		trainSet = set;
 
-		myLcs.instances = InstancesUtility.convertIntancesToDouble(trainSet); // to trainSet se double pinaka
+		myLcs.instances = InstancesUtility.convertIntancesToDouble(trainSet); 
 		myLcs.labelCardinality = InstancesUtility.getLabelCardinality(trainSet);
 		testSet = InstancesUtility.openInstance(testFile);
 
@@ -255,8 +239,5 @@ public class ArffTrainTestLoader {
 
 	}
 	
-	
-	
-
 
 }

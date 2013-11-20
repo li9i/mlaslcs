@@ -126,19 +126,11 @@ public class FoldEvaluator {
 				
 				System.out.println("Training Fold " + i);
 				
-				//loadMlStratifiedFold(i, foldLCS);
 				try {
 					loadStaticMlStratifiedFold(i, foldLCS);
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
-				
-				//loadFold(i, foldLCS); // mou dinei to trainSet kai to testSet
-				
-				/*
-				  	System.out.println(testSet);
-					System.out.println(trainSet);
-				*/
 				
 				foldLCS.registerMultilabelHooks(InstancesUtility.convertIntancesToDouble(testSet), numberOfLabels);
 				
@@ -180,15 +172,6 @@ public class FoldEvaluator {
 			}
 			
 			
-
-			// Determine better repetition among numOfFoldRepetitions (not number of folds, mind you)
-/*			int best = 0;
-			for (int j = 1; j < numOfFoldRepetitions; j++) {
-				if (results[j][metricOptimizationIndex] > results[best][metricOptimizationIndex])
-					best = j;
-			}*/
-			
-			
 			// Determine better repetition among numOfFoldRepetitions (not number of folds, mind you) per evaluation method
 			int best = 0;
 			for (int j = 1; j < numOfFoldRepetitions; j++) {
@@ -213,14 +196,7 @@ public class FoldEvaluator {
 			}
 
 			bestResults = results[best];
-			
-			
-			// Gather to fold stats
-			//gatherResults(results[best], i);  // epistrefei pinaka. 
-											  // se ka9e 9esi exei to apotelesma gia ti metriki pou xrisimopoioume.
-											  // ka9e 9esi tou kai ena fold.
-
-			
+					
 			gatherResults(pcutResults, ivalResults, bestResults, i);
 			
 
@@ -249,7 +225,7 @@ public class FoldEvaluator {
 			trainSet = instances.trainCV(numOfFolds, foldNumber);
 			lcs.instances = InstancesUtility.convertIntancesToDouble(trainSet);
 			testSet = instances.testCV(numOfFolds, foldNumber);
-			lcs.labelCardinality = InstancesUtility.getLabelCardinality(trainSet); // ?? really ?? i forgot THIS ??
+			lcs.labelCardinality = InstancesUtility.getLabelCardinality(trainSet);
 		}
 		
 		/**
@@ -266,8 +242,6 @@ public class FoldEvaluator {
 			Instances trainInstances = new Instances (instances, 0);
 			Instances testInstances = new Instances (instances, 0);
 			
-			// to mege9os tou testInstances vector einai diplasio apo ton ari9mo ton instances logo tou pos douleuei i me9odos add (int, instance)
-			// opote sto telos einai gemato me adeious pinakes logo placeholding 
 			int numberOfPartitions = InstancesUtility.testInstances.size() / 2;
 			
 			for (int i = 0; i < numberOfPartitions; i++) {
@@ -301,7 +275,14 @@ public class FoldEvaluator {
 		}
 		
 		
-		
+		/**
+		 * Creates the folds when using n-cross validation and stores them in a directory from where they will be used in the future.
+		 * Each run tests whether this directory exists or not. If yes, it exits.
+		 * 
+		 * This method is used to provide concrete folds that do not change over time,
+		 * in order to attain a firm base for analysing the behaviour of the LCS.
+		 * 
+		 * */
 		private void createStaticFolds() {
 			
 			// create directory dataset.arff without the .arff
@@ -327,7 +308,6 @@ public class FoldEvaluator {
 						}
 						
 					}
-					
 					
 					trainInstances.randomize(new Random());
 					testInstances.randomize(new Random());
@@ -359,7 +339,9 @@ public class FoldEvaluator {
 		}
 		
 		
-		
+		/**
+		 * Load the stored sub-datasets.
+		 */
 		private void loadStaticMlStratifiedFold(int foldNumber, AbstractLearningClassifierSystem lcs) throws IOException {
 			
 			final String staticFoldsDirectory = file.substring(0, (file.length() - 5)); // 5 = . a r f f
@@ -369,11 +351,7 @@ public class FoldEvaluator {
 
 
 			lcs.instances = InstancesUtility.convertIntancesToDouble(trainSet);
-			lcs.testInstances = InstancesUtility.convertIntancesToDouble(testSet);
-
-			
-			//testSet = testInstances;
-			
+			lcs.testInstances = InstancesUtility.convertIntancesToDouble(testSet);	
 			
 			lcs.trainSet = trainSet;
 			lcs.testSet = testSet;
@@ -387,27 +365,21 @@ public class FoldEvaluator {
 
 	/**
 	 * The number of folds to separate the dataset.
-	 * @uml.property  name="numOfFolds"
 	 */
 	private final int numOfFolds;
 
 	/**
 	 * The LCS prototype to be evaluated.
-	 * @uml.property  name="prototype"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	private final AbstractLearningClassifierSystem prototype;
 
 	/**
 	 * The instances that the LCS will be evaluated on.
-	 * @uml.property  name="instances"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	private final Instances instances;
 
 	/**
 	 * The evaluations.
-	 * @uml.property  name="evals" multiplicity="(0 -1)" dimension="2"
 	 */
 	private double[][] evals;
 	
@@ -419,13 +391,11 @@ public class FoldEvaluator {
 
 	/**
 	 * The runs to run.
-	 * @uml.property  name="runs"
 	 */
 	final int runs;
 
 	/**
 	 * An executor service containing a thread pool to run folds
-	 * @uml.property  name="threadPool"
 	 */
 	final ExecutorService threadPool;
 
@@ -491,22 +461,6 @@ public class FoldEvaluator {
 	 *            the results double array
 	 * @return the mean for each row
 	 */
-/*	public double[] calcMean(double[][] results) {
-		
-		final double[] means = new double[results[0].length];
-		
-		for (int i = 0; i < means.length; i++) {
-			double sum = 0;
-			
-			for (int j = 0; j < results.length; j++) {
-				sum += results[j][i];
-			}
-			
-			means[i] = (sum) / (results.length);
-		}
-		return means;
-	}*/
-
 	
 	public double[] calcMean(double[][] pcutResults, 
 							 double[][] ivalResults, 
@@ -564,7 +518,7 @@ public class FoldEvaluator {
 		final int metricOptimizationIndex = (int) SettingsLoader.getNumericSetting("metricOptimizationIndex", 0);
 		final int numOfFoldRepetitions = (int) SettingsLoader.getNumericSetting("numOfFoldRepetitions", 3); // repeat process per fold
 
-		// kalei ti run() {runs} fores
+		// calls run() {runs} times
 		for (int currentRun = 0; currentRun < runs; currentRun++) { // fold execution resumption
 			//if (currentRun > 0) {
 				Runnable foldEval = new FoldRunnable(metricOptimizationIndex, currentRun, numOfFoldRepetitions);
@@ -599,16 +553,6 @@ public class FoldEvaluator {
 	 * @return the double containing all evaluations (up to the point being
 	 *         added)
 	 */
-/*	public synchronized double[][] gatherResults(double[] results, int fold) {
-		if (evals == null) {
-			evals = new double[runs][results.length];
-		}
-
-		evals[fold] = results;
-
-		return evals;
-
-	}*/
 	
 	public synchronized void gatherResults(double[] pcutResults, 
 												 double[] ivalResults, 
@@ -644,7 +588,7 @@ public class FoldEvaluator {
 		}  
 	}
 	
-	//grapse ta telika apotelesmata sto arxeio hookedMetrics/finals.txt
+	//write final results in hookedMetrics/finals.txt
 	public void storeFinalEvaluations (double[] means) {
 		final String[] names = prototype.getEvaluationNames();
 

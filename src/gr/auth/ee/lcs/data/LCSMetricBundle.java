@@ -38,15 +38,11 @@ public class LCSMetricBundle {
 
 	/**
 	 * A vector containing the metrics.
-	 * @uml.property  name="metrics"
-	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="gr.auth.ee.lcs.data.ILCSMetric"
 	 */
 	private final Vector<ILCSMetric> metrics;
 
 	/**
 	 * The lcs to be used for the metrics.
-	 * @uml.property  name="myLcs"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	private final AbstractLearningClassifierSystem myLcs;
 

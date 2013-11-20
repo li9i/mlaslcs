@@ -33,7 +33,6 @@ package gr.auth.ee.lcs.calibration;
 public class ProportionalCut {
 	/**
 	 * The threshold.
-	 * @uml.property  name="threshold"
 	 */
 	private float threshold;
 

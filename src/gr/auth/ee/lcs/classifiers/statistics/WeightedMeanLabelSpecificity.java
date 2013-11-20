@@ -38,13 +38,11 @@ public class WeightedMeanLabelSpecificity implements ILCSMetric {
 
 	/**
 	 * The number of labels in the problem.
-	 * @uml.property  name="numOfLabels"
 	 */
 	private final int numOfLabels;
 
 	/**
 	 * The comparison mode used for getting the fitness values.
-	 * @uml.property  name="comparisonMode"
 	 */
 	private final int comparisonMode;
 

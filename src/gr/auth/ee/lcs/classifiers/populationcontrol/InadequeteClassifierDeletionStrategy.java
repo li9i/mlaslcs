@@ -43,10 +43,6 @@ public class InadequeteClassifierDeletionStrategy implements
 	
 	public int execs;
 
-	/**
-	 * @uml.property  name="myLcs"
-	 * @uml.associationEnd  multiplicity="(1 1)"
-	 */
 	final AbstractLearningClassifierSystem myLcs;
 
 	/**
@@ -69,7 +65,6 @@ public class InadequeteClassifierDeletionStrategy implements
 	 * (gr.auth.ee.lcs.classifiers.ClassifierSet)
 	 */
 	@Override
-	/*   never called   */
 	public final void controlPopulation(final ClassifierSet aSet) {
 		final int setSize = aSet.getNumberOfMacroclassifiers();
 		
@@ -78,10 +73,7 @@ public class InadequeteClassifierDeletionStrategy implements
 			final boolean zeroCoverage = (aClassifier.getCheckedInstances() == myLcs.instances.length)
 					&& (aClassifier.getCoverage() == 0);
 			if (zeroCoverage) {
-				//aSet.deleteClassifier(i);	
-				System.out.print("test");
-				aSet.deleteMacroclassifier(i); // afou telika exei zero coverage den exei noima na ton kratame
-				//myLcs.blacklist.addClassifier(new Macroclassifier(aClassifier, 1), true);
+				aSet.deleteMacroclassifier(i); 
 			}
 		}
 	}

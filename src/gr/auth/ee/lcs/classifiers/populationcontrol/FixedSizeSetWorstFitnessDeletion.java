@@ -83,7 +83,7 @@ public class FixedSizeSetWorstFitnessDeletion implements
 											 final IRuleSelector selector) {
 		
 		this.populationSize = maxPopulationSize;
-		mySelector = selector; // roulette wheel gia ton GMlASLCS3
+		mySelector = selector; // roulette wheel for GMlASLCS3
 		zeroCoverageRemoval = new InadequeteClassifierDeletionStrategy(lcs);
 		myLcs = lcs;
 		updateStrategy = lcs.getUpdateStrategy();
@@ -93,21 +93,11 @@ public class FixedSizeSetWorstFitnessDeletion implements
 	 * @param aSet
 	 *            the set to control
 	 * @see gr.auth.ee.lcs.classifiers.IPopulationControlStrategy#controlPopulation(gr.auth.ee.lcs.classifiers.ClassifierSet)
-	 * 
-	 * 
-	 * ekteleitai otan kano addClassifier ston population. diladi otan kano cover i ga. (sto cover einai me false to thorough)
-	 * diagrapse prota autous pou exoun zero coverage. 
-	 * sti sunexeia, an akoma eimaste pano apo to ano orio tou pli9ismou, diagrapse me rouleta osous kanones prepei oste na pesoume kato apo to ano orio
 	 */
 	@Override
 	public final void controlPopulation(final ClassifierSet aSet) {
 
 		final ClassifierSet toBeDeleted = new ClassifierSet(null);
-		
-//		not necessary anymore. deletion of zero coverage rules occurs right after the formation of the match set
- 
-/*		if (aSet.getTotalNumerosity() > populationSize) 
-			zeroCoverageRemoval.controlPopulation(aSet);*/
 
 		numberOfDeletions = 0;
 		deletionTime = 0;
@@ -116,12 +106,10 @@ public class FixedSizeSetWorstFitnessDeletion implements
 			long time1 = - System.currentTimeMillis();
 			
 			numberOfDeletions++;
-			// se auto to simeio upologizei maxPopulation + 1 pi9anotites, ka9os gia na kli9ei i controlPopulation, prepei na exei uperbei to ano orio tou pli9usmou
 			
-			//if (numberOfDeletions == 1) 
 			updateStrategy.computeDeletionProbabilities(aSet);
 			
-			mySelector.select(1, aSet, toBeDeleted); // me rouleta
+			mySelector.select(1, aSet, toBeDeleted); 
 			Classifier cl = toBeDeleted.getClassifier(0);
 
 			
@@ -155,11 +143,6 @@ public class FixedSizeSetWorstFitnessDeletion implements
 
 		final ClassifierSet toBeDeleted = new ClassifierSet(null);
 		
-//		not necessary anymore. deletion of zero coverage rules occurs right after the formation of the match set
- 
-/*		if (aSet.getTotalNumerosity() > populationSize) 
-			zeroCoverageRemoval.controlPopulation(aSet);*/
-
 		numberOfDeletions = 0;
 		deletionTime = 0;
 		
@@ -167,12 +150,10 @@ public class FixedSizeSetWorstFitnessDeletion implements
 			long time1 = - System.currentTimeMillis();
 			
 			numberOfDeletions++;
-			// se auto to simeio upologizei maxPopulation + 1 pi9anotites, ka9os gia na kli9ei i controlPopulation, prepei na exei uperbei to ano orio tou pli9usmou
-			
-			//if (numberOfDeletions == 1) 
+
 			updateStrategy.computeDeletionProbabilitiesSmp(aSet);
 			
-			mySelector.selectSmp2(1, aSet, toBeDeleted); // me rouleta			
+			mySelector.selectSmp2(1, aSet, toBeDeleted); 			
 			
 			Classifier cl = toBeDeleted.getClassifier(0);
 
@@ -214,28 +195,25 @@ public class FixedSizeSetWorstFitnessDeletion implements
 	
 	
 	/**
-	 * record the progress of the deletion process
+	 * Record the progress of the deletion process.
+	 * 
+	 * @param aSet
+	 *            the set to control
+	 * @see gr.auth.ee.lcs.classifiers.IPopulationControlStrategy#controlPopulation(gr.auth.ee.lcs.classifiers.ClassifierSet)
+	 * 
+	 * @param cl
+	 * 			  the classifier deleted
 	 * */
 	public void monitorDeletions(ClassifierSet aSet, Classifier cl) {
-		
-		//Macroclassifier macro = aSet.getActualMacroclassifier(cl);
-		
-		//double acc = cl.getComparisonValue(AbstractUpdateStrategy.COMPARISON_MODE_PURE_ACCURACY);
-		double acc = cl.getComparisonValue(AbstractUpdateStrategy.COMPARISON_MODE_EXPLORATION);
 
-		/*double relativeExperience = (double) cl.cummulativeInstanceCreated / 
-			(myLcs.getCummulativeCurrentInstanceIndex() == 0 ? 1 : myLcs.getCummulativeCurrentInstanceIndex());*/
+		double acc = cl.getComparisonValue(AbstractUpdateStrategy.COMPARISON_MODE_EXPLORATION);
 		
 		double qualityIndex = -0.1;
 		
 		if (cl.getClassifierOrigin() == Classifier.CLASSIFIER_ORIGIN_COVER|| cl.getClassifierOrigin() == Classifier.CLASSIFIER_ORIGIN_INIT) {
-			if (cl.objectiveCoverage > 0) // to cl.objectiveCoverage apokta timi otan gia proti fora o kanonas dei olo to dataset
-				qualityIndex =/* acc * relativeExperience * macro.numerosity*/ cl.objectiveCoverage;
-/*			else if (cl.objectiveCoverage == -1) { 
-				// osoi diagrafontai edo, den exoun dei olo to dataset oute mia fora.
-				qualityIndex = -0.1;
-			}*/
-			// den ginetai cl.objectiveCoverage == 0 giati 9a diagrafotan logo zero coverage
+			if (cl.objectiveCoverage > 0) 
+				qualityIndex = cl.objectiveCoverage;
+
 			myLcs.qualityIndexOfClassifiersCoveredDeleted.add((float) qualityIndex);
 			myLcs.qualityIndexOfClassifiersGaedDeleted.add((float) -0.2);
 			myLcs.originOfDeleted.add(0);
@@ -245,24 +223,17 @@ public class FixedSizeSetWorstFitnessDeletion implements
 		}
 		
 		else if (cl.getClassifierOrigin() == Classifier.CLASSIFIER_ORIGIN_GA) {
-			if (cl.objectiveCoverage > 0) // to cl.objectiveCoverage apokta timi otan gia proti fora o kanonas dei olo to dataset
-				qualityIndex = /*acc * relativeExperience * macro.numerosity*/ cl.objectiveCoverage;
-/*			else if (cl.objectiveCoverage == -1) { 
-				// osoi diagrafontai edo, den exoun dei olo to dataset oute mia fora.
-				qualityIndex = -0.1;
-			}*/
+			if (cl.objectiveCoverage > 0)
+				qualityIndex = cl.objectiveCoverage;
+
 			myLcs.qualityIndexOfClassifiersGaedDeleted.add((float) qualityIndex);
 			myLcs.qualityIndexOfClassifiersCoveredDeleted.add((float) -0.2);
 			myLcs.originOfDeleted.add(1);
 			myLcs.accuracyOfGaedDeletion.add((float) acc);
 			myLcs.accuracyOfCoveredDeletion.add((float) -0.1);
 
-
-			// den ginetai cl.objectiveCoverage == 0 giati 9a diagrafotan logo zero coverage
 		}
 
-		
-		
 		myLcs.qualityIndexOfDeleted.add((float) qualityIndex);
 		myLcs.accuracyOfDeleted.add((float) acc);
 		myLcs.iteration.add(myLcs.totalRepetition);

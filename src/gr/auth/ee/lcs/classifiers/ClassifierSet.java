@@ -75,8 +75,6 @@ public class ClassifierSet implements Serializable {
 
 	public int unmatched;
 	
-	//public ClassifierSet firstTimeSet;
-
 	
 	/**
 	 * Open a saved (and serialized) ClassifierSet.
@@ -145,7 +143,6 @@ public class ClassifierSet implements Serializable {
 
 	/**
 	 * The total numerosity of all classifiers in set.
-	 * @uml.property  name="totalNumerosity"
 	 */
 	public int totalNumerosity = 0;
 	
@@ -158,15 +155,11 @@ public class ClassifierSet implements Serializable {
 
 	/**
 	 * Macroclassifier vector.
-	 * @uml.property  name="myMacroclassifiers"
-	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="gr.auth.ee.lcs.classifiers.Macroclassifier"
 	 */
 	private final ArrayList<Macroclassifier> myMacroclassifiers;
 
 	/**
 	 * An interface for a strategy on deleting classifiers from the set. This attribute is transient and therefore not serializable.
-	 * @uml.property  name="myISizeControlStrategy"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	private transient IPopulationControlStrategy myISizeControlStrategy;
 	
@@ -230,11 +223,13 @@ public class ClassifierSet implements Serializable {
 
 
 		// Subsume if possible
-		if (thoroughAdd) { // if thoroughAdd = true, before adding the given macro to the population, check it against the whole population for subsumption
+		// if thoroughAdd = true, before adding the given macro to the population, 
+		// check it against the whole population for subsumption
+		if (thoroughAdd) { 
 			Vector<Integer> indicesVector    = new Vector<Integer>();
 			Vector<Float> 	fitnessVector    = new Vector<Float>();
 			Vector<Integer> experienceVector = new Vector<Integer>();
-			/* 0 gia generality, 1 gia equality */
+			/* 0 for generality, 1 for equality */
 			Vector<Integer> originVector = new Vector<Integer>();
 
 			
@@ -250,37 +245,18 @@ public class ClassifierSet implements Serializable {
 						originVector.add(0);
 						fitnessVector.add(myMacroclassifiers.get(i).numerosity * (float)theClassifier.getComparisonValue(AbstractUpdateStrategy.COMPARISON_MODE_EXPLORATION));
 						experienceVector.add(theClassifier.experience);
-						
-						
-						
-						/*// Subsume and control size...
-						myMacroclassifiers.elementAt(i).numerosity += numerosity;
-						myMacroclassifiers.elementAt(i).numberOfSubsumptions++;
-
-						if (myISizeControlStrategy != null) {
-							myISizeControlStrategy.controlPopulation(this);
-						}
-						return;*/
 					}
-				} else if (theClassifier.equals(aClassifier)) { // Or it can't
+				} 
+				else if (theClassifier.equals(aClassifier)) { 	// Or it can't
 																// subsume but
 																// it is equal
 					indicesVector.add(i);
 					originVector.add(1);
 					fitnessVector.add(myMacroclassifiers.get(i).numerosity * (float)theClassifier.getComparisonValue(AbstractUpdateStrategy.COMPARISON_MODE_EXPLORATION));
 					experienceVector.add(theClassifier.experience);
-					
-					
-					/*myMacroclassifiers.elementAt(i).numerosity += numerosity;
-					myMacroclassifiers.elementAt(i).numberOfSubsumptions++;
-
-					if (myISizeControlStrategy != null) {
-						myISizeControlStrategy.controlPopulation(this);
-					}
-					return;*/
 				}
 
-			} // kleinei to for gia ton ka9e macroclassifier
+			} 
 			
 			int howManyGenerals = 0;
 			int howManyEquals = 0;
@@ -345,22 +321,10 @@ public class ClassifierSet implements Serializable {
 				return;
 			}
 			
-		} // /thoroughadd
+		}
 		
 		subsumed = false;
 
-		/*
-		 * No matching or subsumable more general classifier found. Add and
-		 * control size...
-		 * 
-		 * pros9ese ton macroclassifier sto vector myMacroclassifiers.
-		 * sti sunexeia an exei oristei stratigiki diagrafis, ektelese tin.
-		 * an to numerocity ton macroclassifiers einai pano apo to populationSize arxise na diagrafeis
-		 * 
-		 * 
-		 * an borei na kanei subsume de 9a ektelesei tis parakato entoles (return statements pio pano)
-		 */
-		//System.out.print(".");
 		this.myMacroclassifiers.add(macro);
 		if (myISizeControlStrategy != null) {
 			myISizeControlStrategy.controlPopulation(this);
@@ -401,7 +365,9 @@ public final void addClassifierSmp(final Macroclassifier macro,
 
 		
 		// Subsume if possible
-		if (thoroughAdd) { // if thoroughAdd = true, before adding the given macro to the population, check it against the whole population for subsumption
+		// if thoroughAdd = true, before adding the given macro to the population, 
+		// check it against the whole population for subsumption
+		if (thoroughAdd) { 
 			
 			myMacroclassifiersSmp = myMacroclassifiers;	
 			classifierSmp = macro.myClassifier;
@@ -431,7 +397,7 @@ public final void addClassifierSmp(final Macroclassifier macro,
 								Vector<Integer> indicesList    = new Vector<Integer>();
 								Vector<Float> 	fitnessList    = new Vector<Float>();
 								Vector<Integer> experienceList = new Vector<Integer>();
-								/* 0 gia generality, 1 gia equality */
+								/* 0 for generality, 1 for equality */
 								Vector<Integer> originList = new Vector<Integer>();
 								
 								for (int i = first; i <= last; ++i) {
@@ -446,16 +412,16 @@ public final void addClassifierSmp(final Macroclassifier macro,
 											fitnessList.add(myMacroclassifiersSmp.get(i).numerosity * (float)theClassifier.getComparisonValue(AbstractUpdateStrategy.COMPARISON_MODE_EXPLORATION));
 											experienceList.add(theClassifier.experience);
 										}
-									} else if (theClassifier.equals(classifierSmp)) { // Or it can't
-																					 // subsume but
-																					// it is equal
+									} else if (theClassifier.equals(classifierSmp)) { 	// Or it can't
+																					 	// subsume but
+																						// it is equal
 										indicesList.add(i);
 										originList.add(1);
 										fitnessList.add(myMacroclassifiersSmp.get(i).numerosity * (float)theClassifier.getComparisonValue(AbstractUpdateStrategy.COMPARISON_MODE_EXPLORATION));
 										experienceList.add(theClassifier.experience);
 									}
 
-								} // kleinei to for gia ton ka9e macroclassifier
+								}
 								
 								int howManyGenerals = 0;
 								int howManyEquals = 0;
@@ -619,18 +585,6 @@ public final void addClassifierSmp(final Macroclassifier macro,
 			
 		}
 		
-		/*
-		 * No matching or subsumable more general classifier found. Add and
-		 * control size...
-		 * 
-		 * pros9ese ton macroclassifier sto vector myMacroclassifiers.
-		 * sti sunexeia an exei oristei stratigiki diagrafis, ektelese tin.
-		 * an to numerocity ton macroclassifiers einai pano apo to populationSize arxise na diagrafeis
-		 * 
-		 * 
-		 * an borei na kanei subsume de 9a ektelesei tis parakato entoles (return statements pio pano)
-		 */
-		//System.out.print(".");
 		this.myMacroclassifiers.add(macro);
 		if (myISizeControlStrategy != null) {
 			myISizeControlStrategy.controlPopulationSmp(this);
@@ -653,8 +607,7 @@ public final void addClassifierSmp(final Macroclassifier macro,
 		if (this.myMacroclassifiers.get(index).numerosity > 1) {
 			this.myMacroclassifiers.get(index).numerosity--; 
 		} else {
-			//this.myMacroclassifiers.elementAt(index).myClassifier.getLCS().blacklist.addClassifier(new Macroclassifier((this.myMacroclassifiers.elementAt(index).myClassifier), 1), true);
-			this.myMacroclassifiers.remove(index); // an to numerosity tou macroclassifier einai 1, diagrapse ton
+			this.myMacroclassifiers.remove(index); 
 		}
 	}
 
@@ -708,7 +661,7 @@ public final void addClassifierSmp(final Macroclassifier macro,
 	 */
 	public final ClassifierSet generateMatchSet(final int dataInstanceIndex) {
 		
-		final ClassifierSet matchSet = new ClassifierSet(null); // kataskeuazoume ena adeio arxika classifierSet
+		final ClassifierSet matchSet = new ClassifierSet(null); 
 		deleteIndices = new Vector <Integer>(); // vector to hold the indices of macroclassifiers that are to be deleted due to zero coverage
 		final int populationSize = this.getNumberOfMacroclassifiers();
 		
@@ -719,9 +672,6 @@ public final void addClassifierSmp(final Macroclassifier macro,
 		for (int i = 0; i < populationSize; i++) {
 			
 			// this = population (macroclassifiers)
-			// apo tous macroclassifiers pou sun9etoun ton plh9usmo pairno autous pou einai match me to vision vector
-			// getClassifier(i) <--- this.myMacroclassifiers.elementAt(index).myClassifier;
-			
 
 			if (this.getClassifier(i).isMatch(dataInstanceIndex)) { 
 				
@@ -738,7 +688,6 @@ public final void addClassifierSmp(final Macroclassifier macro,
 				this.getClassifier(i).objectiveCoverage = this.getClassifier(i).getCoverage();
 			
 			if(zeroCoverage) {
-				//this.deleteMacroclassifier(i);
 				deleteIndices.add(i); // add the index of the macroclassifier with zero coverage 
 				System.out.println("deleted due to 0-cov");
 			}
@@ -746,11 +695,7 @@ public final void addClassifierSmp(final Macroclassifier macro,
 		
 		for (int i = deleteIndices.size() - 1; i >= 0 ; i--) {
 			this.deleteMacroclassifier(deleteIndices.elementAt(i));
-		}
-		
-		//System.out.println(matchSet);
-
-		
+		}		
 		return matchSet;
 	}
 
@@ -928,7 +873,6 @@ public final void addClassifierSmp(final Macroclassifier macro,
 			this.deleteMacroclassifier(deleteIndices.elementAt(i));
 			zeroCoverageDeletions++;
 			zeroCoverageVector.add(zeroCoverageDeletions);
-			//System.out.println("deleted due to 0-cov");
 		}
 
 		firstTimeSetSmp = firstTimeSet;
@@ -1142,12 +1086,7 @@ public final void addClassifierSmp(final Macroclassifier macro,
 	 */
 	public final int getClassifierNumerosity(final Classifier aClassifier) {
 		for (int i = 0; i < myMacroclassifiers.size(); i++) {
-			if (myMacroclassifiers.get(i).myClassifier.getSerial() == aClassifier
-					.getSerial()) // ka9e (micro)classifier exei kai ena serial number. 
-								  // apo oti exo katalabei diaforetiko gia ka9e microclassifier, 
-								  // akoma kai gia autous tou idiou macroclassifier
-				//System.out.println("myClassifier" + myMacroclassifiers.elementAt(i).myClassifier.getSerial());
-				//System.out.println(aClassifier.getSerial());
+			if (myMacroclassifiers.get(i).myClassifier.getSerial() == aClassifier.getSerial()) 
 				return this.myMacroclassifiers.get(i).numerosity;
 		}
 		return 0;
@@ -1173,7 +1112,6 @@ public final void addClassifierSmp(final Macroclassifier macro,
 	 */
 	public final Macroclassifier getMacroclassifier(final int index) {
 		return new Macroclassifier(this.myMacroclassifiers.get(index));
-		//return this.myMacroclassifiers.elementAt(index);
 	}
 	
 	
@@ -1244,7 +1182,6 @@ public final void addClassifierSmp(final Macroclassifier macro,
 	/**
 	 * Returns the set's total numerosity (the total number of microclassifiers).
 	 * @return  the sets total numerosity
-	 * @uml.property  name="totalNumerosity"
 	 */
 	public final int getTotalNumerosity() {
 		return this.totalNumerosity;
@@ -1264,11 +1201,13 @@ public final void addClassifierSmp(final Macroclassifier macro,
 			  final boolean thoroughAdd) {
 		
 		// Subsume if possible
-		if (thoroughAdd) { // if thoroughAdd = true, before adding the given macro to the population, check it against the whole population for subsumption
+		// if thoroughAdd = true, before adding the given macro to the population, 
+		// check it against the whole population for subsumption
+		if (thoroughAdd) { 
 			Vector<Integer> indicesVector    = new Vector<Integer>();
 			Vector<Float> 	fitnessVector    = new Vector<Float>();
 			Vector<Integer> experienceVector = new Vector<Integer>();
-			/* 0 gia generality, 1 gia equality */
+			/* 0 for generality, 1 for equality */
 			Vector<Integer> originVector = new Vector<Integer>();
 
 			
@@ -1284,17 +1223,6 @@ public final void addClassifierSmp(final Macroclassifier macro,
 						originVector.add(0);
 						fitnessVector.add(myMacroclassifiers.get(i).numerosity * (float)theClassifier.getComparisonValue(AbstractUpdateStrategy.COMPARISON_MODE_EXPLORATION));
 						experienceVector.add(theClassifier.experience);
-						
-						
-						
-						/*// Subsume and control size...
-						myMacroclassifiers.elementAt(i).numerosity += numerosity;
-						myMacroclassifiers.elementAt(i).numberOfSubsumptions++;
-
-						if (myISizeControlStrategy != null) {
-							myISizeControlStrategy.controlPopulation(this);
-						}
-						return;*/
 					}
 				} else if (theClassifier.equals(aClassifier)) { // Or it can't
 																// subsume but
@@ -1303,18 +1231,9 @@ public final void addClassifierSmp(final Macroclassifier macro,
 					originVector.add(1);
 					fitnessVector.add(myMacroclassifiers.get(i).numerosity * (float)theClassifier.getComparisonValue(AbstractUpdateStrategy.COMPARISON_MODE_EXPLORATION));
 					experienceVector.add(theClassifier.experience);
-					
-					
-					/*myMacroclassifiers.elementAt(i).numerosity += numerosity;
-					myMacroclassifiers.elementAt(i).numberOfSubsumptions++;
-
-					if (myISizeControlStrategy != null) {
-						myISizeControlStrategy.controlPopulation(this);
-					}
-					return;*/
 				}
 
-			} // kleinei to for gia ton ka9e macroclassifier
+			} 
 			
 			int howManyGenerals = 0;
 			int howManyEquals = 0;
@@ -1375,7 +1294,7 @@ public final void addClassifierSmp(final Macroclassifier macro,
 				return toBeReturned;
 			}
 			
-		} // /thoroughadd
+		} 
 		
 		return -1;
 		
@@ -1390,7 +1309,9 @@ public final void addClassifierSmp(final Macroclassifier macro,
 					  									final ParallelTeam ptSubsume) {		
 
 		// Subsume if possible
-		if (thoroughAdd) { // if thoroughAdd = true, before adding the given macro to the population, check it against the whole population for subsumption
+		// if thoroughAdd = true, before adding the given macro to the population, 
+		// check it against the whole population for subsumption
+		if (thoroughAdd) { 
 			
 			myMacroclassifiersSmp = myMacroclassifiers;	
 			classifierSmp = macro.myClassifier;
@@ -1436,16 +1357,16 @@ public final void addClassifierSmp(final Macroclassifier macro,
 											fitnessVector.add(myMacroclassifiersSmp.get(i).numerosity * (float)theClassifier.getComparisonValue(AbstractUpdateStrategy.COMPARISON_MODE_EXPLORATION));
 											experienceVector.add(theClassifier.experience);
 										}
-									} else if (theClassifier.equals(classifierSmp)) { // Or it can't
-																					 // subsume but
-																					// it is equal
+									} else if (theClassifier.equals(classifierSmp)) { 	// Or it can't
+																					 	// subsume but
+																						// it is equal
 										indicesVector.add(i);
 										originVector.add(1);
 										fitnessVector.add(myMacroclassifiersSmp.get(i).numerosity * (float)theClassifier.getComparisonValue(AbstractUpdateStrategy.COMPARISON_MODE_EXPLORATION));
 										experienceVector.add(theClassifier.experience);
 									}
 
-								} // kleinei to for gia ton ka9e macroclassifier
+								} 
 								
 								int howManyGenerals = 0;
 								int howManyEquals = 0;
@@ -1669,7 +1590,7 @@ public final void addClassifierSmp(final Macroclassifier macro,
 
 	
 	@Override
-	public String toString() { // o buffer grafei sto arxeio population.txt. ta system.out stin konsola
+	public String toString() { // o buffer writes to population.txt. system.out -> console
 		final StringBuffer response = new StringBuffer();
 		
 		double numOfCover = 0;
@@ -1681,24 +1602,16 @@ public final void addClassifierSmp(final Macroclassifier macro,
 		int 	gaedTotalNumerosity = 0;
 		double meanAcc = 0;
 		
-		//int numberOfFinalClassifiersNotSeenTheWholePicture = 0;
-		//int numInstances = this.getClassifier(0).getLCS().instances.length;
-		
 		for (int i = 0; i < this.getNumberOfMacroclassifiers(); i++) {
-/*			myMacroclassifiers.elementAt(i).totalFitness = 
-				this.getClassifier(i).getComparisonValue(AbstractUpdateStrategy.COMPARISON_MODE_EXPLOITATION) * this.getMacroclassifier(i).numerosity;*/
+
 			double acc = this.getActualMacroclassifier(i).myClassifier.getComparisonValue(AbstractUpdateStrategy.COMPARISON_MODE_PURE_ACCURACY);
 			if (Double.isNaN(acc)) 
 				acc = 0;
 			
 			meanNs += this.getClassifier(i).getNs();
 			meanAcc += acc * this.getMacroclassifier(i).numerosity;
-/*			if (this.getClassifier(i).getCheckedInstances() < numInstances)
-				numberOfFinalClassifiersNotSeenTheWholePicture++;*/
+
 		}
-		
-/*		if (numberOfFinalClassifiersNotSeenTheWholePicture > 0)
-			System.out.println(numberOfFinalClassifiersNotSeenTheWholePicture + " rules not seen the entire dataset even once");*/
 		
 		if (this.getNumberOfMacroclassifiers() > 0) {
 			meanNs /= this.getNumberOfMacroclassifiers();
@@ -1734,9 +1647,7 @@ public final void addClassifierSmp(final Macroclassifier macro,
 					+ "|");
 			
 			response.append(myMacroclassifiers.get(i).myClassifier.getUpdateSpecificData());
-			
-			//response.append(" deleted by: " + myMacroclassifiers.elementAt(i).myClassifier.formulaForD);
-			
+						
 			if (myMacroclassifiers.get(i).myClassifier.getClassifierOrigin() == Classifier.CLASSIFIER_ORIGIN_COVER) {
 				numOfCover++;
 				coveredTotalNumerosity += myMacroclassifiers.get(i).numerosity;
@@ -1758,7 +1669,6 @@ public final void addClassifierSmp(final Macroclassifier macro,
 			
 			
 			numOfSubsumptions += myMacroclassifiers.get(i).numberOfSubsumptions;
-			//response.append(" created: " + myMacroclassifiers.elementAt(i).myClassifier.created + " ");
 			response.append("created:|" + myMacroclassifiers.get(i).myClassifier.cummulativeInstanceCreated + "|");
 			response.append("last in correctset:|" + myMacroclassifiers.get(i).myClassifier.timestamp + "|");
 			response.append("subsumptions:|" + myMacroclassifiers.get(i).numberOfSubsumptions + "|");
@@ -1784,11 +1694,7 @@ public final void addClassifierSmp(final Macroclassifier macro,
 		System.out.println("ga invocations: " 						+ this.totalGAInvocations);
 
 		System.out.println("Subsumptions: " + numOfSubsumptions + "\n");
-		//System.out.println("Total number of epochs:" + this.getClassifier(this.getNumberOfMacroclassifiers() - 1).timestamp);
 
-
-//		String foo = null;
-//		return foo;
 		return response.toString();
 	}
 

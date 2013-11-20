@@ -25,7 +25,6 @@ import gr.auth.ee.lcs.AbstractLearningClassifierSystem;
 import gr.auth.ee.lcs.calibration.InternalValidation;
 import gr.auth.ee.lcs.classifiers.ClassifierSet;
 import gr.auth.ee.lcs.classifiers.populationcontrol.FixedSizeSetWorstFitnessDeletion;
-import gr.auth.ee.lcs.classifiers.populationcontrol.LowestFitnessRemoval;
 import gr.auth.ee.lcs.classifiers.statistics.MeanCoverageStatistic;
 import gr.auth.ee.lcs.data.AbstractUpdateStrategy;
 import gr.auth.ee.lcs.data.ILCSMetric;

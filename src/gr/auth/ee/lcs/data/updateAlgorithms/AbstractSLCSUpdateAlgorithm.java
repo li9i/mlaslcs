@@ -83,33 +83,26 @@ public abstract class AbstractSLCSUpdateAlgorithm extends
 
 	/**
 	 * Genetic Algorithm.
-	 * @uml.property  name="ga"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	public IGeneticAlgorithmStrategy ga;
 
 	/**
 	 * A double indicating the probability that the GA will run on the matchSet (and not on the correct set).
-	 * @uml.property  name="matchSetRunProbability"
 	 */
 	private final double matchSetRunProbability;
 
 	/**
 	 * The fitness threshold for subsumption.
-	 * @uml.property  name="subsumptionFitnessThreshold"
 	 */
 	private final double subsumptionFitnessThreshold;
 
 	/**
 	 * The LCS instance being used.
-	 * @uml.property  name="myLCS"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	private final AbstractLearningClassifierSystem myLCS;
 
 	/**
 	 * The experience threshold for subsumption.
-	 * @uml.property  name="subsumptionExperienceThreshold"
 	 */
 	private final int subsumptionExperienceThreshold;
 
@@ -147,18 +140,7 @@ public abstract class AbstractSLCSUpdateAlgorithm extends
 	 */
 	@Override
 	public final void cover(final ClassifierSet population, final int instanceIndex) {
-		System.out.println("covering");
-		
-		/*
-		 * an to transformBridge einai simpleBooleanRepresentation tote olo to xromosoma einai gemato 0 i 1
-		 * kai exei mikos 2k+1, k E Z, giati ka9e (boolean) attribute exei apo brosta ena psifio energopoiisis (2k)
-		 * kai sto telos bainei to boolean label (+1) gia to opoio apofasizo randomly an 9a einai 0 i 1.
-		 * 
-		 * an omos to transformBridge einai complexRepresentation tote einai pio sun9eta ta pragmata.
-		 * 9a prepei gia ka9e attribute na kanei parei tin timi tou attribute tou visionVector kai na kanei
-		 * me kapoio tropo randomize to action.
-		 * */
-		
+		System.out.println("covering");		
 		final Classifier coveringClassifier = myLCS
 				.getClassifierTransformBridge().createRandomCoveringClassifier(myLCS.instances[instanceIndex]);
 		
@@ -224,10 +206,10 @@ public abstract class AbstractSLCSUpdateAlgorithm extends
 		
 		for (int i = 0; i < matchSetSize; i++) {
 			
-			Classifier cl = matchSet.getClassifier(i); // epistrefei classifier (duh!)
-			SLCSClassifierData data = ((SLCSClassifierData) cl.getUpdateDataObject()); // cl.DataObject einai serializable kai to kanei cast se SLCSClassifierData
+			Classifier cl = matchSet.getClassifier(i); 
+			SLCSClassifierData data = ((SLCSClassifierData) cl.getUpdateDataObject()); 
 			
-			if (correctSet.getClassifierNumerosity(cl) > 0) { // auti ti grammi prose9esa
+			if (correctSet.getClassifierNumerosity(cl) > 0) { 
 				data.ns = ((data.msa * data.ns) + correctSetNumerosity) / (data.msa + 1); }
 			
 			data.msa++;

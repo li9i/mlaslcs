@@ -43,7 +43,6 @@ public class SortPopulationControl implements IPopulationControlStrategy {
 
 	/**
 	 * The comparison mode to be used for sorting.
-	 * @uml.property  name="comparisonMode"
 	 */
 	private final int comparisonMode;
 
@@ -63,7 +62,6 @@ public class SortPopulationControl implements IPopulationControlStrategy {
 		final Macroclassifier[] list = new Macroclassifier[aSet.getNumberOfMacroclassifiers()];
 
 		// Copy Macroclassifiers to list. 
-		// to list stin ousia einai to classifierSet (px matchSet) opos itan ti stigmi pou kli9ike i sunartisi.
 		for (int i = 0; i < list.length; i++) {
 			list[i] = aSet.getMacroclassifier(i);
 		}
@@ -114,14 +112,11 @@ public class SortPopulationControl implements IPopulationControlStrategy {
 
 		};
 		
-		/*
-		 * sortare ton pinaka list me basi ti logiki taksinomisis comp
-		 * */
+
 		Arrays.sort(list, comp);
 
-		aSet.removeAllMacroclassifiers(); // ka9arizei olo to classifierSet oste na to ksanagemisei (kato) me tous
-										  // sortarismenous macroclassifiers
-
+		aSet.removeAllMacroclassifiers(); 
+		
 		for (int i = 0; i < list.length; i++) {
 			aSet.addClassifier(list[i], false);
 		}

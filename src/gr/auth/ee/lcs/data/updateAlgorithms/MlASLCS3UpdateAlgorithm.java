@@ -393,26 +393,7 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 		
 		numOfProcessors = runtime.availableProcessors();  
 		
-//		Runtime runtime = Runtime.getRuntime();		
-//		int numOfProcessors = runtime.availableProcessors();		
-//		int mod = numberOfLabels%numOfProcessors;		
-//		int div = numberOfLabels/numOfProcessors;		
-//		for ( int i = 0; i < numOfProcessors; i++ )
-//		{
-//			firstToGenerate.add(i*div);
-//			lastToGenerate.add((i+1)*div-1);
-//		}
-//		for ( int i = 0 ; i < mod ; i++ )
-//		{
-//			lastToGenerate.set(i,lastToGenerate.elementAt(i)+1);
-//			lastToGenerate.set(i+1, lastToGenerate.elementAt(i+1)+1);
-//			firstToGenerate.set(i+1, firstToGenerate.elementAt(i+1)+1);			
-//		}		
-		
-//		for ( int i = 0 ; i < firstToGenerate.size() ; i++ )
-//		{
-//			System.out.println(firstToGenerate.elementAt(i)+" "+lastToGenerate.elementAt(i));
-//		}
+
 		
 		/*DELETION_MODE = (int) SettingsLoader.getNumericSetting("DELETION_MODE", 0);
 		FITNESS_MODE = (int) SettingsLoader.getNumericSetting("FITNESS_MODE", 0);
@@ -465,32 +446,10 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 		else if (DELETION_MODE == DELETION_MODE_MILTOS) {
 
 			// miltos original
-			data.d = 1 / (data.fitness * ((cl.myClassifier.experience < THETA_DEL) ? 100.
-						: Math.exp(-data.ns  + 1)) );
+			data.d = 1 / (data.fitness * ((cl.myClassifier.experience < THETA_DEL) ? 100. : Math.exp(-data.ns  + 1)) );
 			
 			cl.myClassifier.formulaForD = (cl.myClassifier.experience < THETA_DEL) ? 1 : 0;
-			
-			
-/*				if (cl.myClassifier.experience > THETA_DEL && (data.fitness < DELTA * meanPopulationFitness)) 
-				data.d = Math.exp(data.ns * meanPopulationFitness / data.fitness);
-			else
-				data.d = Math.exp(data.ns);
-
-			data.d /= Math.exp(100);*/
-			
-/*				double acc = data.tp / data.msa;
-		
-			
-			if (cl.myClassifier.experience < THETA_DEL) 
-				data.d = 0;//1 / (100 * (Double.isNaN(data.fitness) ? 1 : data.fitness)); // protect the new classifiers
-			
-			else if (acc >= ACC_0 * (1 - DELTA)) 
-				data.d = Math.exp(data.ns / data.fitness * DELTA + 1);
-			
-			else 
-				data.d = Math.exp(data.ns / data.fitness + 1);
-				//data.d = Math.pow(data.ns * DELTA, data.ns + 1);
-*/			}
+		}
 		
 	}
 	
@@ -539,20 +498,6 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 	
 	@Override
 	public final void computeDeletionProbabilitiesSmp(ClassifierSet aSet) {
-
-		
-//		final int numOfMacroclassifiers = aSet.getNumberOfMacroclassifiers();
-		
-//		// calculate the mean fitness of the population, used in the deletion mechanism
-//		double fitnessSum = 0;
-//		double meanPopulationFitness = 0;
-//		
-//		for (int j = 0; j < numOfMacroclassifiers; j++) {
-//			fitnessSum += aSet.getClassifierNumerosity(j)
-//					* aSet.getClassifier(j).getComparisonValue(COMPARISON_MODE_EXPLORATION); 
-//		}
-//
-//		meanPopulationFitness = (double) (fitnessSum / aSet.getTotalNumerosity());
 		
 		aSetSmp = aSet;
 		
@@ -1143,7 +1088,7 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 			}
 			
 			 relativeAccuracy += cl.numerosity * dataArray[l].k;
-		} // kleinei to for gia ka9e macroclassifier
+		} 
 		
 		if (relativeAccuracy == 0) relativeAccuracy = 1;
 
@@ -1173,27 +1118,12 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 
 		// Create all label correct sets
 		final ClassifierSet[] labelCorrectSets = new ClassifierSet[numberOfLabels];
-		
-/*		System.out.println("matchset: ");
-		System.out.println(matchSet);*/
+
 		
 		generateCorrectSetTime = -System.currentTimeMillis(); 
 		
-		for (int i = 0; i < numberOfLabels; i++) { // gia ka9e label parago to correctSet pou antistoixei se auto
-			
-			labelCorrectSets[i] = generateLabelCorrectSet(matchSet, instanceIndex, i); // periexei tous kanones pou apofasizoun gia to label 9etika.
-			
-/*			System.out.println("label: " + i);
-			System.out.print("instance: ");
-			for (int k = 0; k < myLcs.instances[0].length / 2; k++) {
-				System.out.print((int)myLcs.instances[instanceIndex][k]);
-			}
-			System.out.print("=>");
-			for (int k = myLcs.instances[0].length / 2; k < myLcs.instances[0].length; k++) {
-				System.out.print((int)myLcs.instances[instanceIndex][k]);
-			}
-			System.out.println(labelCorrectSets[i]);*/
-		
+		for (int i = 0; i < numberOfLabels; i++) {
+			labelCorrectSets[i] = generateLabelCorrectSet(matchSet, instanceIndex, i); 
 		}		
 		
 		generateCorrectSetTime += System.currentTimeMillis();
@@ -1205,23 +1135,6 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 		}
 		
 		myLcs.meanCorrectSetNumerosity = CorrectSetsPopulation / numberOfLabels;
-
-		
-/*		for (int i = 0; i < numberOfLabels; i++) {
-			int numberOfRulesThatDontCare = 0;
-			for (int j = 0; j < labelCorrectSets[i].getNumberOfMacroclassifiers(); j++) {
-				
-				final Macroclassifier cl = matchSet.getMacroclassifier(i);
-				final float classificationAbility = cl.myClassifier.classifyLabelCorrectly(instanceIndex, i);
-				if (classificationAbility == 0)
-					numberOfRulesThatDontCare++;
-				
-			}
-			
-			if (numberOfRulesThatDontCare == labelCorrectSets[i].getNumberOfMacroclassifiers())
-				System.out.println("all dont care");
-		}*/
-		
 		
 		final int matchSetSize = matchSet.getNumberOfMacroclassifiers();
 
@@ -1229,19 +1142,19 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 		
 		if (FITNESS_MODE == FITNESS_MODE_SIMPLE || FITNESS_MODE == FITNESS_MODE_COMPLEX) {
 			// For each classifier in the matchset
-			for (int i = 0; i < matchSetSize; i++) { // gia ka9e macroclassifier
+			for (int i = 0; i < matchSetSize; i++) { 
 
-				final Macroclassifier cl = matchSet.getMacroclassifier(i); // getMacroclassifier => fernei to copy, oxi ton idio ton macroclassifier
+				final Macroclassifier cl = matchSet.getMacroclassifier(i);
 				
 				int minCurrentNs = Integer.MAX_VALUE;
 				final MlASLCSClassifierData data = (MlASLCSClassifierData) cl.myClassifier.getUpdateDataObject();
 	
 				for (int l = 0; l < numberOfLabels; l++) {
-					// Get classification ability for label l. an anikei sto labelCorrectSet me alla logia.
+					// Get classification ability for label l.
 					final float classificationAbility = cl.myClassifier.classifyLabelCorrectly(instanceIndex, l);
 					final int labelNs = labelCorrectSets[l].getTotalNumerosity();
 
-					if (classificationAbility == 0) {// an proekupse apo adiaforia
+					if (classificationAbility == 0) {
 						data.tp += OMEGA;
 						data.msa += PHI;
 						
@@ -1251,26 +1164,20 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 							}
 						}
 					}
-					else if (classificationAbility > 0) { // an proekupse apo 9etiki apofasi (yper)
+					else if (classificationAbility > 0) { 
 						data.tp += 1;
 						
-						if (minCurrentNs > labelNs) { // bainei edo mono otan exei prokupsei apo 9etiki apofasi
+						if (minCurrentNs > labelNs) { 
 							minCurrentNs = labelNs;
 						}
 					}
 					if (classificationAbility != 0) 
 						data.msa += 1;
-				} // kleinei to for gia ka9e label
+				} 
 	
 				cl.myClassifier.experience++;
-				
-	
-				
-				/* einai emmesos tropos na elegkso oti o kanonas anikei sto (se ena toulaxiston ennoo) labelCorrectSet
-				 * giati to minCurrentNs allazei mono an classificationAbility > 0 dld o kanonas apofasizei, den adiaforei
-				 */
+
 				if (minCurrentNs != Integer.MAX_VALUE) {
-					//data.ns += .1 * (minCurrentNs - data.ns);
 					data.ns += LEARNING_RATE * (minCurrentNs - data.ns);
 				}
 				
@@ -1282,14 +1189,10 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 					
 				case FITNESS_MODE_COMPLEX:
 					data.fitness += LEARNING_RATE * (Math.pow((data.tp) / (data.msa), n) - data.fitness);
-					
-/*					  data.fitness += LEARNING_RATE * (cl.numerosity * Math.pow((data.tp) / (data.msa), n) - data.fitness);
-					  data.fitness /= cl.numerosity;*/
-					 
 					break;
 				}
 				updateSubsumption(cl.myClassifier);
-			} // kleinei to for gia ka9e macroclassifier
+			} 
 		}
 		
 		
@@ -1317,7 +1220,6 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 				data.fitness = (fitnessSum / cl.numerosity) / numberOfLabels;
 
 				if (ns != Integer.MAX_VALUE) {
-					//data.ns += .1 * (minCurrentNs - data.ns);
 					data.ns += LEARNING_RATE * (ns - data.ns);
 				}
 					
@@ -1471,11 +1373,11 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 								final MlASLCSClassifierData data = (MlASLCSClassifierData) cl.myClassifier.getUpdateDataObject();
 								
 								for (int l = 0; l < numberOfLabelsSmp; l++) {
-									// Get classification ability for label l. an anikei sto labelCorrectSet me alla logia.
+									// Get classification ability for label l. 
 									final float classificationAbility = cl.myClassifier.classifyLabelCorrectly(instanceIndexSmp, l);
 									final int labelNs = labelCorrectSetsSmp[l].getTotalNumerosity();
 
-									if (classificationAbility == 0) {// an proekupse apo adiaforia
+									if (classificationAbility == 0) {
 										data.tp += OMEGA;
 										data.msa += PHI;
 										
@@ -1485,23 +1387,18 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 											}
 										}
 									}
-									else if (classificationAbility > 0) { // an proekupse apo 9etiki apofasi (yper)
+									else if (classificationAbility > 0) { 
 										data.tp += 1;
 										
-										if (minCurrentNs > labelNs) { // bainei edo mono otan exei prokupsei apo 9etiki apofasi
+										if (minCurrentNs > labelNs) {
 											minCurrentNs = labelNs;
 										}
 									}
 									if (classificationAbility != 0) data.msa += 1;
-								} // kleinei to for gia ka9e label
+								} 
 					
 								cl.myClassifier.experience++;
-								
-								/* einai emmesos tropos na elegkso oti o kanonas anikei sto (se ena toulaxiston ennoo) labelCorrectSet
-								 * giati to minCurrentNs allazei mono an classificationAbility > 0 dld o kanonas apofasizei, den adiaforei
-								 */
 								if (minCurrentNs != Integer.MAX_VALUE) {
-									//data.ns += .1 * (minCurrentNs - data.ns);
 									data.ns += LEARNING_RATE * (minCurrentNs - data.ns);
 								}
 								
@@ -1511,11 +1408,7 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 									data.fitness = Math.pow((data.tp) / (data.msa), n);
 									break;
 								case FITNESS_MODE_COMPLEX:
-									data.fitness += LEARNING_RATE * (Math.pow((data.tp) / (data.msa), n) - data.fitness);
-									
-				                     /*data.fitness += LEARNING_RATE * (cl.numerosity * Math.pow((data.tp) / (data.msa), n) - data.fitness);
-									  data.fitness /= cl.numerosity;*/
-									 
+									data.fitness += LEARNING_RATE * (Math.pow((data.tp) / (data.msa), n) - data.fitness);									 
 									break;
 								}
 								updateSubsumption(cl.myClassifier);
@@ -1565,7 +1458,6 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 									data.fitness = (fitnessSum / cl.numerosity) / numberOfLabels;
 
 									if (ns != Integer.MAX_VALUE) {
-										//data.ns += .1 * (minCurrentNs - data.ns);
 										data.ns += LEARNING_RATE * (ns - data.ns);
 									}
 										
@@ -1643,21 +1535,8 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 		
 		generateCorrectSetTime = -System.currentTimeMillis();
 
-		for (int i = 0; i < numberOfLabels; i++) { // gia ka9e label parago to correctSet pou antistoixei se auto
-			
-			labelCorrectSets[i] = generateLabelCorrectSet(matchSet, instanceIndex, i); // periexei tous kanones pou apofasizoun gia to label 9etika.
-			
-/*			System.out.println("label: " + i);
-			System.out.print("instance: ");
-			for (int k = 0; k < myLcs.instances[0].length / 2; k++) {
-				System.out.print((int)myLcs.instances[instanceIndex][k]);
-			}
-			System.out.print("=>");
-			for (int k = myLcs.instances[0].length / 2; k < myLcs.instances[0].length; k++) {
-				System.out.print((int)myLcs.instances[instanceIndex][k]);
-			}
-			System.out.println(labelCorrectSets[i]);*/
-		
+		for (int i = 0; i < numberOfLabels; i++) { 
+			labelCorrectSets[i] = generateLabelCorrectSet(matchSet, instanceIndex, i); 
 		}
 		
 		generateCorrectSetTime += System.currentTimeMillis();
@@ -1676,19 +1555,19 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 		
 		if (FITNESS_MODE == FITNESS_MODE_SIMPLE || FITNESS_MODE == FITNESS_MODE_COMPLEX) {
 			// For each classifier in the matchset
-			for (int i = 0; i < matchSetSize; i++) { // gia ka9e macroclassifier
+			for (int i = 0; i < matchSetSize; i++) {
 				
-				final Macroclassifier cl = matchSet.getMacroclassifier(i); // getMacroclassifier => fernei to copy, oxi ton idio ton macroclassifier
+				final Macroclassifier cl = matchSet.getMacroclassifier(i); 
 				
 				int minCurrentNs = Integer.MAX_VALUE;
 				final MlASLCSClassifierData data = (MlASLCSClassifierData) cl.myClassifier.getUpdateDataObject();
 	
 				for (int l = 0; l < numberOfLabels; l++) {
-					// Get classification ability for label l. an anikei sto labelCorrectSet me alla logia.
+					// Get classification ability for label l. 
 					final float classificationAbility = cl.myClassifier.classifyLabelCorrectly(instanceIndex, l);
 					final int labelNs = labelCorrectSets[l].getTotalNumerosity();
 
-					if (classificationAbility == 0) {// an proekupse apo adiaforia
+					if (classificationAbility == 0) {
 						data.tp += OMEGA;
 						data.msa += PHI;
 						
@@ -1698,27 +1577,21 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 							}
 						}
 					}
-					else if (classificationAbility > 0) { // an proekupse apo 9etiki apofasi (yper)
+					else if (classificationAbility > 0) { 
 						data.tp += 1;
 						
-						if (minCurrentNs > labelNs) { // bainei edo mono otan exei prokupsei apo 9etiki apofasi
+						if (minCurrentNs > labelNs) { 
 							minCurrentNs = labelNs;
 						}
 					}
 					
 					if (classificationAbility != 0) 
 						data.msa += 1;
-				} // kleinei to for gia ka9e label
+				} 
 	
 				cl.myClassifier.experience++;
-				
-	
-				
-				/* einai emmesos tropos na elegkso oti o kanonas anikei sto (se ena toulaxiston ennoo) labelCorrectSet
-				 * giati to minCurrentNs allazei mono an classificationAbility > 0 dld o kanonas apofasizei, den adiaforei
-				 */
+
 				if (minCurrentNs != Integer.MAX_VALUE) {
-					//data.ns += .1 * (minCurrentNs - data.ns);
 					data.ns += LEARNING_RATE * (minCurrentNs - data.ns);
 				}
 				
@@ -1729,15 +1602,11 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 					break;
 				case FITNESS_MODE_COMPLEX:
 					data.fitness += LEARNING_RATE * (Math.pow((data.tp) / (data.msa), n) - data.fitness);
-					
-/*					  data.fitness += LEARNING_RATE * (cl.numerosity * Math.pow((data.tp) / (data.msa), n) - data.fitness);
-					  data.fitness /= cl.numerosity;*/
-					 
 					break;
 				}
 				updateSubsumption(cl.myClassifier);
 
-			} // kleinei to for gia ka9e macroclassifier
+			} 
 		}
 		
 		
@@ -1765,7 +1634,6 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 				data.fitness = (fitnessSum / cl.numerosity) / numberOfLabels;
 
 				if (ns != Integer.MAX_VALUE) {
-					//data.ns += .1 * (minCurrentNs - data.ns);
 					data.ns += LEARNING_RATE * (ns - data.ns);
 				}
 					
@@ -1869,58 +1737,7 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 							   ClassifierSet matchSet,
 							   int instanceIndex, 
 							   boolean evolve) {
-		
-		/*
-		 * patenta gia moirasmo sta threads xwris IntegerForLoop
-		 * 
-		 * */
-		
-		
-//		try{
-//			ptGenerateCorrectSet.execute( new ParallelRegion() {
-//				
-////				//public ClassifierSet[] labelCorrectSets_thread = new ClassifierSet[numberOfLabelsSmp];
-//				public void run() throws Exception
-//				{
-//					final int first = firstToGenerate.elementAt(getThreadIndex());
-//					final int last = lastToGenerate.elementAt(getThreadIndex());
-//					ClassifierSet[] labelCorrectSets_thread = new ClassifierSet[last-first+1];
-//					
-//					long p0,p1,p2,p3,p4,p5,p6,p7;
-//					long p8,p9,pa,pb,pc,pd,pe,pf;
-//					
-//					for ( int i = first ; i <= last; ++i )
-//					{
-////								labelCorrectSets_thread[i-first] = generateLabelCorrectSet(matchSetSmp,instanceIndexSmp,i);
-//						final ClassifierSet correctSet = new ClassifierSet(null);
-//						final int matchSetSize = matchSetSmp.getNumberOfMacroclassifiers();
-//						for (int j = 0; j < matchSetSize; j++) 
-//						{
-//							final Macroclassifier cl = matchSetSmp.getMacroclassifier(j);
-//							if (cl.myClassifier.classifyLabelCorrectly(instanceIndexSmp, i) > 0)
-//								correctSet.addClassifier(cl, false);
-//						}
-//						labelCorrectSets_thread[i-first] = correctSet;					
-//					}
-//					
-//					final ClassifierSet[] labelCorrectSets_thread_final = labelCorrectSets_thread;
-//							
-//					region().critical(new ParallelSection() {
-//						public void run()
-//						{
-//							for ( int i = first ; i <= last ; i++ )
-//							{
-//								labelCorrectSetsSmp[i] = labelCorrectSets_thread_final[i-first];
-//							}
-//						}
-//					});
-//				}			
-//			});
-//		}
-//		catch( Exception e )
-//		{
-//			e.printStackTrace();
-//		}
+	
 		
 		labelCorrectSetsSmp = new ClassifierSet[numberOfLabels];
 		
@@ -2006,11 +1823,11 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 								final MlASLCSClassifierData data = (MlASLCSClassifierData) cl.myClassifier.getUpdateDataObject();
 								
 								for (int l = 0; l < numberOfLabelsSmp; l++) {
-									// Get classification ability for label l. an anikei sto labelCorrectSet me alla logia.
+									// Get classification ability for label l. 
 									final float classificationAbility = cl.myClassifier.classifyLabelCorrectly(instanceIndexSmp, l);
 									final int labelNs = labelCorrectSetsSmp[l].getTotalNumerosity();
 
-									if (classificationAbility == 0) {// an proekupse apo adiaforia
+									if (classificationAbility == 0) {
 										data.tp += OMEGA;
 										data.msa += PHI;
 										
@@ -2020,23 +1837,19 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 											}
 										}
 									}
-									else if (classificationAbility > 0) { // an proekupse apo 9etiki apofasi (yper)
+									else if (classificationAbility > 0) {
 										data.tp += 1;
 										
-										if (minCurrentNs > labelNs) { // bainei edo mono otan exei prokupsei apo 9etiki apofasi
+										if (minCurrentNs > labelNs) { 
 											minCurrentNs = labelNs;
 										}
 									}
 									if (classificationAbility != 0) data.msa += 1;
-								} // kleinei to for gia ka9e label
+								}
 					
 								cl.myClassifier.experience++;
-								
-								/* einai emmesos tropos na elegkso oti o kanonas anikei sto (se ena toulaxiston ennoo) labelCorrectSet
-								 * giati to minCurrentNs allazei mono an classificationAbility > 0 dld o kanonas apofasizei, den adiaforei
-								 */
+
 								if (minCurrentNs != Integer.MAX_VALUE) {
-									//data.ns += .1 * (minCurrentNs - data.ns);
 									data.ns += LEARNING_RATE * (minCurrentNs - data.ns);
 								}
 								
@@ -2047,10 +1860,6 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 									break;
 								case FITNESS_MODE_COMPLEX:
 									data.fitness += LEARNING_RATE * (Math.pow((data.tp) / (data.msa), n) - data.fitness);
-									
-				                     /*data.fitness += LEARNING_RATE * (cl.numerosity * Math.pow((data.tp) / (data.msa), n) - data.fitness);
-									  data.fitness /= cl.numerosity;*/
-									 
 									break;
 								}
 								updateSubsumption(cl.myClassifier);
@@ -2100,7 +1909,6 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 									data.fitness = (fitnessSum / cl.numerosity) / numberOfLabels;
 
 									if (ns != Integer.MAX_VALUE) {
-										//data.ns += .1 * (minCurrentNs - data.ns);
 										data.ns += LEARNING_RATE * (ns - data.ns);
 									}
 										
@@ -2181,10 +1989,7 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 			
 			if ( labelParallelMode == 1 )
 			{
-			
-			/*
-			 * YLOPOIHSH DIAMOIRASMOU gia GENIKI PERIPTWSI N LABELS
-			 */
+
 			
 			if ( mod > 0 )
 			{
@@ -2309,181 +2114,7 @@ public class MlASLCS3UpdateAlgorithm extends AbstractUpdateStrategy {
 			numberOfDeletionsConducted = theControlStrategy.getNumberOfDeletionsConducted();
 			
 			evolutionTime += System.currentTimeMillis();
-		}
-			
-			/*
-			 * OTI AKOLOUTHEI EINAI YLOPOIHSH GIA XWRISMO OTAN EXOUME 2 LABELS MONO
-			 * otan kanoume evolve se 2 labels, xwrismo twn labels se thread
-			 */
-			
-//			if (labelsToEvolveSmp.size() == 2)
-//			{
-//				try{
-//				ptEvolve.execute( new ParallelRegion() {
-//			
-//					public void run() throws Exception
-//					{
-//						
-//						Vector<Integer> indicesToSubsume_thread;
-//						ClassifierSet newClassifiersSet_thread;
-//						long subsumptionTime_thread = 0;
-//						Random prng_thread;
-//						
-//						indicesToSubsume_thread = new Vector<Integer>();
-//						newClassifiersSet_thread = new ClassifierSet(null);
-//						prng_thread = Random.getInstance(seedSmp1);
-//						prng_thread.setSeed(seedSmp1);
-//						
-//						SteadyStateGeneticAlgorithm.EvolutionOutcome evolutionOutcome;
-//						
-//						
-//						if ( getThreadIndex() == 0 )
-//						{
-////							evolutionOutcome 
-////							= gaSmp.evolveSetNewSmp(labelCorrectSetsSmp[labelsToEvolveSmp.elementAt(0)], 
-////												 populationSmp, 
-////												 prng_thread);
-////							
-////							EvolutionTimeMeasurements etm = new EvolutionTimeMeasurements();
-////							etm.timeA = evolutionOutcome.timeA;
-////							etm.timeB = evolutionOutcome.timeB;
-////							etm.timeC = evolutionOutcome.timeC;
-////							etm.timeD = evolutionOutcome.timeD;
-////							
-////							measurements0.add(etm);
-//							
-//							evolutionOutcome
-//							= ga.evolveSetNewSmp(labelCorrectSetsSmp[labelsToEvolveSmp.elementAt(0)], 
-//							 populationSmp, 
-//							 prng_thread);
-//						}
-//						else
-//						{
-//							prng_thread.skip(2*(3+labelCorrectSetsSmp[labelsToEvolveSmp.elementAt(1)].getClassifier(0).size()));
-//							evolutionOutcome 
-//							= ga.evolveSetNewSmp(labelCorrectSetsSmp[labelsToEvolveSmp.elementAt(1)], 
-//												 populationSmp, 
-//												 prng_thread);
-//							
-////							EvolutionTimeMeasurements etm = new EvolutionTimeMeasurements();
-////							etm.timeA = evolutionOutcome.timeA;
-////							etm.timeB = evolutionOutcome.timeB;
-////							etm.timeC = evolutionOutcome.timeC;
-////							etm.timeD = evolutionOutcome.timeD;
-////							
-////							measurements1.add(etm);
-//			
-//						}
-////						
-////						indicesToSubsume_thread.addAll(evolutionOutcome.indicesToSubsume);
-////						newClassifiersSet_thread.merge(evolutionOutcome.newClassifierSet);
-////						subsumptionTime_thread += evolutionOutcome.subsumptionTime;
-////						
-////						final Vector<Integer> indicesToSubsume_final = indicesToSubsume_thread;
-////						final ClassifierSet newClassifiersSet_final = newClassifiersSet_thread;
-////						final long subsumptionTime_final = subsumptionTime_thread;
-////						
-////						
-////						region().critical( new ParallelSection() {
-////							public void run()
-////							{
-////								indicesToSubsumeSmp.addAll(indicesToSubsume_final);
-////								newClassifiersSetSmp.merge(newClassifiersSet_final);
-////								subsumptionTimeSmp += subsumptionTime_final;
-////							}
-////						});
-//						
-//						
-////						execute(0,labelsToEvolveSmp.size()-1, new IntegerForLoop() {
-////						
-////							Vector<Integer> indicesToSubsume_thread;
-////							ClassifierSet newClassifiersSet_thread;
-////							long subsumptionTime_thread = 0;
-////							Random prng_thread;
-////					
-////							public void start()
-////							{
-////								indicesToSubsume_thread = new Vector<Integer>();
-////								newClassifiersSet_thread = new ClassifierSet(null);
-////								prng_thread = Random.getInstance(seedSmp1);
-////								prng_thread.setSeed(seedSmp1);
-////							}
-////					
-////							public void run(int first, int last)
-////							{
-////								int threadId = getThreadIndex();
-////								for ( int i = first; i <= last ; ++i )
-////								{
-////									SteadyStateGeneticAlgorithm.EvolutionOutcome evolutionOutcome;
-////									prng_thread.skip(2*first*(3+labelCorrectSetsSmp[labelsToEvolveSmp.elementAt(i)].getClassifier(0).size()));
-////									if ( threadId == 0 )
-////									{
-////										evolutionOutcome 
-////										= ga.evolveSetNewSmp(labelCorrectSetsSmp[labelsToEvolveSmp.elementAt(i)], 
-////															 populationSmp, 
-////															 prng_thread);
-////									}
-////									else
-////									{
-////										evolutionOutcome 
-////										= ga2.evolveSetNewSmp(labelCorrectSetsSmp[labelsToEvolveSmp.elementAt(i)], 
-////															 populationSmp, 
-////															 prng_thread);
-////									}								
-//////									SteadyStateGeneticAlgorithm.EvolutionOutcome evolutionOutcome 
-//////										= gaSmp.evolveSetNewSmp(labelCorrectSetsSmp[labelsToEvolveSmp.elementAt(i)], 
-//////															 populationSmp, 
-//////															 prng_thread);
-////									indicesToSubsume_thread.addAll(evolutionOutcome.indicesToSubsume);
-////									newClassifiersSet_thread.merge(evolutionOutcome.newClassifierSet);
-////									subsumptionTime_thread += evolutionOutcome.subsumptionTime;
-////								}
-////							}
-////						
-////							public void finish() throws Exception {
-////								region().critical( new ParallelSection() {
-////									public void run()
-////									{
-////										indicesToSubsumeSmp.addAll(indicesToSubsume_thread);
-////										newClassifiersSetSmp.merge(newClassifiersSet_thread);
-////										subsumptionTimeSmp += subsumptionTime_thread;
-////									}
-////								});
-////							}
-////					
-////						});
-//			
-//					}
-//				
-//				});
-//			}
-//			catch( Exception e)
-//			{
-//				e.printStackTrace();
-//			}
-//			}
-//			else {	
-			
-				/*
-				 * an den kanoume evolve se 2 labels evolve me OneLabel gia ola 
-				 */
-				
-//				for ( int i = 0; i < labelsToEvolveSmp.size() ; i++ )
-//				{
-//					SteadyStateGeneticAlgorithm.EvolutionOutcome evolutionOutcome = 
-//						ga.evolveSetNewOneLabelSmp(
-//													labelCorrectSetsSmp
-//													[labelsToEvolveSmp.elementAt(i)], 
-//													population);
-//					indicesToSubsumeSmp.addAll(evolutionOutcome.indicesToSubsume);
-//					newClassifiersSetSmp.merge(evolutionOutcome.newClassifierSet);
-//					subsumptionTimeSmp += evolutionOutcome.subsumptionTime;
-//				}
-//				
-//			}	
-	
-
-		
+		}		
 	}
 
 

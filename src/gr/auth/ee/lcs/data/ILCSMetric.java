@@ -43,7 +43,6 @@ public interface ILCSMetric {
 	/**
 	 * Return the metric's name.
 	 * @return  a string containing the name
-	 * @uml.property  name="metricName"
 	 */
 	public String getMetricName();
 

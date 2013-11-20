@@ -151,7 +151,7 @@ public final class GenericMultiLabelRepresentation extends
 							final double generalizationRate) {
 			
 			super(startPosition, attributeName, generalizationRate);
-			lengthInBits = 2; // ena  energopoiisis kai ena gia na apofainetai nai i oxi
+			lengthInBits = 2;
 			chromosomeSize += lengthInBits;
 			active = true;
 		}
@@ -316,7 +316,6 @@ public final class GenericMultiLabelRepresentation extends
 		/**
 		 * A setter for the active variable.
 		 * @param isActive  true if we want to set the label active
-		 * @uml.property  name="active"
 		 */
 		public final void setActive(final boolean isActive) {
 			active = isActive;
@@ -335,9 +334,9 @@ public final class GenericMultiLabelRepresentation extends
 			if (!active)
 				return "#";
 
-			if (convertingClassifier.get(this.positionInChromosome)) {	// an einai 1, apofasizei
+			if (convertingClassifier.get(this.positionInChromosome)) {	
 				return convertingClassifier.get(this.positionInChromosome + 1) ? "1" : "0";
-			} else {	// einai 0. adiaforia.
+			} else {	
 				return "#";
 			}
 
@@ -412,23 +411,17 @@ public final class GenericMultiLabelRepresentation extends
 		 *         label
 		 */
 		
-		/*
-		 * gia ka9e instance, pare ton confidenceArray tou instance autou, basei ton kanonon tou sustimatos
-		 * o votingTable exei toses 9eseis oses oi etiketes. 
-		 * se ka9e 9esi periexei ti 9etiki, kanonikopoiimeni, zugismeni ana fitness psifo tou ka9e macroclassifier
-		 * 
-		 * */
 		private float[] getConfidenceArray(final ClassifierSet aSet,
 										     final double[] visionVector) {
 			
-			final float[] votingTable = new float[numberOfLabels]; // auto ginetai gia ka9e instance
+			final float[] votingTable = new float[numberOfLabels]; 
 			Arrays.fill(votingTable, 0);
 
 			final ClassifierSet matchSet = aSet.generateMatchSet(visionVector);
 			// Let each classifier vote
 			final int setSize = matchSet.getNumberOfMacroclassifiers();
 			
-			for (int i = 0; i < setSize; i++) { // gia ka9e macroclassifier
+			for (int i = 0; i < setSize; i++) {
 				// For each classifier
 				final Classifier currentClassifier = matchSet.getClassifier(i);
 				final int classifierNumerosity = matchSet.getClassifierNumerosity(i);
@@ -445,8 +438,8 @@ public final class GenericMultiLabelRepresentation extends
 					else
 						votingTable[label] -= classifierNumerosity * fitness;
 
-				} // kleinei gia ka9e label
-			} // kleinei gia ka9e macroclassifier
+				} 
+			} 
 
 			// Find mean to make all numbers positive. // min?
 			double minVote = 0;
@@ -455,10 +448,10 @@ public final class GenericMultiLabelRepresentation extends
 					minVote = votingTable[i];
 			}
 
-			// Find sum (and make all positive) // auto 9a prepei na ginetai mono an to minVote < 0. den to kseroume auto logika (de xreiazetai, to polu na einai miden)
+			// Find sum (and make all positive) 
 			double sumVote = 0;
 			for (int i = 0; i < votingTable.length; i++) {
-				votingTable[i] -= minVote; // pros9eto to minVote, einai arnitiko i miden
+				votingTable[i] -= minVote; 
 				sumVote += votingTable[i];
 			}
 
@@ -484,13 +477,10 @@ public final class GenericMultiLabelRepresentation extends
 		public void proportionalCutCalibration(final double[][] instances,
 											   final ClassifierSet rules) {
 			
-			final float[][] confidenceValues = new float[instances.length][]; // didiastatos pinakas. to confidenceValues[a][b] periexei gia to sugkekrimeno instance a
-																			  // tin psifo ton kanonon tou matchSet (gia to instance a) gia to label b.
-																			  // einai 9etikes, kanonikopoiimenes psifoi, zugismenes me to fitness
+			final float[][] confidenceValues = new float[instances.length][]; 
 			getConfidenceArrayTime = -System.currentTimeMillis();
 			for (int i = 0; i < instances.length; i++) {
-				confidenceValues[i] = getConfidenceArray(rules, instances[i]);  // getConfidenceArray epistrefei pinaka diastasis {numberOfLabels}, me periexomena
-																				// tin psifo ka9e kanona tou matchSet gia ka9e label gia ena sugkekrimeno instance
+				confidenceValues[i] = getConfidenceArray(rules, instances[i]); 
 			}
 			getConfidenceArrayTime += System.currentTimeMillis();
 
@@ -499,10 +489,6 @@ public final class GenericMultiLabelRepresentation extends
 			calibrateTime = -System.currentTimeMillis();
 			this.voteThreshold = pCut.calibrate((float) myLcs.labelCardinality, confidenceValues);
 			calibrateTime += System.currentTimeMillis();
-			
-			//System.out.println("Threshold (pcut) set to " + this.voteThreshold);
-
-			//System.out.println("Threshold (pcut) set to " + this.voteThreshold);
 
 		}
 
@@ -529,20 +515,17 @@ public final class GenericMultiLabelRepresentation extends
 
 	/**
 	 * The metric type used for calculating classifier's ability to classify an instance.
-	 * @uml.property  name="metricType"
 	 */
 	private final int metricType;
 
 	/**
 	 * The label generalization rate.
-	 * @uml.property  name="labelGeneralizationRate"
 	 */
 	private final double labelGeneralizationRate;
 
 	
 	/**
 	 * The label generalization rate.
-	 * @uml.property  name="labelGeneralizationRate"
 	 */
 	private final double clusteringlabelGeneralizationRate;
 	/**
@@ -592,10 +575,9 @@ public final class GenericMultiLabelRepresentation extends
 										   final double clusteringAttributeGeneralizationRate,
 										   final AbstractLearningClassifierSystem lcs) throws IOException {
 		
-		super(inputArff, precision, labels, attributeGeneralizationRate, clusteringAttributeGeneralizationRate, lcs); // constructor tis complexRepresentation
+		super(inputArff, precision, labels, attributeGeneralizationRate, clusteringAttributeGeneralizationRate, lcs); 
 		
 		
-		// auta ta duo mono einai diaforetika apo to SingleClassRepresentation. to super apo pano einai idio
 		metricType = type;
 		labelGeneralizationRate = lblgeneralizationRate;
 		clusteringlabelGeneralizationRate = clusteringLblgeneralizationRate;
@@ -804,11 +786,11 @@ public final class GenericMultiLabelRepresentation extends
 	@Override
 	public int[] getDataInstanceLabels(final double[] dataInstance) {
 		
-		int numOfLabels = 0; // {numOfLabels} einai ontos energes gia ena instance
+		int numOfLabels = 0; 
 		for (int i = 0; i < numberOfLabels; i++) {
 			final int currentLabelIndex = (attributeList.length - numberOfLabels)
 					+ i;
-			if (dataInstance[currentLabelIndex] == 1) // an ginetai classify se auto to label
+			if (dataInstance[currentLabelIndex] == 1)
 				numOfLabels++;
 		}
 		final int[] result = new int[numOfLabels];

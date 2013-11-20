@@ -41,25 +41,21 @@ public class PostProcessPopulationControl implements IPopulationControlStrategy 
 
 	/**
 	 * The minimum experience for a rule.
-	 * @uml.property  name="minimumExperience"
 	 */
 	private final int minimumExperience;
 
 	/**
 	 * The minimum coverage for a rule.
-	 * @uml.property  name="coverageThreshold"
 	 */
 	private final float coverageThreshold;
 
 	/**
 	 * The minimum fitness for postprocessing.
-	 * @uml.property  name="minimumFitness"
 	 */
 	private final double minimumFitness;
 
 	/**
 	 * The comparison mode used for getting classifiers' fitness.
-	 * @uml.property  name="comparisonMode"
 	 */
 	private final int comparisonMode;
 
@@ -109,7 +105,7 @@ public class PostProcessPopulationControl implements IPopulationControlStrategy 
 			}
 		}
 
-		aSet.selfSubsume(); // to kano sto telos. elegxo ka9e classifier me ka9e allo ston population
+		aSet.selfSubsume(); 
 
 	}
 	

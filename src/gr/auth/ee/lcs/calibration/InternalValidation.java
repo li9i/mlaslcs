@@ -38,22 +38,16 @@ public class InternalValidation {
 
 	/**
 	 * The classification strategy used.
-	 * @uml.property  name="strategy"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	private final IClassificationStrategy strategy;
 
 	/**
 	 * The optimization metric used.
-	 * @uml.property  name="optimizationMetric"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	private final ILCSMetric optimizationMetric;
 
 	/**
 	 * The rules on which to perform Internal Validation.
-	 * @uml.property  name="myLCS"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	private final AbstractLearningClassifierSystem myLCS;
 

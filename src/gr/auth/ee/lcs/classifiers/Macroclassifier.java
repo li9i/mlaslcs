@@ -39,14 +39,11 @@ public class Macroclassifier implements Serializable, Comparable<Macroclassifier
 
 	/**
 	 * The myClassifier's numerosity.
-	 * @uml.property  name="numerosity"
 	 */
 	public int numerosity = 1;
 
 	/**
 	 * The (micro-)classifier of the macroclassifier.
-	 * @uml.property  name="myClassifier"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	public Classifier myClassifier;
 	
@@ -111,15 +108,13 @@ public class Macroclassifier implements Serializable, Comparable<Macroclassifier
 	@Override
 	public final String toString() {
 		return this.myClassifier.toString() 
-				//+ " totalFitness: " + this.totalFitness
 				+ " numerosity: " + this.numerosity 
 				+ " numberOfSubsumptions " + this.numberOfSubsumptions ;
 	}
 	
 	// redundant
 	public int compareTo(Macroclassifier anotherMacro) {
-        return (int) (1000 * (this.totalFitness - anotherMacro.totalFitness)); // 1000 giati ta fitness kumainontai stin taksi mege9ous 10^-2, 
-        																		 //etsi oste na borei na ta ksexorizei
+        return (int) (1000 * (this.totalFitness - anotherMacro.totalFitness));
     }
 
 }

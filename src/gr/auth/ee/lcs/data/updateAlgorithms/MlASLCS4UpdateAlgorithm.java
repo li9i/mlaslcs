@@ -357,18 +357,7 @@ public class MlASLCS4UpdateAlgorithm extends AbstractUpdateStrategy {
 	
 	private ArrayList <Float> distinctCoverage;
 	
-	
-	
-	
 	private boolean commencedDeletions = false;
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	public ClassifierTransformBridge bridge;
 	

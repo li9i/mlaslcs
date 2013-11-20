@@ -217,9 +217,9 @@ public abstract class AbstractLearningClassifierSystem {
 	private Instances inst;
 	
 	public final int iterations;
+	
 	/**
 	 * Constructor.
-	 * 
 	 */ 	
 	protected AbstractLearningClassifierSystem() {
 		try {
@@ -231,8 +231,6 @@ public abstract class AbstractLearningClassifierSystem {
 		hookCallbackRate = (int) SettingsLoader.getNumericSetting("callbackRate", 100);
 		smp = SettingsLoader.getStringSetting("SMP_run", "false").contains("true") ? true : false;
 		iterations = (int) SettingsLoader.getNumericSetting("trainIterations",1000);
-		
-		//blacklist = new ClassifierSet(null);
 		
 		if (smp)
 			System.out.println("smp: true");
@@ -326,31 +324,6 @@ public abstract class AbstractLearningClassifierSystem {
 	 */
 	public abstract int[] classifyInstance(double[] instance);
 	
-	
-	/*
-	 * diagrapse tous classifiers pou exoun dei ola ta instances alla den exoun summetasxei se kanena matchSet
-	 * 
-	 * erxetai me orisma population, olo ton plh9usmo
-	 * 
-	 * */
-
-	private void cleanUpZeroCoverageClassifiers(final ClassifierSet aSet) {
-
-		final int setSize = aSet.getNumberOfMacroclassifiers();
-
-		for (int i = setSize - 1; i >= 0; i--) { // giati anapoda? giati diagrafei apo vector, an to ekane apo tin arxi 9a diegrafe otinanai
-			final Classifier aClassifier = aSet.getClassifier(i);
-			final boolean zeroCoverage = (aClassifier.getCheckedInstances() >= instances.length)
-				// einai dunaton getCheckedInstances() > instances.length ? see classifier.384 [...]
-					&& (aClassifier.getCoverage() == 0);
-			if (zeroCoverage) {
-				// meta tin allagi stin ClassifierSet.geerateMatchset, opou diagrafetai opoios kanonas exei zero coverage, auti i klisi den exei pleon noima
-				//aSet.deleteClassifier(i); // de 9a eprepe na diagrapsei olo ton macroclassifier?
-				aSet.deleteMacroclassifier(i);
-			}
-		}
-
-	}
 
 	/**
 	 * Creates a new instance of the actual implementation of the LCS.
@@ -371,10 +344,6 @@ public abstract class AbstractLearningClassifierSystem {
 		for (int i = 0; i < hooks.size(); i++) {
 			hooks.elementAt(i).getMetric(this);
 		}
-		
-		// to sort edo ginetai mono gia optikous logous kai afora mono sto population.txt
-/*		final SortPopulationControl srt = new SortPopulationControl(AbstractUpdateStrategy.COMPARISON_MODE_EXPLORATION);
-		srt.controlPopulation(this.rulePopulation);*/
 		
 		int numberOfClassifiersCovered = 0;
 		int numberClassifiersGaed = 0;
@@ -419,7 +388,7 @@ public abstract class AbstractLearningClassifierSystem {
 					+ System.getProperty("line.separator")
 					+ "Mean ns: " + meanNs
 					+ System.getProperty("line.separator")
-					//+ rulePopulation
+					+ rulePopulation
 					+ System.getProperty("line.separator"));
 			buffer.flush();
 			buffer.close();
@@ -507,7 +476,6 @@ public abstract class AbstractLearningClassifierSystem {
 	 * */
 	public void harvestAccuracies(int iteration){
 		
-		//double acc = getSystemMultilabelAccuracy();
 		final AccuracyRecallEvaluator trainingAccuracy = new AccuracyRecallEvaluator(trainSet, false, this, AccuracyRecallEvaluator.TYPE_ACCURACY);
 
 		final VotingClassificationStrategy str = ((GenericMultiLabelRepresentation) transformBridge).new VotingClassificationStrategy((float) this.labelCardinality);
@@ -522,16 +490,10 @@ public abstract class AbstractLearningClassifierSystem {
 		double trainAcc = trainingAccuracy.getMetric(this);
 		double testAccPcut = testingAccuracyWithPcut.getMetric(this);
 		double cov = coverage.getMetric(this);
-		
-		/*
-		systemAccuracy[iteration][0] =  testAcc;
-		systemAccuracy[iteration][1] =  trainAcc;
-		*/
-		
+
 		systemAccuracyInTraining.add((float) trainAcc);
 		systemAccuracyInTestingWithPcut.add((float) testAccPcut);
-		systemCoverage.add((float) cov);
-		
+		systemCoverage.add((float) cov);	
 		
 	}
 	
@@ -555,18 +517,18 @@ public abstract class AbstractLearningClassifierSystem {
 		SimpleKMeans kmeans = new SimpleKMeans();
 		kmeans.setSeed(10);
 		kmeans.setPreserveInstancesOrder(true);
-		
+
 		/*
-		 * o pinakas partitions 9a periexei deigmata mono me attributes, 
-		 * anti9etws, o partitionsWithCLasses mono tis katigories
+		 * Table partitions will hold instances only with attributes.
+		 * On the contrary, table partitionsWithCLasses will hold only the labels
 		 */
 		Instances[] partitions = InstancesUtility.partitionInstances(this, file);
 		Instances[] partitionsWithCLasses = InstancesUtility.partitionInstances(this, file);
 		
-
+		
 		/*
-		 * anti na exoume pollaples 9eseis idiou sunduasmou labels, bale mono mia. 
-		 * auti 9a einai kai auti pou 9a xrisimopoii9ei sto cover pano sta centroids 
+		 * Instead of having multiple positions for the same label combination, use only one.
+		 * This is the one that will be used to "cover" the centroids.
 		 */
 		for (int i = 0; i <  partitionsWithCLasses.length; i++) {
 			Instance temp = partitionsWithCLasses[i].instance(0);
@@ -574,10 +536,9 @@ public abstract class AbstractLearningClassifierSystem {
 			partitionsWithCLasses[i].add(temp);
 		}
 		
-
 		
 		/*
-		 * diagrafoume tis klaseis apo ta partitions 
+		 * Delete the labels from the partitions.
 		 */
 		String attributesIndicesForDeletion = "";
 		
@@ -587,7 +548,10 @@ public abstract class AbstractLearningClassifierSystem {
 			else
 				attributesIndicesForDeletion += k;
 		}
-		// attributesIncicesForDeletion = 8,9,10,11,12,13,14 e.g. gia 7 attributes kai 7 labels. den ksekinaei apo to 7 giati 9eorei oti o xristis dinei ton ari9mo (api)
+		
+		/* 	attributesIncicesForDeletion = 8,9,10,11,12,13,14 e.g. for 7 attributes and 7 labels. 
+		 * It does not start from 7 because it assumes that the user inputs the number. See the api.
+		 */
 		for (int i = 0; i < partitions.length; i++) {
 		     Remove remove = new Remove();
 		     remove.setAttributeIndices(attributesIndicesForDeletion);
@@ -599,7 +563,7 @@ public abstract class AbstractLearningClassifierSystem {
 		// partitions now contains only attributes
 		
 		/*
-		 * diagrafoume ta attributes apo ton partitionsWithCLasses
+		 * delete the attributes from partitionsWithCLasses
 		 */
 		String labelsIndicesForDeletion = "";
 
@@ -609,7 +573,10 @@ public abstract class AbstractLearningClassifierSystem {
 			else
 				labelsIndicesForDeletion += k;
 		}
-		// labelsIndicesForDeletion = 1,2,3,4,5,6,7 e.g. gia 7 attributes kai 7 labels. den ksekinaei apo to 0 giati 9eorei oti o xristis dinei ton ari9mo (api)
+		
+		/* 	attributesIncicesForDeletion = 8,9,10,11,12,13,14 e.g. for 7 attributes and 7 labels. 
+		 * It does not start from 7 because it assumes that the user inputs the number. See the api.
+		 */
 		for (int i = 0; i < partitionsWithCLasses.length; i++) {
 		     Remove remove = new Remove();
 		     remove.setAttributeIndices(labelsIndicesForDeletion);
@@ -620,11 +587,9 @@ public abstract class AbstractLearningClassifierSystem {
 		}
 		// partitionsWithCLasses now contains only labels
 		
-		
-		
-		
 		int populationSize = (int) SettingsLoader.getNumericSetting("populationSize", 1500);
-		// to set opou 9a apo9ikeutoun oi kanones apo ola ta clusters
+		
+		// the set used to store the rules from all the clusters
 		ClassifierSet initialClassifiers = new ClassifierSet(
 															new FixedSizeSetWorstFitnessDeletion(this,
 																	 populationSize,
@@ -652,24 +617,16 @@ public abstract class AbstractLearningClassifierSystem {
 				
 				
 				/*
-				 * ta centroids se auto to stadio exoun mono attributes. gia na sunexisoume
-				 * prepei prota na tous dosoume labels. einai auta ta opoia afairesame proigoumenos.
-				 * 
-				 * anoikse prota 9eseis gia attributes.
-				 */
+				 * The centroids in this stage hold only attributes. To continue, we need to provide them the labels.
+				 * These are the ones we removed earlier.
+				 * But first, open up positions for attributes.
+				 * */
 				
 				for (int j = 0; j < numberOfLabels; j++) {
 					Attribute label = new Attribute("label" + j);
 					centroids.insertAttributeAt(label, numOfCentroidAttributes + j);
 				}
 				
-				
-				
-/*				for (int centroidInstances = 0; centroidInstances < centroids.numInstances(); centroidInstances++) {
-					for (int labels = centroids.numAttributes() - numberOfLabels; labels < centroids.numAttributes(); labels++) {
-						centroids.instance(centroidInstances).setValue(labels, partitionsWithCLasses[i].instance(0).value(labels - numberOfLabels));
-					}
-				}*/
 				
 				for (int centroidInstances = 0; centroidInstances < centroids.numInstances(); centroidInstances++) {
 					for (int labels = 0; labels < numberOfLabels; labels++) {
@@ -719,17 +676,18 @@ public abstract class AbstractLearningClassifierSystem {
 		kmeans.setPreserveInstancesOrder(true);
 		
 		/*
-		 * o pinakas partitions 9a periexei deigmata mono me attributes, 
-		 * anti9etws, o partitionsWithCLasses mono tis katigories
+		 * Table partitions will hold instances only with attributes.
+		 * On the contrary, table partitionsWithCLasses will hold only the labels
 		 */
 		Instances[] partitions = InstancesUtility.partitionInstances(this, trainset);
 		Instances[] partitionsWithCLasses = InstancesUtility.partitionInstances(this, trainset);
 		
 
-		/*
-		 * anti na exoume pollaples 9eseis idiou sunduasmou labels, bale mono mia. 
-		 * auti 9a einai kai auti pou 9a xrisimopoii9ei sto cover pano sta centroids 
+		 /*
+		 * Instead of having multiple positions for the same label combination, use only one.
+		 * This is the one that will be used to "cover" the centroids.
 		 */
+		
 		for (int i = 0; i <  partitionsWithCLasses.length; i++) {
 			Instance temp = partitionsWithCLasses[i].instance(0);
 			partitionsWithCLasses[i].delete();
@@ -737,8 +695,8 @@ public abstract class AbstractLearningClassifierSystem {
 		}
 		
 		
-		/*
-		 * diagrafoume tis klaseis apo ta partitions 
+		 /*
+		 * Delete the labels from the partitions.
 		 */
 		String attributesIndicesForDeletion = "";
 		
@@ -748,7 +706,9 @@ public abstract class AbstractLearningClassifierSystem {
 			else
 				attributesIndicesForDeletion += k;
 		}
-		// attributesIncicesForDeletion = 8,9,10,11,12,13,14 e.g. gia 7 attributes kai 7 labels. den ksekinaei apo to 7 giati 9eorei oti o xristis dinei ton ari9mo (api)
+		 /* 	attributesIncicesForDeletion = 8,9,10,11,12,13,14 e.g. for 7 attributes and 7 labels. 
+		 * It does not start from 7 because it assumes that the user inputs the number. See the api.
+		 */
 		for (int i = 0; i < partitions.length; i++) {
 		     Remove remove = new Remove();
 		     remove.setAttributeIndices(attributesIndicesForDeletion);
@@ -758,8 +718,8 @@ public abstract class AbstractLearningClassifierSystem {
 		}
 		// partitions now contains only attributes
 		
-		/*
-		 * diagrafoume ta attributes apo ton partitionsWithCLasses
+		 /*
+		 * delete the attributes from partitionsWithCLasses
 		 */
 		String labelsIndicesForDeletion = "";
 
@@ -769,7 +729,9 @@ public abstract class AbstractLearningClassifierSystem {
 			else
 				labelsIndicesForDeletion += k;
 		}
-		// labelsIndicesForDeletion = 1,2,3,4,5,6,7 e.g. gia 7 attributes kai 7 labels. den ksekinaei apo to 0 giati 9eorei oti o xristis dinei ton ari9mo (api)
+		 /* 	attributesIncicesForDeletion = 8,9,10,11,12,13,14 e.g. for 7 attributes and 7 labels. 
+		 * It does not start from 7 because it assumes that the user inputs the number. See the api.
+		 */		
 		for (int i = 0; i < partitionsWithCLasses.length; i++) {
 		     Remove remove = new Remove();
 		     remove.setAttributeIndices(labelsIndicesForDeletion);
@@ -779,12 +741,10 @@ public abstract class AbstractLearningClassifierSystem {
 		     //System.out.println(partitionsWithCLasses[i]);
 		}
 		// partitionsWithCLasses now contains only labels
-		
-		
-		
-		
+	
 		int populationSize = (int) SettingsLoader.getNumericSetting("populationSize", 1500);
-		// to set opou 9a apo9ikeutoun oi kanones apo ola ta clusters
+		
+		 // the set used to store the rules from all the clusters
 		ClassifierSet initialClassifiers = new ClassifierSet(
 															new FixedSizeSetWorstFitnessDeletion(this,
 																	 populationSize,
@@ -811,6 +771,14 @@ public abstract class AbstractLearningClassifierSystem {
 				Instances centroids = kmeans.getClusterCentroids();
 
 				int numOfCentroidAttributes = centroids.numAttributes();
+				
+				
+
+				/*
+				 * The centroids in this stage hold only attributes. To continue, we need to provide them the labels.
+				 * These are the ones we removed earlier.
+				 * But first, open up positions for attributes.
+				 * */
 				
 				for (int j = 0; j < numberOfLabels; j++) {
 					Attribute label = new Attribute("label" + j);
@@ -959,7 +927,6 @@ public abstract class AbstractLearningClassifierSystem {
 
 	/**
 	 * @param rate
-	 * @uml.property  name="hookCallbackRate"
 	 */
 	public void setHookCallbackRate(int rate) {
 		hookCallbackRate = rate;
@@ -973,7 +940,6 @@ public abstract class AbstractLearningClassifierSystem {
 	/**
 	 * Sets the LCS's population.
 	 * @param population  the new LCS's population
-	 * @uml.property  name="rulePopulation"
 	 */
 	public final void setRulePopulation(ClassifierSet population) {
 		rulePopulation = population;
@@ -1027,23 +993,20 @@ public abstract class AbstractLearningClassifierSystem {
 		int trainsBeforeHook = 0;
 		while (repetition < iterations) { 		
 			System.out.print("[");
-			// train  me olo to trainset gia {iterations} fores
-			while ((trainsBeforeHook < hookCallbackRate) && (repetition < iterations)) { // ap! allios 9a ksefeuge kai anti na ekteleito gia iterations
-				System.out.print('/');													  // 9a ekteleito gia iterations * hookCallBackRate
+
+			while ((trainsBeforeHook < hookCallbackRate) && (repetition < iterations)) { 
+				System.out.print('/');													
 				
 				for (int i = 0; i < numInstances; i++) {
 					cummulativeCurrentInstanceIndex = totalRepetition * instances.length + i;
 					trainWithInstance(population, i, evolve);
-					//harvestAccuracies(cummulativeCurrentInstanceIndex);
-
 				}
-				//harvestAccuracies(totalRepetition);
 
 				repetition++;
 				totalRepetition++;
 				trainsBeforeHook++;
 
-				// check for duplicities on every repetition
+				// check for duplicates on every repetition
 				if (!thoroughlyCheckWIthPopulation) {
 					assimilateDuplicateClassifiers(rulePopulation, evolve);
 				}
@@ -1072,26 +1035,14 @@ public abstract class AbstractLearningClassifierSystem {
 	 */
 	public final void trainWithInstance(final ClassifierSet population, final int dataInstanceIndex, final boolean evolve) {
 		
-/*		final ClassifierSet matchSet = population.generateMatchSet(dataInstanceIndex);
-
-		getUpdateStrategy().updateSet(population, matchSet, dataInstanceIndex, evolve);*/
-		
 		long time1,time2;
 		
 		int index = totalRepetition * instances.length + dataInstanceIndex;
-		//System.out.println(index);
 		
 		if(smp)
 		{
-			time1 = -System.currentTimeMillis();
 			final ClassifierSet matchSetSmp = population.generateMatchSetNewSmp(dataInstanceIndex,pt);
-			time1 += System.currentTimeMillis();
-			
-			timeMeasurements[index][0] = population.getTotalNumerosity();
-			timeMeasurements[index][1] = population.getNumberOfMacroclassifiers();
-			timeMeasurements[index][2] = ClassifierSet.firstTimeSetSmp.getNumberOfMacroclassifiers();
-			timeMeasurements[index][3] = ClassifierSet.deleteIndicesSmp2.size();
-			timeMeasurements[index][4] = matchSetSmp.getNumberOfMacroclassifiers();
+
 			
 			if (UPDATE_MODE == UPDATE_MODE_IMMEDIATE) 
 				getUpdateStrategy().updateSetSmp(population, matchSetSmp, dataInstanceIndex, evolve);
@@ -1103,16 +1054,7 @@ public abstract class AbstractLearningClassifierSystem {
 		}
 		else
 		{
-			time1 = -System.currentTimeMillis();
 			final ClassifierSet matchSet = population.generateMatchSetNew(dataInstanceIndex);
-			time1 += System.currentTimeMillis();
-			
-			timeMeasurements[index][0] = population.getTotalNumerosity();
-			timeMeasurements[index][1] = population.getNumberOfMacroclassifiers();
-/*			timeMeasurements[index][2] = population.sumOfUnmatched;
-			timeMeasurements[index][3] = population.deleteIndices.size();
-			timeMeasurements[index][4] = matchSet.getNumberOfMacroclassifiers();*/
-			
 			
 			if (UPDATE_MODE == UPDATE_MODE_IMMEDIATE) 
 				getUpdateStrategy().updateSet(population, matchSet, dataInstanceIndex, evolve);
@@ -1122,48 +1064,11 @@ public abstract class AbstractLearningClassifierSystem {
 			
 			recordInTimeMeasurements(population, index);
 
-		}
-		
-/*		if ((int) SettingsLoader.getNumericSetting("updateAlgorithmVersion", 3) == 3) {
-			timeMeasurements[index][33] = (int) ((MlASLCS3UpdateAlgorithm)(getUpdateStrategy())).generateCorrectSetTime;
-			timeMeasurements[index][34] = (int) ((MlASLCS3UpdateAlgorithm)(getUpdateStrategy())).updateParametersTime;
-			timeMeasurements[index][35] = (int) time1;
-			timeMeasurements[index][36] = (int) ((MlASLCS3UpdateAlgorithm)(getUpdateStrategy())).selectionTime;
-		}
-		else if ((int) SettingsLoader.getNumericSetting("updateAlgorithmVersion", 3) == 4) {
-			timeMeasurements[index][33] = (int) ((MlASLCS4UpdateAlgorithm)(getUpdateStrategy())).generateCorrectSetTime;
-			timeMeasurements[index][34] = (int) ((MlASLCS4UpdateAlgorithm)(getUpdateStrategy())).updateParametersTime;
-			timeMeasurements[index][35] = (int) time1;
-			timeMeasurements[index][36] = (int) ((MlASLCS4UpdateAlgorithm)(getUpdateStrategy())).selectionTime;
-		}*/
-
-		
+		}	
 	}
 
 	
 	private void recordInTimeMeasurements(ClassifierSet population, int index) {
-		
-/*		if ((int) SettingsLoader.getNumericSetting("updateAlgorithmVersion", 3) == 3) {
-		
-			timeMeasurements[index][5] = ((MlASLCS3UpdateAlgorithm)(getUpdateStrategy())).numberOfEvolutionsConducted;
-			timeMeasurements[index][6] = (int)((MlASLCS3UpdateAlgorithm)(getUpdateStrategy())).evolutionTime;
-			timeMeasurements[index][7] = ((MlASLCS3UpdateAlgorithm)(getUpdateStrategy())).numberOfSubsumptionsConducted;
-			timeMeasurements[index][8] = (int)((MlASLCS3UpdateAlgorithm)(getUpdateStrategy())).subsumptionTime;
-			timeMeasurements[index][9] = ((MlASLCS3UpdateAlgorithm)(getUpdateStrategy())).numberOfNewClassifiers;
-			timeMeasurements[index][19] = ((MlASLCS3UpdateAlgorithm)(getUpdateStrategy())).numberOfDeletionsConducted;
-			timeMeasurements[index][20] = (int)((MlASLCS3UpdateAlgorithm)(getUpdateStrategy())).deletionTime;
-		}
-		
-		else if ((int) SettingsLoader.getNumericSetting("updateAlgorithmVersion", 3) == 4) {
-			timeMeasurements[index][5] = ((MlASLCS4UpdateAlgorithm)(getUpdateStrategy())).numberOfEvolutionsConducted;
-			timeMeasurements[index][6] = (int)((MlASLCS4UpdateAlgorithm)(getUpdateStrategy())).evolutionTime;
-			timeMeasurements[index][7] = ((MlASLCS4UpdateAlgorithm)(getUpdateStrategy())).numberOfSubsumptionsConducted;
-			timeMeasurements[index][8] = (int)((MlASLCS4UpdateAlgorithm)(getUpdateStrategy())).subsumptionTime;
-			timeMeasurements[index][9] = ((MlASLCS4UpdateAlgorithm)(getUpdateStrategy())).numberOfNewClassifiers;
-			timeMeasurements[index][19] = ((MlASLCS4UpdateAlgorithm)(getUpdateStrategy())).numberOfDeletionsConducted;
-			timeMeasurements[index][20] = (int)((MlASLCS4UpdateAlgorithm)(getUpdateStrategy())).deletionTime;
-		}*/
-		
 		
 		MeanCoverageStatistic meanCov = new MeanCoverageStatistic();
 		double meanPopulationCoverage = meanCov.getMetric(this);
@@ -1245,33 +1150,8 @@ public abstract class AbstractLearningClassifierSystem {
 		meanCoveredPureFitness /= (numberOfClassifiersCovered + numberOfClassifiersInited);
 		meanGaedPureFitness /= numberOfClassifiersGaed;
 		
-/*		timeMeasurements[index][10] = (int) numberOfMacroclassifiersCovered;
-		timeMeasurements[index][11] = (int) numberOfMacroclassifiersGaed;
-		timeMeasurements[index][12] = (int) ClassifierSet.firstTimeSetSmp.getNumberOfMacroclassifiers();
-		timeMeasurements[index][13] = (int) population.getTotalNumerosity();*/
 		timeMeasurements[index][2] = (int) population.firstDeletionFormula;
 		timeMeasurements[index][3] = (int) population.secondDeletionFormula;
-		//timeMeasurements[index][3] = meanPopulationCoverage;
-/*		timeMeasurements[index][21] = (int) population.coveredDeleted;
-		timeMeasurements[index][22] = (int) population.gaedDeleted;
-		timeMeasurements[index][16] = (int) numberOfSubsumptions;
-		timeMeasurements[index][17] = (int) meanCorrectSetNumerosity;
-		timeMeasurements[index][18] = (int) meanNs;
-		
-		timeMeasurements[index][23] = meanAcc;
-		timeMeasurements[index][24] = meanCoveredAcc;
-		timeMeasurements[index][25] = meanGaedAcc;
-		
-		timeMeasurements[index][26] = meanExplorationFitness;
-		timeMeasurements[index][27] = meanCoveredExplorationFitness;
-		timeMeasurements[index][28] = meanGaedExplorationFitness;
-		
-		timeMeasurements[index][29] = meanPureFitness;
-		timeMeasurements[index][30] = meanCoveredPureFitness;
-		timeMeasurements[index][31] = meanGaedPureFitness;*/
-		
-		//timeMeasurements[index][4] = meanNs;
-		timeMeasurements[index][4] = numberOfClassifiersDeletedInMatchSets;
 
 	}
 	

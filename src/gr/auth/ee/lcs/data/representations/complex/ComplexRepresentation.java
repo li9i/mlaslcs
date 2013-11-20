@@ -51,7 +51,6 @@ public abstract class ComplexRepresentation extends ClassifierTransformBridge {
 	public static abstract class AbstractAttribute {
 		/**
 		 * The length in bits of the attribute in the chromosome.
-		 * @uml.property  name="lengthInBits"
 		 */
 		protected int lengthInBits;
 
@@ -109,7 +108,6 @@ public abstract class ComplexRepresentation extends ClassifierTransformBridge {
 
 		/**
 		 * @return  the length in bits of the chromosome.
-		 * @uml.property  name="lengthInBits"
 		 */
 		public final int getLengthInBits() {
 			return lengthInBits;
@@ -271,17 +269,12 @@ public abstract class ComplexRepresentation extends ClassifierTransformBridge {
 		public final boolean isMatch(final float attributeVision,
 				final ExtendedBitSet testedChromosome) {
 
-			if (testedChromosome.get(this.positionInChromosome)) { // epeidi uparxei to proto bit pou ka9orizei an einai 
-																   // energopoiimeno to attribute ston kanona. pernaei
-																   // mesa sto if an einai 1 (energopoiimeno) kai synepos
-																   // prepei na labo upopsi tin timi tou attribute
-				final boolean matches = (((attributeVision == 0)) ? false // testarei to miden prota giati attributeVision = float
-						: true) == testedChromosome
-						.get(this.positionInChromosome + 1); // +1, i epomeni 9esi. mou dinei tin timi tou attribute
+			if (testedChromosome.get(this.positionInChromosome)) {
+				final boolean matches = (((attributeVision == 0)) ? false : true) == testedChromosome.get(this.positionInChromosome + 1); 
 				return matches;
 
 			} else {
-				return true;	// to proto bit einai 0 --> adiaforia
+				return true;	
 			}
 		}
 
@@ -528,8 +521,8 @@ public abstract class ComplexRepresentation extends ClassifierTransformBridge {
 		public final boolean isMatch(final float attributeVision,
 				final ExtendedBitSet testedChromosome) {
 
-			if (!testedChromosome.get(positionInChromosome)) // if rule inactive
-				return true;								// if rule inactive --> adiaforia
+			if (!testedChromosome.get(positionInChromosome))
+				return true;								
 		
 
 			return ((attributeVision >= getLowBoundValue(testedChromosome)) && (attributeVision <= getHighBoundValue(testedChromosome)));
@@ -742,25 +735,9 @@ public abstract class ComplexRepresentation extends ClassifierTransformBridge {
 		public final boolean isMatch(final float attributeVision,
 									   final ExtendedBitSet testedChromosome) {
 			
-			// if condition is not active --> adiaforia, ara true
 			if (!testedChromosome.get(positionInChromosome)) 
 				return true;								
 			final int genePosition = (int) attributeVision + 1 + positionInChromosome;
-			/*
-			 * to attributeVision se auti tin periptosi den einai i timi se int tis duadikis anaparastasis tou vision vector.
-			 * einai i 9esi tis monadas ksekinontas apo aristera apo ti 9esi 0 kai pigainontas deksia.
-			 * 
-			 * px attributeVision=0100 dld exo 4 labels, me energopoiimeni tin nominal timi pou brisketai stin 9esi #1
-			 * 
-			 * 0 1 2 3 			9eseis	
-			 * _ _ _ _ 
-			 * 0 1 0 0			attributeVision se duadiki anaparastasi
-			 * _ _ _ _ 
-			 * 
-			 * tote, to attributeVision mou erxetai se float, kai exei timi oxi 2^2=4, alla 1. ti 9esi tis monadas sto attributeVision
-			 * 
-			 * */
-
 			return testedChromosome.get(genePosition);
 
 		}
@@ -872,58 +849,46 @@ public abstract class ComplexRepresentation extends ClassifierTransformBridge {
 
 	/**
 	 * The list of all attributes.
-	 * @uml.property  name="attributeList"
-	 * @uml.associationEnd  multiplicity="(0 -1)"
 	 */
 	protected AbstractAttribute[] attributeList;
 
 	/**
 	 * The attribute generalization rate.
-	 * @uml.property  name="attributeGeneralizationRate"
 	 */
 	private final double attributeGeneralizationRate;
 	
 	/**
 	 * The attribute generalization rate when clustering.
-	 * @uml.property  name="attributeGeneralizationRate"
 	 */
 	private final double clusteringAttributeGeneralizationRate;
 
 	/**
 	 * The size of the chromosomes of the representation.
-	 * @uml.property  name="chromosomeSize"
 	 */
 	protected int chromosomeSize = 0;
 
 	/**
 	 * The number of labels used.
-	 * @uml.property  name="numberOfLabels"
 	 */
 	protected int numberOfLabels;
 
 	/**
 	 * The number of bits to be used for numerical values.
-	 * @uml.property  name="precision"
 	 */
 	protected int precision;
 
 	/**
 	 * The rule consequents for all classes.
-	 * @uml.property  name="ruleConsequents" multiplicity="(0 -1)" dimension="1"
 	 */
 	protected String[] ruleConsequents;
 
 	/**
 	 * The default classification strategy.
-	 * @uml.property  name="defaultClassificationStrategy"
-	 * @uml.associationEnd  
 	 */
 	private IClassificationStrategy defaultClassificationStrategy = null;
 
 	/**
 	 * The LCS instance used by the representation.
-	 * @uml.property  name="myLcs"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	protected final AbstractLearningClassifierSystem myLcs;
 
@@ -952,9 +917,6 @@ public abstract class ComplexRepresentation extends ClassifierTransformBridge {
 								    final AbstractLearningClassifierSystem lcs) throws IOException {
 
 		this.myLcs = lcs;
-		// fernei ta instances tou .arff
-		// isos sumferei na tin bgalo apo local metabliti giati kai i SingleClassRepresentation
-		// xrisimopoiei to instances
 		final Instances instances = InstancesUtility.openInstance(inputArff);
 
 		this.numberOfLabels = labels;
@@ -992,27 +954,15 @@ public abstract class ComplexRepresentation extends ClassifierTransformBridge {
 	 *            the instances
 	 */
 	
-	/*
-	 * me basi ton tupo ton attributes (oxi labels) ton instances, 
-	 * ftiaxno epanaliptika ton pinaka attributeList.
-	 * 
-	 * sto telos kalo tin createClassRepresentation gia na mou kanei to idio gia ta labels
-	 * 
-	 * gia unilabel: tin kalei i SigleClassRepresentation(), tin opoia tin kalei i ASLCS() (constructors kai oi duo)
-	 * 				 me orisma olo to .arff
-	 * */
-	protected void buildRepresentationFromInstance(final Instances instances) { // to .arff
+	protected void buildRepresentationFromInstance(final Instances instances) { 
 		
-		for (int i = 0; i < (instances.numAttributes() - numberOfLabels); i++) { // gia ka9e attribute.
-																				  // sto telos ton instances einai ta labels	
-																				  // numAttributes = attributes + classes
+		for (int i = 0; i < (instances.numAttributes() - numberOfLabels); i++) { 
 			
 
 			final String attributeName = instances.attribute(i).name();
 
 			if (instances.attribute(i).isNominal()) {
 				
-				// pinakas mikous oses oi diakrites nominal times
 				String[] attributeNames = new String[instances.attribute(i).numValues()]; 
 				
 				final Enumeration<?> values = instances.attribute(i).enumerateValues();
@@ -1025,17 +975,16 @@ public abstract class ComplexRepresentation extends ClassifierTransformBridge {
 				if (attributeNames.length > 2)
 					attributeList[i] = new ComplexRepresentation.NominalAttribute(
 							this.chromosomeSize, 
-							attributeName, // to onoma tou attribute
-							attributeNames, // o pinakas me tis diakrites times tou sugkekrimenou attribute
+							attributeName, 
+							attributeNames, 
 							attributeGeneralizationRate);
-				else // an exo mono duo dunates times, opoies kai na einai autes, 9a to kano boolean
+				else 
 					attributeList[i] = new ComplexRepresentation.BooleanAttribute(
 							chromosomeSize, 
 							attributeName,
 							attributeGeneralizationRate);
 
 			} else if (instances.attribute(i).isNumeric()) {
-				// Find min-max values. apo olo ton pinaka instances, gia to sugekimeno numerical attribute
 				float minValue, maxValue;
 				minValue = (float) instances.instance(0).toDoubleArray()[i];
 				maxValue = minValue;
@@ -1047,7 +996,6 @@ public abstract class ComplexRepresentation extends ClassifierTransformBridge {
 					if (currentVal < minValue)
 						minValue = currentVal;
 				}
-				//this.chromosomeSize: to mexri stigmis mege9os tou xromosomatos, prin kolliso auto to gene-attribute
 				attributeList[i] = new ComplexRepresentation.IntervalAttribute( 
 																				this.chromosomeSize, 
 																				attributeName, 
@@ -1056,9 +1004,8 @@ public abstract class ComplexRepresentation extends ClassifierTransformBridge {
 																				precision, 
 																				attributeGeneralizationRate);
 			}
-		} // kleinei to for gia ta attributes
+		} 
 		
-		// Build class into gene. kollaei tin class (i tis classes) apo dipla stin attributeList
 		createClassRepresentation(instances);
 	}
 
@@ -1169,7 +1116,6 @@ public abstract class ComplexRepresentation extends ClassifierTransformBridge {
 	 */
 	/**
 	 * @return
-	 * @uml.property  name="chromosomeSize"
 	 */
 	@Override
 	public final int getChromosomeSize() {
@@ -1201,9 +1147,9 @@ public abstract class ComplexRepresentation extends ClassifierTransformBridge {
 	public final boolean isMatch(final double[] visionVector, 
 								   final ExtendedBitSet chromosome) {
 		
-		for (int i = 0; i < (attributeList.length - numberOfLabels); i++) {// stis {numberOfLabels} teleutaies 9eseis tou attributeList[] einai oi perigrafes ton labels
-			if (!attributeList[i].isMatch((float) visionVector[i], chromosome)) // kai tora apo to instance eksetazo to ka9e attribute
-				return false; // bainei sto if an esto kai ena attribute tou kanona de sumfonei me to visionVector[i] 
+		for (int i = 0; i < (attributeList.length - numberOfLabels); i++) {
+			if (!attributeList[i].isMatch((float) visionVector[i], chromosome))
+				return false;
 		}
 		return true;
 	}
@@ -1276,9 +1222,8 @@ public abstract class ComplexRepresentation extends ClassifierTransformBridge {
 		for (int i = 0; i < (attributeList.length - numberOfLabels); i++) {
 			
 			final String attributeString = attributeList[i].toString(aClassifier);
-/*			if (!attributeString.contains("#"))
-				nlRule.append(attributeString + " AND ");*/
-			nlRule.append(attributeString); // to ekana etsi gia na fainetai kai to antecedent kommati
+
+			nlRule.append(attributeString); 
 		}
 
 		// Add consequence

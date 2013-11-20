@@ -67,22 +67,16 @@ public final class Classifier extends ExtendedBitSet implements Serializable {
 
 	/**
 	 * The transform bridge.
-	 * @uml.property  name="transformBridge"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	private transient ClassifierTransformBridge transformBridge;
 
 	/**
 	 * Update Strategy.
-	 * @uml.property  name="updateStrategy"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	private transient AbstractUpdateStrategy updateStrategy;
 
 	/**
 	 * The LCS instance.
-	 * @uml.property  name="myLcs"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	private transient AbstractLearningClassifierSystem myLcs;
 
@@ -93,7 +87,6 @@ public final class Classifier extends ExtendedBitSet implements Serializable {
 
 	/**
 	 * Cache for action.
-	 * @uml.property  name="actionCache" multiplicity="(0 -1)" dimension="1"
 	 */
 	private int[] actionCache = null;
 
@@ -104,7 +97,6 @@ public final class Classifier extends ExtendedBitSet implements Serializable {
 
 	/**
 	 * An object (of undefined type) that is used by the update algorithms.
-	 * @uml.property  name="updateData"
 	 */
 	private Serializable updateData;
 	
@@ -112,21 +104,16 @@ public final class Classifier extends ExtendedBitSet implements Serializable {
 
 	/**
 	 * A boolean array indicating which dataset instances the rule matches.
-	 * @uml.property  name="matchInstances" multiplicity="(0 -1)" dimension="1"
 	 */
-	public transient byte[] matchInstances; // logika, byte, giati pairnei times -1 , 1 kai krata ligotero xoro apo int
-											 // alla den borei na ton kanei boolean. 
-											 // 9a borouse na ginei boolean omos! tsekare isMatch(int)
+	public transient byte[] matchInstances; 
 
 	/**
 	 * A float showing the number of instances that the rule has covered. Used for calculating coverage.
-	 * @uml.property  name="covered"
 	 */
 	public transient int covered = 0;
 
 	/**
 	 * The number of instances we have checked so far. Used for coverage
-	 * @uml.property  name="checked"
 	 */
 	public transient int checked = 0;
 
@@ -137,19 +124,16 @@ public final class Classifier extends ExtendedBitSet implements Serializable {
 
 	/**
 	 * The serial number of the classifier.
-	 * @uml.property  name="serial"
 	 */
 	private int serial;
 
 	/**
 	 * The classifier's experience.
-	 * @uml.property  name="experience"
 	 */
 	public int experience = 0;
 
 	/**
 	 * The timestamp is the last iteration the classifier has participated in a GA Evolution.
-	 * @uml.property  name="timestamp"
 	 */
 	public int timestamp = 0;
 	
@@ -160,13 +144,11 @@ public final class Classifier extends ExtendedBitSet implements Serializable {
 
 	/**
 	 * A boolean representing the classifier's ability to subsume.
-	 * @uml.property  name="subsumes"
 	 */
 	private boolean subsumes = false;
 
 	/**
 	 * An object for saving the transformation specific data. sti 9esi 0 to action
-	 * @uml.property  name="transformData"
 	 */
 	public Serializable transformData;
 	
@@ -182,14 +164,10 @@ public final class Classifier extends ExtendedBitSet implements Serializable {
 	public int created;
 	
 	public int cummulativeInstanceCreated = 0;
-	
-	
-	
+
 	/*
-	 * ka9e kanonas gennietai me objectiveCoverage == -1. otan dei gia proti fora ola ta deigmata tou dataset (meso tis generate match set)
-	 * tote i metabliti pairnei tin pragmatiki, antikeimeniki, timi tou covered / checked.
-	 * 
-	 * uparxei periptosi oi kanones pou diagrafontai na min exoun dei oute mia fora to dataset kai omos na diagrafontai
+	 * Each rule is born with objectiveCoverage == -1. When it has been through the entire dataset for the first time,
+	 * then objectiveCoverage will be assigned its true, objective value of covered / checked.
 	 * */
 	public double objectiveCoverage = -1;
 	
@@ -205,12 +183,12 @@ public final class Classifier extends ExtendedBitSet implements Serializable {
 	 */
 	private Classifier(final AbstractLearningClassifierSystem lcs) {
 		
-		super(lcs.getClassifierTransformBridge().getChromosomeSize()); // dimiourgei to xromosoma. arxika einai olo midenika.
+		// creates the chromosome. all zeros to begin with.
+		super(lcs.getClassifierTransformBridge().getChromosomeSize()); 
 		this.transformBridge = lcs.getClassifierTransformBridge();
 		this.updateStrategy = lcs.getUpdateStrategy();
 		myLcs = lcs;
-		setConstructionData(); // arxikopoiei tis metablites epidosis tou classifier, 
-							   // to serial tou gia na ton anagnorizoume kai to representation tou
+		setConstructionData();
 	}
 
 	/**
@@ -224,8 +202,9 @@ public final class Classifier extends ExtendedBitSet implements Serializable {
 	 */
 	private Classifier(final AbstractLearningClassifierSystem lcs,
 			final ExtendedBitSet chromosome) {
-		super(chromosome); // Akribos idia me tin parapano, me ti diafora oti dino ego to xromosoma 
-						   // gia na to kanei copy, anti na kataskeuastei ena kainourio midenismeno
+		
+		// same as the one above, with the exception of the user providing the chromosome to be copied.
+		super(chromosome); 
 		this.transformBridge = lcs.getClassifierTransformBridge();
 		this.updateStrategy = lcs.getUpdateStrategy();
 		myLcs = lcs;
@@ -234,7 +213,6 @@ public final class Classifier extends ExtendedBitSet implements Serializable {
 	
 	/**
 	 * @param strategy
-	 * @uml.property  name="updateStrategy"
 	 */
 	public final void setUpdateStrategy(AbstractUpdateStrategy strategy) {
 		this.updateStrategy = strategy;
@@ -249,7 +227,7 @@ public final class Classifier extends ExtendedBitSet implements Serializable {
 	 */
 	public void buildMatches() {
 		this.matchInstances = new byte[myLcs.instances.length];
-		Arrays.fill(this.matchInstances, (byte) -1); // gemise to me -1
+		Arrays.fill(this.matchInstances, (byte) -1); // fill it with -1
 	}
 
 	/**
@@ -350,14 +328,7 @@ public final class Classifier extends ExtendedBitSet implements Serializable {
 	public int getClassifierOrigin(){
 		return this.origin;
 	}
-	
-/*	public void setDateCreated(int dateCreated) {
-		this.timestamp = dateCreated;
-	}
-	
-	public int getDateCreated() {
-		return timestamp;
-	}*/
+
 	/**
 	 * Returns a numeric value for comparing the classifier.
 	 * 
@@ -395,7 +366,6 @@ public final class Classifier extends ExtendedBitSet implements Serializable {
 	/**
 	 * Getter for the classifier's Serial Number.
 	 * @return  the classifier's serial number
-	 * @uml.property  name="serial"
 	 */
 	public int getSerial() {
 		return this.serial;
@@ -465,8 +435,8 @@ public final class Classifier extends ExtendedBitSet implements Serializable {
 		if (this.matchInstances == null) {  // an einai kenos o pinakas matchInstances
 			
 			/*
-			 * orizei ton pinaka matchInstances me mege9os {instances.length} 
-			 * kai ton arxikopoiei me timi -1 se ka9e 9esi
+			 * creates the matchInstances array with a size of {instances.length}
+			 * initializing it with a value of -1 in each position
 			 * */
 			buildMatches(); 
 		}
@@ -474,19 +444,10 @@ public final class Classifier extends ExtendedBitSet implements Serializable {
 		// if we haven't cached the answer, then answer...
 		if (this.matchInstances[instanceIndex] == -1) {
 			this.matchInstances[instanceIndex] = (byte) ((transformBridge.isMatch(myLcs.instances[instanceIndex], this)) ? 1 : 0);
-			this.checked++; // ok o kanonas exei apofan9ei gia to instance (to exei dei) 
+			this.checked++;  
 			this.covered += this.matchInstances[instanceIndex];
-			
-			/* would be kodikas
-			 * 
-			 * final boolean zeroCoverage = (this.getCheckedInstances() >= myLcs.instances.length) && (this.getCoverage() == 0);
-			if(zeroCoverage) {
-				//TODO
-			}*/
 			unmatched = 1;
-
 		}
-
 		return this.matchInstances[instanceIndex] == 1;
 	}
 
@@ -555,9 +516,7 @@ public final class Classifier extends ExtendedBitSet implements Serializable {
 
 	
 	/**
-	 * 
 	 * Setter for the origin (cover or ga) of a classifier. 
-	 * 
 	 */
 	public void setClassifierOrigin(int origin) {
 		this.origin = origin;
@@ -581,11 +540,6 @@ public final class Classifier extends ExtendedBitSet implements Serializable {
 	 */
 	private void setConstructionData() {
 		
-		/*
-		 * stin ousia dimiourgo ena kainourio antikeimeno gia na krata ta dedomena enos classifier,
-		 * ennoontas tis metablites fitness, ns, msa, tp, fp kai str kai mono. 
-		 * arxikopoiei: fitness 0.5, ns = msa = tp = fp = str = 0
-		 * */
 		if (updateStrategy != null) {
 			updateData = updateStrategy.createStateClassifierObject();
 			updateDataArray = updateStrategy.createClassifierObjectArray();
@@ -594,7 +548,7 @@ public final class Classifier extends ExtendedBitSet implements Serializable {
 		if (transformBridge != null)
 			transformBridge.setRepresentationSpecificClassifierData(this);
 
-		this.serial = currentSerial; // ksekinaei me ton mikrotero int gia ton proto classifier kai auksanei
+		this.serial = currentSerial;
 		currentSerial++;
 	}
 

@@ -39,7 +39,6 @@ public class WeightedMeanCoverageStatistic implements ILCSMetric {
 
 	/**
 	 * The comparison mode used for getting the fitness values.
-	 * @uml.property  name="comparisonMode"
 	 */
 	private final int comparisonMode;
 
