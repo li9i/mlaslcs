@@ -42,8 +42,6 @@ public class IdentityBAMEvaluator implements ILCSMetric {
 
 	/**
 	 * The LCS being evaluated.
-	 * @uml.property  name="lcs"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	private final AbstractLearningClassifierSystem lcs;
 
@@ -58,7 +56,6 @@ public class IdentityBAMEvaluator implements ILCSMetric {
 	public static final int GENERIC_REPRESENTATION = 1;
 	/**
 	 * A vector containing the chromosomes of the BAM.
-	 * @uml.property  name="bamChromosomes"
 	 */
 	private final Vector<Classifier> bamChromosomes;
 

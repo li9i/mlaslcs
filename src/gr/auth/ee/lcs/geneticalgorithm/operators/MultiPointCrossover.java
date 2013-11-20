@@ -36,17 +36,9 @@ public class MultiPointCrossover implements IBinaryGeneticOperator {
 							   int mutationPoint) {
 		
 		final Classifier child;
-
-/*		System.out.println("mutationPoint: " + mutationPoint);
-		System.out.println("label: " + label);*/
 		
 		child = myLcs.getNewClassifier(performCrossover(classifierA, classifierB, mutationPoint, label, numberOfLabels));
-		
-/*		double newFitness = classifierA.getComparisonValue(AbstractUpdateStrategy.COMPARISON_MODE_EXPLORATION)
-						   + classifierB.getComparisonValue(AbstractUpdateStrategy.COMPARISON_MODE_EXPLORATION);
-		double newFitness = 1;
-		child.setComparisonValue(AbstractUpdateStrategy.COMPARISON_MODE_EXPLORATION, newFitness);*/
-		// TODO: Set specific update data
+
 		return child;
 	}
 	
@@ -88,20 +80,13 @@ public class MultiPointCrossover implements IBinaryGeneticOperator {
 		final ExtendedBitSet child = (ExtendedBitSet) chromosomeA.clone();
 		
 		if (position <= antecedentBoundRight) {
-			child.setSubSet(position, chromosomeB.getSubSet(position, antecedentBoundRight - position + 1)); // to +1 simainei oti pairnoume apo to position kai meta. KAI to position
+			child.setSubSet(position, chromosomeB.getSubSet(position, antecedentBoundRight - position + 1)); 
 			child.setSubSet(labelBoundLeft, chromosomeB.getSubSet(labelBoundLeft, 2));
 		}
 		else {
 			int chromosomeSize = chromosomeA.size() - 2 * (numberOfLabels - 1); 
 			child.setSubSet(position + 2 * label, chromosomeB.getSubSet(position + 2 * label, chromosomeSize - position));
 		}
-		
-/*		System.out.println("position: " + position);
-		System.out.println("label   : " + label);
-		System.out.println("parentA : " + chromosomeA);
-		System.out.println("parentB : " + chromosomeB);
-		System.out.println("child   : " + child);
-		System.out.println("------------------------------------------------------------------");*/
 		
 		return child;
 	}

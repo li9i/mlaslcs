@@ -37,7 +37,6 @@ public class UniformBitMutation implements IUnaryGeneticOperator {
 
 	/**
 	 * The rate at which the mutation happens.
-	 * @uml.property  name="mutationRate"
 	 */
 	final private double mutationRate;
 	

@@ -44,20 +44,16 @@ public class ExactMatchEvalutor implements ILCSMetric {
 
 	/**
 	 * The set of instances to evaluate on.
-	 * @uml.property  name="instances" multiplicity="(0 -1)" dimension="2"
 	 */
 	private final double[][] instances;
 
 	/**
 	 * A boolean indicating if the evaluator is going to print the results.
-	 * @uml.property  name="printResults"
 	 */
 	private final boolean printResults;
 
 	/**
 	 * The LCS instance being used.
-	 * @uml.property  name="myLcs"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	private final AbstractLearningClassifierSystem myLcs;
 
@@ -125,10 +121,10 @@ public class ExactMatchEvalutor implements ILCSMetric {
 
 		int tp = 0, fp = 0;
 		for (int i = 0; i < instances.length; i++) {
-			final int[] classes = myLcs.classifyInstance(instances[i]); // epistrefei pinaka me ta labels ta opoia 
-																		// apofan9ike to myLcs
+			final int[] classes = myLcs.classifyInstance(instances[i]); 
+																		
 			final int[] classification = bridge							
-					.getDataInstanceLabels(instances[i]);				// ta pragmatika labels
+					.getDataInstanceLabels(instances[i]);				
 			Arrays.sort(classes);
 			Arrays.sort(classification);
 

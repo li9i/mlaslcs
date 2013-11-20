@@ -48,7 +48,6 @@ public final class SettingsLoader {
 
 	/**
 	 * Private instance of properties.
-	 * @uml.property  name="lcsProperties"
 	 */
 	private final Properties lcsProperties;
 
@@ -199,7 +198,7 @@ public final class SettingsLoader {
 	 */
 	private void loadProperties(final String filename) throws IOException {
 		final FileInputStream input = new FileInputStream(
-				//"defaultLcs.properties"); o miltos to eixe hardcoded
+				//"defaultLcs.properties"); miltos had this hardcoded
 				filename);
 		lcsProperties.load(input);
 		CLASS_LOGGER.fine("Loaded properties file " + filename);

@@ -41,25 +41,21 @@ public class TournamentSelector2 implements IRuleSelector {
 
 	/**
 	 * The size of the tournaments.
-	 * @uml.property  name="tournamentSize"
 	 */
 	private final int tournamentSize;
 
 	/**
 	 * The type of the tournaments.
-	 * @uml.property  name="max"
 	 */
 	private final boolean max;
 
 	/**
 	 * The percentage of population size, used for tournament selection.
-	 * @uml.property  name="percentSize"
 	 */
 	private final double percentSize;
 
 	/**
 	 * The comparison mode for the tournaments.
-	 * @uml.property  name="mode"
 	 */
 	private final int mode;
 

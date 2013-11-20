@@ -44,13 +44,11 @@ public class RouletteWheelSelector implements IRuleSelector {
 
 	/**
 	 * The comparison mode used for fitness selecting.
-	 * @uml.property  name="mode"
 	 */
 	private final int mode;
 
 	/**
 	 * Private variable for selecting maximum or minimum selection.
-	 * @uml.property  name="max"
 	 */
 	private final boolean max;
 	
@@ -143,7 +141,7 @@ public class RouletteWheelSelector implements IRuleSelector {
 	
 	@Override
 	public final void selectWithoutSum  (final int howManyToSelect,
-										   final ClassifierSet fromPopulation, // to correctSet(evolve) i o population(addClassifier) i delete
+										   final ClassifierSet fromPopulation, 
 										   final ClassifierSet toPopulation) {
 		
 		// Repeat roulette for howManyToSelect times
@@ -170,7 +168,7 @@ public class RouletteWheelSelector implements IRuleSelector {
 	
 	@Override
 	public final void selectWithoutSumNew(final int howManyToSelect,
-			   final ClassifierSet fromPopulation, // to correctSet(evolve) i o population(addClassifier) i delete
+			   final ClassifierSet fromPopulation, 
 			   final ClassifierSet toPopulation,
 			   final double fitnessSumLocal) {
 		
@@ -200,7 +198,7 @@ public class RouletteWheelSelector implements IRuleSelector {
 	
 	@Override
 	public final void selectWithoutSumNewSmp(final int howManyToSelect,
-			   final ClassifierSet fromPopulation, // to correctSet(evolve) i o population(addClassifier) i delete
+			   final ClassifierSet fromPopulation, 
 			   final ClassifierSet toPopulation,
 			   final double fitnessSum,
 			   final Random prng) {
@@ -240,7 +238,7 @@ public class RouletteWheelSelector implements IRuleSelector {
 	 */
 	@Override
 	public final void select(final int howManyToSelect,
-							   final ClassifierSet fromPopulation, // to correctSet(evolve) i o population(addClassifier) i delete
+							   final ClassifierSet fromPopulation, 
 							   final ClassifierSet toPopulation) {
 		
 		
@@ -282,7 +280,7 @@ public class RouletteWheelSelector implements IRuleSelector {
 	
 	@Override
 	public final void selectSmp(final int howManyToSelect,
-							   final ClassifierSet fromPopulation, // to correctSet(evolve) i o population(addClassifier) i delete
+							   final ClassifierSet fromPopulation,
 							   final ClassifierSet toPopulation, Random prng) {
 	
 		final int numberOfMacroclassifiers = fromPopulation.getNumberOfMacroclassifiers();
@@ -323,10 +321,9 @@ public class RouletteWheelSelector implements IRuleSelector {
 	
 	@Override
 	public final void selectSmp2(final int howManyToSelect,
-							   final ClassifierSet fromPopulation, // to correctSet(evolve) i o population(addClassifier) i delete
+							   final ClassifierSet fromPopulation,
 							   final ClassifierSet toPopulation) {
 	
-		//final int numberOfMacroclassifiers = fromPopulation.getNumberOfMacroclassifiers();
 		
 		fromPopulationSmp = fromPopulation;
 		

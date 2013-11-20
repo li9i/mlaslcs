@@ -34,13 +34,11 @@ public final class BinaryRelevanceSelector implements ILabelSelector {
 
 	/**
 	 * The number of labels used at the selector.
-	 * @uml.property  name="numberOfLabels"
 	 */
 	private final int numberOfLabels;
 
 	/**
 	 * The current label that the iterator presents.
-	 * @uml.property  name="currentLabel"
 	 */
 	private int currentLabel = 0;
 

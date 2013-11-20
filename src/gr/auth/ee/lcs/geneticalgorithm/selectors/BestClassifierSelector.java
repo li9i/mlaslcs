@@ -38,13 +38,11 @@ public final class BestClassifierSelector implements IRuleSelector {
 
 	/**
 	 * Boolean indicating if the selector selects the best or worst classifier.
-	 * @uml.property  name="max"
 	 */
 	private final boolean max;
 
 	/**
 	 * The mode used for comparing classifiers.
-	 * @uml.property  name="mode"
 	 */
 	private final int mode;
 
@@ -78,10 +76,7 @@ public final class BestClassifierSelector implements IRuleSelector {
 		for (int i = 0; i < popSize; i++) {
 			final double temp = fromPopulation.getClassifier(i)
 					.getComparisonValue(mode)
-					* fromPopulation.getClassifierNumerosity(i); // TODO:
-																	// Numerosity
-																	// is
-																	// correct?
+					* fromPopulation.getClassifierNumerosity(i); 
 			if ((max ? 1. : -1.) * (temp - bestFitness) > 0) {
 				bestFitness = temp;
 				bestIndex = i;

@@ -23,22 +23,16 @@ public class P2Plcs extends AbstractLearningClassifierSystem {
 
 	/**
 	 * The nodes of the lcs network.
-	 * @uml.property  name="nodes"
-	 * @uml.associationEnd  multiplicity="(0 -1)"
 	 */
 	private final AbstractLearningClassifierSystem[] nodes;
 
 	/**
 	 * The common socket of the network
-	 * @uml.property  name="socket"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	private final LocalHubbedRuleSocket socket;
 
 	/**
 	 * The class name of the lcs instances
-	 * @uml.property  name="lcsClassName"
-	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="gr.auth.ee.lcs.AbstractLearningClassifierSystem"
 	 */
 	private final String lcsClassName;
 

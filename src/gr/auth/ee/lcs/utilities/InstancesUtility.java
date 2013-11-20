@@ -109,12 +109,7 @@ public final class InstancesUtility {
 			}
 		}
 		
-		//System.out.println("sumOfLabels:" + sumOfLabels);
-		//System.out.println("instances.length:" + set.numInstances());
-
-		
 		if (set.numInstances()!= 0) {
-			//System.out.println("labelCardinality:" + (double) (sumOfLabels / set.numInstances()));
 
 			return (double) (sumOfLabels / set.numInstances()); 
 		}
@@ -122,11 +117,15 @@ public final class InstancesUtility {
 	}
 	
 	/**
-	 * Ta instances einai pollaplasia tou ari9mou ton folds.
-	 * Apo ena sunolo apo instances mou epistrefei to kommati mikous instances.numInstances / numberOfFolds me index index. 
-	 * O index ksekinaei apo to miden.
-	 * Stin ousia to xrisimopoio otan xorizo ena partition apo intances se test set kai train set.
-	 * 9a paro ena kommati gia test kai ta upoloipa gia train. Ego apla dino to index tou test, kai ta upoloipa 9a ginoun train.
+	 * The number of instances are multiple of the number of folds.
+	 * From a se t of instances, it returns a chunk whose length is instances.numInstances / numberOfFolds
+	 * with index = index. Index starts at zero.
+	 * 
+	 * In essencem this is used when splitting a partition of instances to a train and test set.
+	 * 
+	 * One chunk is the test set and the rest is the train set.
+	 * We provide the index for the test set and the rest will automatically become the train set
+
 	 * see splitPartitionIntoFolds
 	 * 
 	 * _____
@@ -144,7 +143,6 @@ public final class InstancesUtility {
 	 * */
 	public static Instances getPartitionSegment(Instances instances, int index, int numberOfFolds) {
 		
-		// an exei ginei la9os, epistrepse null
 		if (instances.numInstances() % numberOfFolds != 0) {
 			System.out.println("Number of instances not a multiple of " + numberOfFolds);
 			return null;
@@ -186,11 +184,10 @@ public final class InstancesUtility {
 		String stringsArray[] = new String [lcs.instances.length];
 		int indicesArray[] = new int [lcs.instances.length];
 
-		
-		// metatrepo to labelset gia ka9e deigma se string kai to apo9ikeuo ston pinaka stringsArray
+		// convert each instance's labelset into a string and store it in the stringsArray array
 		for (int i = 0; i < set.numInstances(); i++) {
 			stringsArray[i] = "";
-			indicesArray[i] = i; // isos kai na mi xreiazetai. an randomize() xreiazetai profanos
+			indicesArray[i] = i; 
 
 			for (int j = set.numAttributes() - numberOfLabels; j < set.numAttributes(); j++) {
 				stringsArray[i] += (int) set.instance(i).value(j);
@@ -226,9 +223,9 @@ public final class InstancesUtility {
 			}
 		}	
 		/*
-		 * mexri edo exei sximastistei o pinakas partitions, pou periexei stis diafores 9eseis tou, xorismeno to dataset ana sunduasmous klaseon.
-		 * periexei kai ta attributes kai ta labels, alla gia to clustering i eisodos prepei na einai mono ta attributes,
-		 * synepos prepei na diagrapsoume ta labels. to analambanei i initializePopulation()
+		 * up to here, the partitions array has been formed. it contains the split dataset by label combinations
+		 * it holds both the attributes and the labels, but for clustering the input should only be the attributes,
+		 * so we need to delete the labels. this is taken care of by initializePopulation()
 		 */
 		return partitions;
 	}
@@ -247,34 +244,14 @@ public final class InstancesUtility {
 		//set.randomize(new Random());
 		int numberOfLabels = (int) SettingsLoader.getNumericSetting("numberOfLabels", 1);
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		// the partitions vector holds the indices		
-		String stringsArray[] = new String[trainSet.numInstances()];//new String [lcs.instances.length];
-		int indicesArray[] = new int [trainSet.numInstances()];//new int [lcs.instances.length];
+		String stringsArray[] = new String[trainSet.numInstances()];
+		int indicesArray[] = new int [trainSet.numInstances()];
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		// metatrepo to labelset gia ka9e deigma se string kai to apo9ikeuo ston pinaka stringsArray
+		// convert each instance's labelset into a string and store it in the stringsArray array
 		for (int i = 0; i < set.numInstances(); i++) {
 			stringsArray[i] = "";
-			indicesArray[i] = i; // isos kai na mi xreiazetai. an randomize() xreiazetai profanos
+			indicesArray[i] = i; 
 		
 			for (int j = set.numAttributes() - numberOfLabels; j < set.numAttributes(); j++) {
 				stringsArray[i] += (int) set.instance(i).value(j);
@@ -310,33 +287,15 @@ public final class InstancesUtility {
 			}
 		}	
 		/*
-		* mexri edo exei sximastistei o pinakas partitions, pou periexei stis diafores 9eseis tou, xorismeno to dataset ana sunduasmous klaseon.
-		* periexei kai ta attributes kai ta labels, alla gia to clustering i eisodos prepei na einai mono ta attributes,
-		* synepos prepei na diagrapsoume ta labels. to analambanei i initializePopulation()
-		*/
+		 * up to here, the partitions array has been formed. it contains the split dataset by label combinations
+		 * it holds both the attributes and the labels, but for clustering the input should only be the attributes,
+		 * so we need to delete the labels. this is taken care of by initializePopulation()
+		 */
 		return partitions;
 		}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	public static void splitDatasetIntoFolds (final AbstractLearningClassifierSystem lcs, 
 												final Instances dataset,
@@ -351,20 +310,19 @@ public final class InstancesUtility {
 		int lowerBound = (int) Math.floor((double) dataset.numInstances() / (double) numberOfFolds);
 		int upperBound = (int) Math.ceil((double) dataset.numInstances() / (double) numberOfFolds);
 		
-		// 9elo lowerBound <= numberOfTestInstancesPerFold[i] <= upperBound
+		// we demand lowerBound <= numberOfTestInstancesPerFold[i] <= upperBound
 		int [] numberOfTestInstancesPerFold = new int[numberOfFolds];
-
 		
-		// esto oti X partitions exoun partitions[i].numInstances() > numberOfFolds. 
-		// tote, ta vector testInstances kai trainInstances 9a periexoun meta apo to splitPartitionIntoFolds X arrays dld X stoixeia
-		// de 9a exoun aparaitita partitions.length stoixeia. an ego saroso gia partitions.length omos borei na paro nullPointerException i arrayOutOfBounds
 		
+		/*
+		 * let X partitions have partitions[i].numInstances() > numberOfFolds. 
+		 * Then, vectors testInstances and trainInstances, after the call of splitPartitionIntoFolds(), will hold X arrays 
+ 		 *	meaning X elements.  
+		 * */
 		Vector<Integer> vectorOfPartitionIndices = new Vector<Integer>();
 		
 
 
-		
-		//System.out.println("\nVector of test instances only with bulk:\n");
 		for (int i = 0; i < partitions.length; i++) {
 			
 			if (partitions[i].numInstances() > numberOfFolds) {
@@ -388,12 +346,10 @@ public final class InstancesUtility {
 			}	
 		}
 		
-
-		// se auto to simeio ola ta partitions me numInstances > numFolds exoun xoristei katallila.
-		// auto pou menei einai na xorisoume ta leftovers, 1on apo ta parapano partitions, kai 2on apo auta pou eksarxis eixan numInstances < numFolds
-		
-		//System.out.println("testInstances: " + testInstances.size()); // partitions.length + vectorOfPartitionIndices logo metatopisis arxika (bulk)
-																	  // meta, 2 * partitions.length
+		/*
+		 * At this point all partitions with numInstances > numFolds have been successfully been split.
+		 * What is left is splitting the leftovers. 1st from the above partitions and 2nd from the ones that originally had numInstances < numFolds
+		 * */
 
 		
 		
@@ -403,20 +359,9 @@ public final class InstancesUtility {
 				instancesSum += InstancesUtility.testInstances.elementAt(vectorOfPartitionIndices.elementAt(j))[i].numInstances();	
 			}
 			
-			// auto einai o arxikos ari9mos apo intances sto test gia ka9e fold
+			// initial number of instances in test set per fold
 			numberOfTestInstancesPerFold[i] = instancesSum;
-			//System.out.println("numberOfTestInstancesPerFold[" + i + "] = " + numberOfTestInstancesPerFold[i]);
 		}
-		
-/*		for (int i = 0; i < partitions.length; i++) {
-			System.out.println();
-			System.out.print("i = " + i + " |");
-			for (int j = 0; j < numberOfFolds; j++) {
-				System.out.print("_" + testInstances.elementAt(i)[j].numInstances() + "|");
-			}
-		}
-		System.out.println("\n");*/
-
 		
 		/*
 		 * 
@@ -440,24 +385,21 @@ public final class InstancesUtility {
 			Instances leftoverInstances = new Instances (partitions[i], numberOfLeftoverInstances);
 
 			if (numberOfLeftoverInstances > 0) {
-				
-				
-				// 9a ksekiniso apo to telos. etsi ki allios ta {numberOfLeftoverInstances} teleutaia se ka9e partitions 
-				// afisa sta partitions gia ta opoia kalesa tin splitPartitionIntoFolds.
+				/*
+				 * Starting from the end. Anyhow they are the last {numberOfLeftoverInstances} instances in each partition
+				 * that splitPartitionIntoFolds() has been called on.
+				 * */
 				for (int k = partitions[i].numInstances() - 1; k >= partitions[i].numInstances() - numberOfLeftoverInstances; k--) {
 					leftoverInstances.add(partitions[i].instance(k));
 				}
+
 				
-	/*		    ArrayList<Integer> numbers = new ArrayList<Integer>();
-	
-			    for (int k = 0; k < numberOfLeftoverInstances; k++) {
-			      numbers.add(k);
-			    }
-			    Collections.shuffle(numbers);*/
-			    
-				// gia ka9e partition kano randomize ta folds. 9a epilekso na balo ta leftover instances sta prota {numberOfLeftoverInstances} folds
-				// ta opoia omos einai randomly katanamimena. an den itan randomly ta prota folds 9a upirxe anisokatanomi. 
-				// panta sta prota 9a upirxan instances tou protou partition kai paei legontas
+				/*
+				 * For each partition, randomize the folds. Leftover instances will be placed in the first {numberOfLeftoverInstances} folds,
+				 * that are already randomly distributed. If the first folds were not randomly distributed, there would be an uneven distribution,
+				 * meaning that in the first ones there would be instances of the first partition and so on.
+				 * 
+				 * */
 				
 			    ArrayList<Integer> folds = new ArrayList<Integer>();
 				
@@ -472,84 +414,46 @@ public final class InstancesUtility {
 				int j = 0;
 				while (leftoverInstances.numInstances() > 0) {
 				    int foldIndex = folds.get(j);
-					//System.out.println(foldIndex);
 
 					if (numberOfTestInstancesPerFold[foldIndex] < upperBound) {
 	
 						Instance toBeAdded = leftoverInstances.instance(0);
 						
-						
-						// bale to proto instance ton leftovers se test
+						// place the leftover first instance in a test set
 						testInstances.elementAt(i)[foldIndex].add(toBeAdded);
 						
-/*						for (int k = 0; k < numberOfFolds; k++) {
-							System.out.println("i = " + i + " fold = " + k);
-							System.out.println(testInstances.elementAt(i)[foldIndex]);
-						}*/
-						
-						//System.out.println("added " + toBeAdded);
 						numberOfTestInstancesPerFold[foldIndex]++;
 						
-						// auto pou topo9eti9ike se test gia to trexon fold prepei na bei se ola ta alla folds os train, ektos apo to trexon fold
+						// the instance placed in a test set for the current fold, needs to be put in the train set for all the other folds,
+						// except for the current one of course
 						for (int k = 0; k < numberOfFolds; k++) {
 							if (k != foldIndex) {
 								trainInstances.elementAt(i)[k].add(toBeAdded);
 							}
 						}
 						
-						// afairese to instance pou balame se test
+						// remove the instance placed in the test set
 						leftoverInstances.delete(0);
 						
 					}
 					j++;
 					// if j hits the roof reset it. 
-					//borei na uparxoun folds pou akoma den exoun ftasei to ano orio tous kai na ta paraleipsoume
+					// there may exist folds that have not reached their upper limit and abandon them
 					if (j == numberOfFolds)
 						j = 0;
 				}
 			}
-			
-/*			System.out.print("i = " + i + " |");
-			for (int j = 0; j < numberOfFolds; j++) {
-				System.out.print("_" + testInstances.elementAt(i)[j].numInstances() + "|");
-			}
-			System.out.println();*/	
 		}
-		
-		
-/*		for (int i = 0; i < numberOfFolds; i++) {
-			System.out.println(numberOfTestInstancesPerFold[i]);
-		}
-
-
-		System.out.println("tests:");
-		for (int i = 0; i < partitions.length; i++) {
-			System.out.print("i = " + i + " |");
-			for (int j = 0; j < numberOfFolds; j++) {
-				System.out.print("_" + testInstances.elementAt(i)[j].numInstances() + "|");
-			}
-			System.out.println();
-		}
-		
-		System.out.println("trains:");
-		for (int i = 0; i < partitions.length; i++) {
-			System.out.print("i = " + i + " |");
-			for (int j = 0; j < numberOfFolds; j++) {
-				System.out.print("_" + trainInstances.elementAt(i)[j].numInstances() + "|");
-			}
-			System.out.println();
-		}	*/
-	
 	}
 	
 	
 	
 	
 	/**
-	 * spaei ena partition (syllogi apo instances pou anikoun ston idio syndyasmo labels) se train set kai test set, afinontas leftovers.
-	 * proupo9etei oti partition.numInstances > numberOfFolds.
+	 * Splits a partition (collection of instances that belong to the same label combination) into train and test sets, leaving leftover instances.
+	 * It presupposes that partition.numInstances > numberOfFolds.
 	 * 
-	 * ta leftovers 9a prepei na katanemi9oun etsi oste ka9e test set na exei 
+	 * Leftover instances should be distributed in a way that each test set holds
 	 * 
 	 * floor(totalNumInstances / numberOfFolds) <= testSetNumInstances <= ceil(totalNumInstances / numberOfFolds)
 	 */
@@ -563,9 +467,13 @@ public final class InstancesUtility {
 		Instances[] trainArrayPerPartition = new Instances[numberOfFolds];
 		
 		Instances bulk = new Instances(partition, partition.numInstances() - numberOfLeftoverInstances);
-		// 9a xoriso ta 64 sunolika instances se 6 test, 54 train kai ta upoloipa 4 9a ta afiso stin akri
-		// 6 + 54 = 60, pollaplasio tou 10.
-		// ta prota 60 9a pane temporarily ston pinaka roundArray gia eukolia
+		
+		/*
+		 * E.g. I will split 64 total instances into 6 for testing, 54 for training and the rest (4) will be leftovers.
+		 * 6 + 54 = 60 ~ 10
+		 * The first 60 instances will be temporarily placed in the roundArray array
+		 * */
+
 		for (int i = 0; i < partition.numInstances() - numberOfLeftoverInstances; i++) {
 			bulk.add(partition.instance(i));
 		}
@@ -585,17 +493,14 @@ public final class InstancesUtility {
 			}	
 		}
 		
-		// synolika 9a ginoun partitions.length additions
-		// topo9etise ton ka9e pinaka sti 9esi pou tou analogei aka analoga me to index tou partition 
+		/*
+		 * In total, there will be partitions.length additions.
+		 * Place each array in its respective place, depending on the partition index.
+		 * */
+
 		InstancesUtility.testInstances.add(partitionIndex, testArrayPerPartition);
 		InstancesUtility.trainInstances.add(partitionIndex, trainArrayPerPartition);
-	}
-	
-
-	
-	
-			
-	
+	}	
 }
 		
 

@@ -39,14 +39,11 @@ public final class AllSingleLabelEvaluator implements ILCSMetric {
 
 	/**
 	 * Single label evaluators.
-	 * @uml.property  name="evaluators"
-	 * @uml.associationEnd  multiplicity="(0 -1)"
 	 */
 	private final SingleLabelEvaluator[] evaluators;
 
 	/**
 	 * Boolean indicating if we are going to print results.
-	 * @uml.property  name="print"
 	 */
 	private final boolean print;
 

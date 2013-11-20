@@ -42,8 +42,6 @@ public class PositionBAMEvaluator implements ILCSMetric {
 
 	/**
 	 * The LCS being evaluated.
-	 * @uml.property  name="lcs"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	private final AbstractLearningClassifierSystem lcs;
 

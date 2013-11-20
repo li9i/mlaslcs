@@ -22,36 +22,24 @@ public abstract class AbstractRuleDistributer implements ILCSMetric {
 
 	/**
 	 * The LCS used by this distributer.
-	 * @uml.property  name="mLCS"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	final AbstractLearningClassifierSystem mLCS;
 
 	/**
 	 * A rule selector, to select the rules to be added into the LCS population.
-	 * @uml.property  name="receiveSelector"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	final IRuleSelector receiveSelector;
 
 	/**
 	 * A rule selector, to select the rules to be send from the LCS.
-	 * @uml.property  name="sendSelector"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	final IRuleSelector sendSelector;
 
 	/**
 	 * The local router interface.
-	 * @uml.property  name="localRouter"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	IRuleRouter localRouter;
 
-	/**
-	 * @uml.property  name="newRules"
-	 * @uml.associationEnd  multiplicity="(1 1)"
-	 */
 	ClassifierSet newRules = new ClassifierSet(null);
 
 	public AbstractRuleDistributer(IRuleRouter router,

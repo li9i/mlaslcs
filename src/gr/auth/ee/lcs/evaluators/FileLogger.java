@@ -47,7 +47,6 @@ public class FileLogger implements ILCSMetric {
 
 	/**
 	 * The filename where output is logged.
-	 * @uml.property  name="file"
 	 */
 	private final String file;
 	
@@ -63,8 +62,6 @@ public class FileLogger implements ILCSMetric {
 
 	/**
 	 * The evaluator from which we log the output.
-	 * @uml.property  name="actualEvaluator"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	private final ILCSMetric actualEvaluator;
 	
@@ -212,13 +209,6 @@ public class FileLogger implements ILCSMetric {
 	public final double getMetric(final AbstractLearningClassifierSystem lcs) {
 		
 		final double evalResult = actualEvaluator.getMetric(lcs);
-		
-		
-/*		// set the name of the directory in which the metrics will be stored
-		if (lcs.hookedMetricsFileDirectory == null) {
-			lcs.setHookedMetricsFileDirectory(storeDirectory); 
-		}*/
-		
 		
 		try {
 			

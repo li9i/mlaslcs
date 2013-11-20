@@ -42,21 +42,16 @@ import weka.core.Instances;
 public class SingleLabelEvaluator implements ILCSMetric {
 	/**
 	 * The set of instances to evaluate on.
-	 * @uml.property  name="instanceSet"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	private final Instances instanceSet;
 
 	/**
 	 * The label index of the label under evaluation.
-	 * @uml.property  name="label"
 	 */
 	private final int label;
 
 	/**
 	 * The LCS instance being used.
-	 * @uml.property  name="myLcs"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	private final AbstractLearningClassifierSystem myLcs;
 

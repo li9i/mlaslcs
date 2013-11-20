@@ -40,14 +40,11 @@ public abstract class BaggedEnsemble extends AbstractLearningClassifierSystem {
 
 	/**
 	 * The number of labels used.
-	 * @uml.property  name="numberOfLabels"
 	 */
 	protected final int numberOfLabels;
 
 	/**
 	 * The ensemble of LCSs.
-	 * @uml.property  name="ensemble"
-	 * @uml.associationEnd  multiplicity="(0 -1)"
 	 */
 	protected AbstractLearningClassifierSystem ensemble[];
 

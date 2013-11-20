@@ -40,7 +40,6 @@ public final class WorstClassifierSelector implements IRuleSelector {
 
 	/**
 	 * The mode used for comparing classifiers.
-	 * @uml.property  name="mode"
 	 */
 	private final int mode;
 

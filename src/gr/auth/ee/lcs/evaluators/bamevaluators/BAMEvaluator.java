@@ -54,8 +54,6 @@ public class BAMEvaluator {
 
 	/**
 	 * The learning classifier system that the BAM will be evaluated on.
-	 * @uml.property  name="lcs"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	final AbstractLearningClassifierSystem lcs;
 

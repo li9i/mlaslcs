@@ -44,26 +44,19 @@ public class TestFileClassification {
 
 	/**
 	 * The set of instances to classify.
-	 * @uml.property  name="mInstances" multiplicity="(0 -1)" dimension="2"
 	 */
 	private final double[][] mInstances;
 
 	/**
 	 * The LCS instance being used.
-	 * @uml.property  name="mLcs"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	private final AbstractLearningClassifierSystem mLcs;
 
 	/**
 	 * The filename to output results.
-	 * @uml.property  name="mOutputFilename"
 	 */
 	private final String mOutputFilename;
 
-	/**
-	 * @uml.property  name="mNumOfLabels"
-	 */
 	private final int mNumOfLabels;
 
 	/**

@@ -146,8 +146,6 @@ public class GMlASLCS3 extends AbstractLearningClassifierSystem {
 	private final int UPDATE_ALGORITHM_VERSION = (int) SettingsLoader.getNumericSetting("updateAlgorithmVersion", 3);
 
 	
-	//private final boolean SettingsLoader.getStringSetting("wildCardsParticipateInCorrectSets", "false").equals("true");
-	
 
 
 	/**
@@ -211,16 +209,7 @@ public class GMlASLCS3 extends AbstractLearningClassifierSystem {
 		
 		Runtime runtime = Runtime.getRuntime();
 		int numOfProcessors = runtime.availableProcessors();
-		
-		
-		/*
-		 * dhmiourgia array gia pollapla antikeimena operators
-		 */
-		
-		
-
-
-		
+			
 
 			
 	final IGeneticAlgorithmStrategy ga = 
@@ -291,11 +280,6 @@ public class GMlASLCS3 extends AbstractLearningClassifierSystem {
 											new FixedSizeSetWorstFitnessDeletion(this,
 																				 populationSize,
 																				 new RouletteWheelSelector(AbstractUpdateStrategy.COMPARISON_MODE_DELETION, true)));
-		
-/*		rulePopulation = new ClassifierSet(
-											new LowestFitnessRemoval(this, populationSize,
-													 new WorstClassifierSelector(AbstractUpdateStrategy.COMPARISON_MODE_ACCURACY)));*/
-		
 	}
 
 	@Override
@@ -371,10 +355,6 @@ public class GMlASLCS3 extends AbstractLearningClassifierSystem {
 		testEvalTime1 += System.currentTimeMillis();
 		
 		
-		
-		/*
-		 * oi proigoumenes metrikes anaferontan sto testSet. apo edo kai pera milame gia olo to testSet
-		 * */
 		final AccuracyRecallEvaluator selfAcc = new AccuracyRecallEvaluator(instances, false, this, AccuracyRecallEvaluator.TYPE_ACCURACY);
 		
 		internalValidationCalibrationTime = -System.currentTimeMillis();
@@ -491,7 +471,7 @@ public class GMlASLCS3 extends AbstractLearningClassifierSystem {
 		
 		
 		
-		/*ara en telei exoume: results[] =
+		/*results[] =
 		 * 
 		 * |__________________Pcut________________|__________________Ival________________|__________________Best________________|
 		 * |accuracy|recall|hammingDist|exactMatch|accuracy|recall|hammingDist|exactMatch|accuracy|recall|hammingDist|exactMatch|
@@ -502,9 +482,6 @@ public class GMlASLCS3 extends AbstractLearningClassifierSystem {
 	
 	
 	public void internalValidationCalibration(ILCSMetric selfAcc) {
-		/*
-		final VotingClassificationStrategy str = rep.new VotingClassificationStrategy(
-				(float) SettingsLoader.getNumericSetting("datasetLabelCardinality", 1));*/
 		
 		final VotingClassificationStrategy str = rep.new VotingClassificationStrategy((float) this.labelCardinality);
 		

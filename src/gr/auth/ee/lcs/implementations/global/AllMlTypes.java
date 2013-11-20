@@ -70,11 +70,11 @@ public class AllMlTypes {
 		
 		
 		final String lcsType = SettingsLoader.getStringSetting("lcsType", "");
-		final AbstractLearningClassifierSystem lcs = getLCS(lcsType); // ektelei oles tis arxikopoiiseis, GMlASLCS3() etc 
+		final AbstractLearningClassifierSystem lcs = getLCS(lcsType); 
 
-		final String file = SettingsLoader.getStringSetting("filename", ""); // to trainSet.arff
+		final String file = SettingsLoader.getStringSetting("filename", ""); // trainSet.arff
 		System.out.println("Using dataset: " + file);
-		final String testFile = SettingsLoader.getStringSetting("testFile", ""); // to testSet.arff
+		final String testFile = SettingsLoader.getStringSetting("testFile", ""); // testSet.arff
 		final int numberOfLabels = (int) SettingsLoader.getNumericSetting("numberOfLabels", 1); 
 		final boolean initializePopulation = SettingsLoader.getStringSetting("initializePopulation", "false").equals("true");
 		
@@ -86,7 +86,7 @@ public class AllMlTypes {
 		} else {
 			
 			final ArffTrainTestLoader loader = new ArffTrainTestLoader(lcs);
-			loader.loadInstancesWithTest(file, testFile); // dimiourgei to trainSet kai to testSet, tupou instances kai to myLcs.instances = (double) trainSet
+			loader.loadInstancesWithTest(file, testFile); 
 			
 			if (initializePopulation) {
 				lcs.setRulePopulation(lcs.initializePopulation(file));
@@ -94,7 +94,7 @@ public class AllMlTypes {
 			}
 
 			lcs.registerMultilabelHooks(lcs.testInstances, numberOfLabels);
-			loader.evaluate(); // edo einai ola ta lefta
+			loader.evaluate(); 
 
 		}
 	}

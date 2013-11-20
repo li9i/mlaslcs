@@ -38,8 +38,6 @@ public class SinglePointCrossover implements IBinaryGeneticOperator {
 
 	/**
 	 * The LCS instance being used.
-	 * @uml.property  name="myLcs"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	final AbstractLearningClassifierSystem myLcs;
 	
@@ -70,19 +68,9 @@ public class SinglePointCrossover implements IBinaryGeneticOperator {
 		/*
 		 * The point at which the crossover will occur
 		 */
-		/*
- 		final int chromosomeSize = classifierB.size();
-		final int mutationPoint = (int) Math.round(Math.random() * chromosomeSize - 1);
-		ystem.out.println("chromosomeSize: " + chromosomeSize);
-		System.out.println("mutationPoint: " + mutationPoint);
-		System.out.println("label: " + label);*/
+
 		child = myLcs.getNewClassifier(performCrossover(classifierA, classifierB, crossoverPoint));
-		
-/*		double newFitness = classifierA.getComparisonValue(AbstractUpdateStrategy.COMPARISON_MODE_EXPLORATION)
-						   + classifierB.getComparisonValue(AbstractUpdateStrategy.COMPARISON_MODE_EXPLORATION);
-		double newFitness = 1;
-		child.setComparisonValue(AbstractUpdateStrategy.COMPARISON_MODE_EXPLORATION, newFitness);*/
-		// TODO: Set specific update data
+
 		return child;
 	}
 	

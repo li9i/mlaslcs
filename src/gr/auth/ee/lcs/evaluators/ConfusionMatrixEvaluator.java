@@ -37,21 +37,16 @@ public final class ConfusionMatrixEvaluator implements ILCSMetric {
 
 	/**
 	 * A Weka confusion matrix.
-	 * @uml.property  name="conf"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	private final ConfusionMatrix conf;
 
 	/**
 	 * The LCS instance being used.
-	 * @uml.property  name="myLcs"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	private final AbstractLearningClassifierSystem myLcs;
 
 	/**
 	 * The instances.
-	 * @uml.property  name="instances" multiplicity="(0 -1)" dimension="2"
 	 */
 	private final double[][] instances;
 

@@ -34,19 +34,16 @@ public class PairwiseLabelSelector implements ILabelSelector {
 
 	/**
 	 * The number of labels used at the problem.
-	 * @uml.property  name="numberOfLabels"
 	 */
 	private final int numberOfLabels;
 
 	/**
 	 * Internal state parameters.
-	 * @uml.property  name="i"
 	 */
 	private int i = 0;
 
 	/**
 	 * Internal state parameters.
-	 * @uml.property  name="j"
 	 */
 	private int j = 1;
 

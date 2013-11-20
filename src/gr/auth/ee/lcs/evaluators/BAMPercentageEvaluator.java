@@ -43,8 +43,6 @@ public class BAMPercentageEvaluator implements ILCSMetric {
 
 	/**
 	 * The best action map rules.
-	 * @uml.property  name="bestActionMap"
-	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="gr.auth.ee.lcs.classifiers.Classifier"
 	 */
 	private final Vector<Classifier> bestActionMap;
 

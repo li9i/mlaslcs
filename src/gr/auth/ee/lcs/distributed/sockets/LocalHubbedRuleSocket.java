@@ -19,8 +19,6 @@ public class LocalHubbedRuleSocket implements IRuleSocket {
 
 	/**
 	 * A hash map containing the address->Router
-	 * @uml.property  name="mAddressList"
-	 * @uml.associationEnd  qualifier="address:java.lang.String gr.auth.ee.lcs.distributed.IRuleRouter"
 	 */
 	private HashMap<String, IRuleRouter> mAddressList = new HashMap<String, IRuleRouter>();
 

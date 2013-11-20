@@ -18,22 +18,16 @@ public class All2AllRouter implements IRuleRouter {
 
 	/**
 	 * The router's socket.
-	 * @uml.property  name="mSocket"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	private IRuleSocket mSocket;
 
 	/**
 	 * The rule's distributer being used
-	 * @uml.property  name="mDistributer"
-	 * @uml.associationEnd  multiplicity="(1 1)"
 	 */
 	final private AbstractRuleDistributer mDistributer;
 
 	/**
 	 * A vector containing the addresses of all lcs peers.
-	 * @uml.property  name="mPeers"
-	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.String"
 	 */
 	private Vector<String> mPeers = new Vector<String>();
 

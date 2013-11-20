@@ -166,15 +166,9 @@ public class AccuracyRecallEvaluator implements ILCSMetric {
 		for (int i = 0; i < instances.length; i++) {
 			int unionOfLabels = 0;
 			int intersectionOfLabels = 0;
-			/*
-			 * epistrefei pinaka 9eseon numberOfActiveLabels. einai toses osa einai ta labels pou ston votingTable ksepernane to voteThreshold.
-			 * periexomeno tis ka9e 9esis einai to index tou label px [0,2,3] an to deutero (1) label den pernaei pano apo to voteThreshold.
-			 * 
-			 * ara periexei gia ka9e instance to AN (kai oxi poso giati to poso einai i psifos) pisteuei to sustima oti auto to label prepei na einai energopoiimeno,
-			 * dld na ginei classify se auto to label auto to instance
-			 * */
+
 			final int[] classes = lcs.classifyInstance(instances[i]); 
-			final int[] classification = bridge.getDataInstanceLabels(instances[i]); // to idio me to pano. apla einai oi actual klaseis pou energopoiountai gia ka9e instance
+			final int[] classification = bridge.getDataInstanceLabels(instances[i]); 
 
 			// Find symmetric differences
 			Arrays.sort(classes);
@@ -198,9 +192,9 @@ public class AccuracyRecallEvaluator implements ILCSMetric {
 			final double instanceRecall = ((double) intersectionOfLabels) / ((double) classification.length);
 			sumOfRecall += Double.isNaN(instanceRecall) ? 0 : instanceRecall;
 
-			if (unionOfLabels == 0) // den exei kai polu noima, giati na einai 0? an ena deigma den katigoriopoieitai pou9ena--> atributes,0,0,0,0 gia 4 labels
+			if (unionOfLabels == 0) 
 				emptySamples++;
-		} // kleinei to for ton instances
+		} 
 		
 		final double accuracy = sumOfAccuracies / (instances.length - emptySamples);
 		final double recall = sumOfRecall / (instances.length - emptySamples);

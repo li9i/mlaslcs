@@ -58,11 +58,6 @@ public class RepetitiveExec {
 				for (int dontCare = 0; dontCare < numberOfRepetitions; dontCare++) {
 					Object dontCareObject = SettingsLoader.setSetting("wildCardsParticipateInCorrectSets", "false"); 
 
-/*					if (dontCare  < 1) { 
-					}
-					else {
-						Object dontCareObject = SettingsLoader.setSetting("wildCardsParticipateInCorrectSets", "true"); 
-					}*/
 					System.out.println("##############################");
 					System.out.println("Repetitive execution states: ");
 					System.out.println("fitness: " + (int) SettingsLoader.getNumericSetting("FITNESS_MODE", 0));
