@@ -3,6 +3,7 @@ mlaslcs
 
 The mlaslcs source code.
 
+The method behind it can be found by clicking [here](https://github.com/li9i/auth_thesis/blob/master/README.md)
 
 Regarding the defaultLcs.properties file, 
 there are several parameters to be considered about or altered.
