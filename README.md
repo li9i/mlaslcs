@@ -1,7 +1,7 @@
 ml-aslcs
 =======
 
-The ml-aslcs source code.
+The ml-aslcs source code, written in JAVA.
 
 The method behind it can be found by clicking [here](https://github.com/li9i/auth_thesis/blob/master/README.md)
 
